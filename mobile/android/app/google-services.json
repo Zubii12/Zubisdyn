@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1087683240415",
+    "project_id": "zubisdyn",
+    "storage_bucket": "zubisdyn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087683240415:android:55617fac86f61377a6646a",
+        "android_client_info": {
+          "package_name": "zubii.zubiisoft.zubisdyn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087683240415-6tm39g64k0s1p6cfmqkm9juc07iitgrl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "zubii.zubiisoft.zubisdyn",
+            "certificate_hash": "868dc9911353b1608b9e9478d9d1bd6c4f2a5e93"
+          }
+        },
+        {
+          "client_id": "1087683240415-6n8u6pfbfjtdvkqoh37khvofrl3rlc5f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhZwydLpJLQyysJsC2EHL8lnQ5_bZOxo4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087683240415-6n8u6pfbfjtdvkqoh37khvofrl3rlc5f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1087683240415-ibe5ak6eo7k1val6mlq7m4q1klr8dtju.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "zubii.zubiisoft.zubisdyn"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

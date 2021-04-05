@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1087683240415-ibe5ak6eo7k1val6mlq7m4q1klr8dtju.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1087683240415-ibe5ak6eo7k1val6mlq7m4q1klr8dtju</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1087683240415-6tm39g64k0s1p6cfmqkm9juc07iitgrl.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCjcIrL5JcEstV0xyTCH0fEPQR9eXvPbI4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1087683240415</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>zubii.zubiisoft.zubisdyn</string>
+	<key>PROJECT_ID</key>
+	<string>zubisdyn</string>
+	<key>STORAGE_BUCKET</key>
+	<string>zubisdyn.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1087683240415:ios:ea3750e16da7ec76a6646a</string>
+</dict>
+</plist>

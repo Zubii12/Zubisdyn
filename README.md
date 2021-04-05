@@ -1,2 +1,1 @@
 # Zubisdyn
-Social media app
