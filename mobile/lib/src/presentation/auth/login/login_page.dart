@@ -9,6 +9,7 @@ class LoginPage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: <Widget>[
+            //salut
             Spacer(),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16.0),
