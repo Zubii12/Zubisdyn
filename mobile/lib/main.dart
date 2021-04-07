@@ -9,6 +9,7 @@ import 'package:zubisdyn/src/models/index.dart';
 import 'package:zubisdyn/src/presentation/home.dart';
 import 'package:zubisdyn/src/presentation/routes.dart';
 import 'package:zubisdyn/src/presentation/widgets/action_interceptor.dart';
+import 'package:zubisdyn/src/presentation/theme.dart';
 
 Future<void> main() async {
   runZonedGuarded(() async {
@@ -46,6 +47,7 @@ class _ZubisdynAppState extends State<ZubisdynApp> {
           child: StoreProvider<AppState>(
             store: store,
             child: MaterialApp(
+              theme: appTheme,
               debugShowCheckedModeBanner: false,
               onGenerateTitle: (BuildContext context) {
                 return 'Zubisdyn';

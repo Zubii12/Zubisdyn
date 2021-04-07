@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
-  final TextEditingController emailController = TextEditingController();
+  final TextEditingController dataController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -9,49 +9,36 @@ class LoginPage extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            //salut
-            Spacer(),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16.0),
+            const Flexible(
+              flex: 1,
               child: Center(
+                child: FlutterLogo(
+                  size: 42,
+                ),
+              ),
+            ),
+            Flexible(
+              flex: 2,
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    ListTile(
-                      title: const Text('Sign in'),
-                      subtitle: const Text('Welcome back'),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          IconButton(
-                            icon: const Icon(Icons.stream),
-                            onPressed: () {
-                              // todo facebook
-                            },
-                          ),
-                          IconButton(
-                            icon: const Icon(Icons.stream),
-                            onPressed: () {
-                              // todo google
-                            },
-                          ),
-                          IconButton(
-                            icon: const Icon(Icons.stream),
-                            onPressed: () {
-                              // todo apple
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
+                    const Text('Phone or email'),
+                    const SizedBox(height: 8),
                     TextFormField(
-                      controller: emailController,
-                      
+                      controller: dataController,
+                      decoration: InputDecoration(
+                        hintText: 'Enter your phone or email',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
-            ),
-            Spacer(),
+            )
           ],
         ),
       ),
