@@ -8,7 +8,7 @@ class RegistrationInfoContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, RegistrationInfo>(
-      converter: (Store<AppState> store) => store.state.auth.registration,
+      converter: (Store<AppState> store) => store.state.auth.info,
       builder: builder,
     );
   }

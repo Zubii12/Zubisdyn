@@ -4,7 +4,9 @@ abstract class RegistrationInfo implements Built<RegistrationInfo, RegistrationI
   factory RegistrationInfo([void Function(RegistrationInfoBuilder b) updates]) = _$RegistrationInfo;
 
   factory RegistrationInfo.initialState() {
-    return _$RegistrationInfo();
+    return _$RegistrationInfo((RegistrationInfoBuilder b) {
+      b.obscurePassword = true;
+    });
   }
 
   factory RegistrationInfo.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
@@ -13,6 +15,8 @@ abstract class RegistrationInfo implements Built<RegistrationInfo, RegistrationI
 
   @nullable
   String get data;
+
+  bool get obscurePassword;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

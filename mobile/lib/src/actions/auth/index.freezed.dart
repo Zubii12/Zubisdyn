@@ -584,9 +584,10 @@ class _$UpdateRegistrationInfoTearOff {
   const _$UpdateRegistrationInfoTearOff();
 
 // ignore: unused_element
-  UpdateRegistrationInfo$ call({String data}) {
+  UpdateRegistrationInfo$ call({String data, bool obscurePassword}) {
     return UpdateRegistrationInfo$(
       data: data,
+      obscurePassword: obscurePassword,
     );
   }
 }
@@ -598,6 +599,7 @@ const $UpdateRegistrationInfo = _$UpdateRegistrationInfoTearOff();
 /// @nodoc
 mixin _$UpdateRegistrationInfo {
   String get data;
+  bool get obscurePassword;
 
   @JsonKey(ignore: true)
   $UpdateRegistrationInfoCopyWith<UpdateRegistrationInfo> get copyWith;
@@ -608,7 +610,7 @@ abstract class $UpdateRegistrationInfoCopyWith<$Res> {
   factory $UpdateRegistrationInfoCopyWith(UpdateRegistrationInfo value,
           $Res Function(UpdateRegistrationInfo) then) =
       _$UpdateRegistrationInfoCopyWithImpl<$Res>;
-  $Res call({String data});
+  $Res call({String data, bool obscurePassword});
 }
 
 /// @nodoc
@@ -623,9 +625,13 @@ class _$UpdateRegistrationInfoCopyWithImpl<$Res>
   @override
   $Res call({
     Object data = freezed,
+    Object obscurePassword = freezed,
   }) {
     return _then(_value.copyWith(
       data: data == freezed ? _value.data : data as String,
+      obscurePassword: obscurePassword == freezed
+          ? _value.obscurePassword
+          : obscurePassword as bool,
     ));
   }
 }
@@ -637,7 +643,7 @@ abstract class $UpdateRegistrationInfo$CopyWith<$Res>
           $Res Function(UpdateRegistrationInfo$) then) =
       _$UpdateRegistrationInfo$CopyWithImpl<$Res>;
   @override
-  $Res call({String data});
+  $Res call({String data, bool obscurePassword});
 }
 
 /// @nodoc
@@ -654,23 +660,29 @@ class _$UpdateRegistrationInfo$CopyWithImpl<$Res>
   @override
   $Res call({
     Object data = freezed,
+    Object obscurePassword = freezed,
   }) {
     return _then(UpdateRegistrationInfo$(
       data: data == freezed ? _value.data : data as String,
+      obscurePassword: obscurePassword == freezed
+          ? _value.obscurePassword
+          : obscurePassword as bool,
     ));
   }
 }
 
 /// @nodoc
 class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
-  const _$UpdateRegistrationInfo$({this.data});
+  const _$UpdateRegistrationInfo$({this.data, this.obscurePassword});
 
   @override
   final String data;
+  @override
+  final bool obscurePassword;
 
   @override
   String toString() {
-    return 'UpdateRegistrationInfo(data: $data)';
+    return 'UpdateRegistrationInfo(data: $data, obscurePassword: $obscurePassword)';
   }
 
   @override
@@ -678,12 +690,17 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
     return identical(this, other) ||
         (other is UpdateRegistrationInfo$ &&
             (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.obscurePassword, obscurePassword) ||
+                const DeepCollectionEquality()
+                    .equals(other.obscurePassword, obscurePassword)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(obscurePassword);
 
   @JsonKey(ignore: true)
   @override
@@ -693,11 +710,13 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
 }
 
 abstract class UpdateRegistrationInfo$ implements UpdateRegistrationInfo {
-  const factory UpdateRegistrationInfo$({String data}) =
+  const factory UpdateRegistrationInfo$({String data, bool obscurePassword}) =
       _$UpdateRegistrationInfo$;
 
   @override
   String get data;
+  @override
+  bool get obscurePassword;
   @override
   @JsonKey(ignore: true)
   $UpdateRegistrationInfo$CopyWith<UpdateRegistrationInfo$> get copyWith;
