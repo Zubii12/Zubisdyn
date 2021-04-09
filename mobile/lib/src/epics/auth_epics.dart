@@ -25,7 +25,7 @@ class AuthEpics {
   Stream<AppAction> _loginWithEmail(Stream<LoginWithEmail$> actions, EpicStore<AppState> store) {
     return actions //
         .flatMap((LoginWithEmail$ action) => Stream<void>.value(null)
-            .asyncMap((_) => _api.loginWithEmail(email: store.state.auth.info.data, password: action.password))
+            .asyncMap((_) => _api.loginWithEmail(email: store.state.auth.info.email, password: action.password))
             .mapTo(const LoginWithEmail.successful())
             .onError($LoginWithEmail.error)
             .doOnData(action.result));
@@ -33,7 +33,7 @@ class AuthEpics {
 
   Stream<AppAction> _getAuthProviders(Stream<GetAuthProviders$> actions, EpicStore<AppState> store) {
     return actions.flatMap((GetAuthProviders$ action) => Stream<void>.value(null)
-        .asyncMap((_) => _api.getAuthProviders(data: action.data))
+        .asyncMap((_) => _api.getAuthProviders(email: action.email))
         .map((List<String> providers) => GetAuthProviders.successful(providers))
         .onError($GetAuthProviders.error)
         .doOnData(action.result));

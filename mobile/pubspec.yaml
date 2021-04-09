@@ -25,6 +25,7 @@ dependencies:
   built_value: ^8.0.2
   built_collection: ^5.0.0
   redux: ^5.0.0
+  email_validator: ^2.0.1
 
   # packages
   redux_epics: ^0.14.0

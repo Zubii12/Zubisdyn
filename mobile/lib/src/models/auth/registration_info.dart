@@ -14,7 +14,10 @@ abstract class RegistrationInfo implements Built<RegistrationInfo, RegistrationI
   RegistrationInfo._();
 
   @nullable
-  String get data;
+  String get username;
+
+  @nullable
+  String get email;
 
   bool get obscurePassword;
 

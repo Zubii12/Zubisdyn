@@ -158,10 +158,17 @@ class _$RegistrationInfoSerializer
           specifiedType: const FullType(bool)),
     ];
     Object value;
-    value = object.data;
+    value = object.username;
     if (value != null) {
       result
-        ..add('data')
+        ..add('username')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.email;
+    if (value != null) {
+      result
+        ..add('email')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -180,8 +187,12 @@ class _$RegistrationInfoSerializer
       iterator.moveNext();
       final Object value = iterator.current;
       switch (key) {
-        case 'data':
-          result.data = serializers.deserialize(value,
+        case 'username':
+          result.username = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'email':
+          result.email = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'obscurePassword':
@@ -422,7 +433,9 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
 
 class _$RegistrationInfo extends RegistrationInfo {
   @override
-  final String data;
+  final String username;
+  @override
+  final String email;
   @override
   final bool obscurePassword;
 
@@ -430,7 +443,8 @@ class _$RegistrationInfo extends RegistrationInfo {
           [void Function(RegistrationInfoBuilder) updates]) =>
       (new RegistrationInfoBuilder()..update(updates)).build();
 
-  _$RegistrationInfo._({this.data, this.obscurePassword}) : super._() {
+  _$RegistrationInfo._({this.username, this.email, this.obscurePassword})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(
         obscurePassword, 'RegistrationInfo', 'obscurePassword');
   }
@@ -447,19 +461,22 @@ class _$RegistrationInfo extends RegistrationInfo {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is RegistrationInfo &&
-        data == other.data &&
+        username == other.username &&
+        email == other.email &&
         obscurePassword == other.obscurePassword;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, data.hashCode), obscurePassword.hashCode));
+    return $jf($jc($jc($jc(0, username.hashCode), email.hashCode),
+        obscurePassword.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('RegistrationInfo')
-          ..add('data', data)
+          ..add('username', username)
+          ..add('email', email)
           ..add('obscurePassword', obscurePassword))
         .toString();
   }
@@ -469,9 +486,13 @@ class RegistrationInfoBuilder
     implements Builder<RegistrationInfo, RegistrationInfoBuilder> {
   _$RegistrationInfo _$v;
 
-  String _data;
-  String get data => _$this._data;
-  set data(String data) => _$this._data = data;
+  String _username;
+  String get username => _$this._username;
+  set username(String username) => _$this._username = username;
+
+  String _email;
+  String get email => _$this._email;
+  set email(String email) => _$this._email = email;
 
   bool _obscurePassword;
   bool get obscurePassword => _$this._obscurePassword;
@@ -483,7 +504,8 @@ class RegistrationInfoBuilder
   RegistrationInfoBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _data = $v.data;
+      _username = $v.username;
+      _email = $v.email;
       _obscurePassword = $v.obscurePassword;
       _$v = null;
     }
@@ -505,7 +527,8 @@ class RegistrationInfoBuilder
   _$RegistrationInfo build() {
     final _$result = _$v ??
         new _$RegistrationInfo._(
-            data: data,
+            username: username,
+            email: email,
             obscurePassword: BuiltValueNullFieldError.checkNotNull(
                 obscurePassword, 'RegistrationInfo', 'obscurePassword'));
     replace(_$result);

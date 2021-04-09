@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:zubisdyn/src/actions/auth/index.dart';
 import 'package:zubisdyn/src/containers/auth/index.dart';
 import 'package:zubisdyn/src/models/auth/index.dart';
+import 'package:email_validator/email_validator.dart';
+import 'package:zubisdyn/src/models/index.dart';
+import 'package:zubisdyn/src/presentation/mixins/store_mixin.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> with StoreMixin<LoginPage> {
   final TextEditingController _dataController = TextEditingController();
+
   final TextEditingController _passwordController = TextEditingController();
 
   @override
@@ -48,6 +57,13 @@ class LoginPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(24),
                             ),
                           ),
+                          onChanged: (String value) {},
+                          validator: (String value) {
+                            if (value.trim().isEmpty) {
+                              return 'Please enter an email or username';
+                            }
+                            return null;
+                          },
                         ),
                         const Padding(
                           padding: EdgeInsets.only(top: 32.0, bottom: 16.0),

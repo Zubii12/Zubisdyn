@@ -584,9 +584,11 @@ class _$UpdateRegistrationInfoTearOff {
   const _$UpdateRegistrationInfoTearOff();
 
 // ignore: unused_element
-  UpdateRegistrationInfo$ call({String data, bool obscurePassword}) {
+  UpdateRegistrationInfo$ call(
+      {String username, String email, bool obscurePassword}) {
     return UpdateRegistrationInfo$(
-      data: data,
+      username: username,
+      email: email,
       obscurePassword: obscurePassword,
     );
   }
@@ -598,7 +600,8 @@ const $UpdateRegistrationInfo = _$UpdateRegistrationInfoTearOff();
 
 /// @nodoc
 mixin _$UpdateRegistrationInfo {
-  String get data;
+  String get username;
+  String get email;
   bool get obscurePassword;
 
   @JsonKey(ignore: true)
@@ -610,7 +613,7 @@ abstract class $UpdateRegistrationInfoCopyWith<$Res> {
   factory $UpdateRegistrationInfoCopyWith(UpdateRegistrationInfo value,
           $Res Function(UpdateRegistrationInfo) then) =
       _$UpdateRegistrationInfoCopyWithImpl<$Res>;
-  $Res call({String data, bool obscurePassword});
+  $Res call({String username, String email, bool obscurePassword});
 }
 
 /// @nodoc
@@ -624,11 +627,13 @@ class _$UpdateRegistrationInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object data = freezed,
+    Object username = freezed,
+    Object email = freezed,
     Object obscurePassword = freezed,
   }) {
     return _then(_value.copyWith(
-      data: data == freezed ? _value.data : data as String,
+      username: username == freezed ? _value.username : username as String,
+      email: email == freezed ? _value.email : email as String,
       obscurePassword: obscurePassword == freezed
           ? _value.obscurePassword
           : obscurePassword as bool,
@@ -643,7 +648,7 @@ abstract class $UpdateRegistrationInfo$CopyWith<$Res>
           $Res Function(UpdateRegistrationInfo$) then) =
       _$UpdateRegistrationInfo$CopyWithImpl<$Res>;
   @override
-  $Res call({String data, bool obscurePassword});
+  $Res call({String username, String email, bool obscurePassword});
 }
 
 /// @nodoc
@@ -659,11 +664,13 @@ class _$UpdateRegistrationInfo$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object data = freezed,
+    Object username = freezed,
+    Object email = freezed,
     Object obscurePassword = freezed,
   }) {
     return _then(UpdateRegistrationInfo$(
-      data: data == freezed ? _value.data : data as String,
+      username: username == freezed ? _value.username : username as String,
+      email: email == freezed ? _value.email : email as String,
       obscurePassword: obscurePassword == freezed
           ? _value.obscurePassword
           : obscurePassword as bool,
@@ -673,24 +680,30 @@ class _$UpdateRegistrationInfo$CopyWithImpl<$Res>
 
 /// @nodoc
 class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
-  const _$UpdateRegistrationInfo$({this.data, this.obscurePassword});
+  const _$UpdateRegistrationInfo$(
+      {this.username, this.email, this.obscurePassword});
 
   @override
-  final String data;
+  final String username;
+  @override
+  final String email;
   @override
   final bool obscurePassword;
 
   @override
   String toString() {
-    return 'UpdateRegistrationInfo(data: $data, obscurePassword: $obscurePassword)';
+    return 'UpdateRegistrationInfo(username: $username, email: $email, obscurePassword: $obscurePassword)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is UpdateRegistrationInfo$ &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.username, username) ||
+                const DeepCollectionEquality()
+                    .equals(other.username, username)) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.obscurePassword, obscurePassword) ||
                 const DeepCollectionEquality()
                     .equals(other.obscurePassword, obscurePassword)));
@@ -699,7 +712,8 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(username) ^
+      const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(obscurePassword);
 
   @JsonKey(ignore: true)
@@ -710,11 +724,15 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
 }
 
 abstract class UpdateRegistrationInfo$ implements UpdateRegistrationInfo {
-  const factory UpdateRegistrationInfo$({String data, bool obscurePassword}) =
-      _$UpdateRegistrationInfo$;
+  const factory UpdateRegistrationInfo$(
+      {String username,
+      String email,
+      bool obscurePassword}) = _$UpdateRegistrationInfo$;
 
   @override
-  String get data;
+  String get username;
+  @override
+  String get email;
   @override
   bool get obscurePassword;
   @override
@@ -728,11 +746,11 @@ class _$GetAuthProvidersTearOff {
 
 // ignore: unused_element
   GetAuthProviders$ start(
-      {String data,
+      {String email,
       @required void Function(AppAction) result,
       String pendingId = _kGetAuthProvidersPendingId}) {
     return GetAuthProviders$(
-      data: data,
+      email: email,
       result: result,
       pendingId: pendingId,
     );
@@ -770,7 +788,7 @@ mixin _$GetAuthProviders {
   TResult when<TResult extends Object>({
     @required
         TResult start(
-            String data, void Function(AppAction) result, String pendingId),
+            String email, void Function(AppAction) result, String pendingId),
     @required TResult successful(List<String> providers, String pendingId),
     @required
         TResult error(Object error, StackTrace stackTrace, String pendingId),
@@ -778,7 +796,7 @@ mixin _$GetAuthProviders {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult start(
-        String data, void Function(AppAction) result, String pendingId),
+        String email, void Function(AppAction) result, String pendingId),
     TResult successful(List<String> providers, String pendingId),
     TResult error(Object error, StackTrace stackTrace, String pendingId),
     @required TResult orElse(),
@@ -835,7 +853,7 @@ abstract class $GetAuthProviders$CopyWith<$Res>
           GetAuthProviders$ value, $Res Function(GetAuthProviders$) then) =
       _$GetAuthProviders$CopyWithImpl<$Res>;
   @override
-  $Res call({String data, void Function(AppAction) result, String pendingId});
+  $Res call({String email, void Function(AppAction) result, String pendingId});
 }
 
 /// @nodoc
@@ -851,12 +869,12 @@ class _$GetAuthProviders$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object data = freezed,
+    Object email = freezed,
     Object result = freezed,
     Object pendingId = freezed,
   }) {
     return _then(GetAuthProviders$(
-      data: data == freezed ? _value.data : data as String,
+      email: email == freezed ? _value.email : email as String,
       result: result == freezed
           ? _value.result
           : result as void Function(AppAction),
@@ -870,14 +888,14 @@ class _$GetAuthProviders$CopyWithImpl<$Res>
 /// @nodoc
 class _$GetAuthProviders$ implements GetAuthProviders$ {
   const _$GetAuthProviders$(
-      {this.data,
+      {this.email,
       @required this.result,
       this.pendingId = _kGetAuthProvidersPendingId})
       : assert(result != null),
         assert(pendingId != null);
 
   @override
-  final String data;
+  final String email;
   @override
   final void Function(AppAction) result;
   @JsonKey(defaultValue: _kGetAuthProvidersPendingId)
@@ -886,15 +904,15 @@ class _$GetAuthProviders$ implements GetAuthProviders$ {
 
   @override
   String toString() {
-    return 'GetAuthProviders.start(data: $data, result: $result, pendingId: $pendingId)';
+    return 'GetAuthProviders.start(email: $email, result: $result, pendingId: $pendingId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is GetAuthProviders$ &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.result, result) ||
                 const DeepCollectionEquality().equals(other.result, result)) &&
             (identical(other.pendingId, pendingId) ||
@@ -905,7 +923,7 @@ class _$GetAuthProviders$ implements GetAuthProviders$ {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(result) ^
       const DeepCollectionEquality().hash(pendingId);
 
@@ -919,7 +937,7 @@ class _$GetAuthProviders$ implements GetAuthProviders$ {
   TResult when<TResult extends Object>({
     @required
         TResult start(
-            String data, void Function(AppAction) result, String pendingId),
+            String email, void Function(AppAction) result, String pendingId),
     @required TResult successful(List<String> providers, String pendingId),
     @required
         TResult error(Object error, StackTrace stackTrace, String pendingId),
@@ -927,21 +945,21 @@ class _$GetAuthProviders$ implements GetAuthProviders$ {
     assert(start != null);
     assert(successful != null);
     assert(error != null);
-    return start(data, result, pendingId);
+    return start(email, result, pendingId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult start(
-        String data, void Function(AppAction) result, String pendingId),
+        String email, void Function(AppAction) result, String pendingId),
     TResult successful(List<String> providers, String pendingId),
     TResult error(Object error, StackTrace stackTrace, String pendingId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (start != null) {
-      return start(data, result, pendingId);
+      return start(email, result, pendingId);
     }
     return orElse();
   }
@@ -977,11 +995,11 @@ class _$GetAuthProviders$ implements GetAuthProviders$ {
 
 abstract class GetAuthProviders$ implements GetAuthProviders, ActionStart {
   const factory GetAuthProviders$(
-      {String data,
+      {String email,
       @required void Function(AppAction) result,
       String pendingId}) = _$GetAuthProviders$;
 
-  String get data;
+  String get email;
   void Function(AppAction) get result;
   @override
   String get pendingId;
@@ -1074,7 +1092,7 @@ class _$GetAuthProvidersSuccessful implements GetAuthProvidersSuccessful {
   TResult when<TResult extends Object>({
     @required
         TResult start(
-            String data, void Function(AppAction) result, String pendingId),
+            String email, void Function(AppAction) result, String pendingId),
     @required TResult successful(List<String> providers, String pendingId),
     @required
         TResult error(Object error, StackTrace stackTrace, String pendingId),
@@ -1089,7 +1107,7 @@ class _$GetAuthProvidersSuccessful implements GetAuthProvidersSuccessful {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult start(
-        String data, void Function(AppAction) result, String pendingId),
+        String email, void Function(AppAction) result, String pendingId),
     TResult successful(List<String> providers, String pendingId),
     TResult error(Object error, StackTrace stackTrace, String pendingId),
     @required TResult orElse(),
@@ -1234,7 +1252,7 @@ class _$GetAuthProvidersError implements GetAuthProvidersError {
   TResult when<TResult extends Object>({
     @required
         TResult start(
-            String data, void Function(AppAction) result, String pendingId),
+            String email, void Function(AppAction) result, String pendingId),
     @required TResult successful(List<String> providers, String pendingId),
     @required
         TResult error(Object error, StackTrace stackTrace, String pendingId),
@@ -1249,7 +1267,7 @@ class _$GetAuthProvidersError implements GetAuthProvidersError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult start(
-        String data, void Function(AppAction) result, String pendingId),
+        String email, void Function(AppAction) result, String pendingId),
     TResult successful(List<String> providers, String pendingId),
     TResult error(Object error, StackTrace stackTrace, String pendingId),
     @required TResult orElse(),

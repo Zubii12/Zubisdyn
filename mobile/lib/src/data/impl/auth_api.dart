@@ -71,8 +71,8 @@ class AuthApiImpl implements AuthApi {
   }
 
   @override
-  Future<List<String>> getAuthProviders({String data}) async {
-    return await _auth.fetchSignInMethodsForEmail(data);
+  Future<List<String>> getAuthProviders({String email}) async {
+    return await _auth.fetchSignInMethodsForEmail(email);
   }
 
   @override

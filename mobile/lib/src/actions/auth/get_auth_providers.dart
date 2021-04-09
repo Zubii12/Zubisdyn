@@ -6,7 +6,7 @@ const String _kGetAuthProvidersPendingId = 'GetAuthProviders';
 abstract class GetAuthProviders with _$GetAuthProviders implements AppAction {
   @Implements(ActionStart)
   const factory GetAuthProviders.start({
-    String data,
+    String email,
     @required ActionResult result,
     @Default(_kGetAuthProvidersPendingId) String pendingId,
   }) = GetAuthProviders$;

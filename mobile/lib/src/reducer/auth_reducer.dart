@@ -8,8 +8,14 @@ Reducer<AuthState> authReducer = combineReducers<AuthState>(<Reducer<AuthState>>
 
 AuthState _updateRegistrationInfo(AuthState state, UpdateRegistrationInfo$ action) {
   return state.rebuild((AuthStateBuilder b) {
-    if (action.data != null) {
-      b.registration.data = action.data;
+    if (action.username != null) {
+      b.info.username = action.email;
+    }
+    if (action.email != null) {
+      b.info.email = action.email;
+    }
+    if (action.obscurePassword != null) {
+      b.info.obscurePassword = action.obscurePassword;
     }
   });
 }

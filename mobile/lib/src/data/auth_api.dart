@@ -8,7 +8,7 @@ abstract class AuthApi {
 
   Future<AppUser> loginWithEmail({@required String email, @required String password});
 
-  Future<List<String>> getAuthProviders({@required String data});
+  Future<List<String>> getAuthProviders({@required String email});
 
   Future<AppUser> registerWithEmail({@required String email, @required String password});
 }
