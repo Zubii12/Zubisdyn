@@ -3,7 +3,6 @@ import 'package:redux_epics/redux_epics.dart';
 import 'package:zubisdyn/src/actions/auth/index.dart';
 import 'package:zubisdyn/src/actions/index.dart';
 import 'package:zubisdyn/src/data/auth_api.dart';
-import 'package:zubisdyn/src/models/auth/index.dart';
 import 'package:zubisdyn/src/models/index.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:zubisdyn/src/data/index.dart';

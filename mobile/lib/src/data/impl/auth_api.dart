@@ -53,8 +53,7 @@ class AuthApiImpl implements AuthApi {
           b
             ..uid = firebaseUser.uid
             ..email = firebaseUser.email
-            ..photoUrl = firebaseUser.photoURL
-            ..phoneNumber = firebaseUser.phoneNumber;
+            ..photoUrl = firebaseUser.photoURL;
         });
         await snapshot.reference.set(appUser.json);
       } else {

@@ -22,8 +22,5 @@ mixin StoreMixin<S extends StatefulWidget> on State<S> implements StoreReadyProv
   @override
   Store<AppState> get store => _store;
 
-  void dispatch(dynamic action) {
-    _store.dispatch(action);
-
-  }
+  void dispatch(dynamic action) => _store.dispatch(action);
 }
