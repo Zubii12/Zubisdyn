@@ -38,7 +38,7 @@ Future<InitResult> init() async {
         actions.add(action);
       },
     ],
-  );//.dispatch(const InitializeApp());
+  )..dispatch(const InitializeApp()); //.dispatch(const InitializeApp());
 
   final Duration initDuration = DateTime.now().difference(start);
   if (initDuration > Duration.zero) {

@@ -585,11 +585,15 @@ class _$UpdateRegistrationInfoTearOff {
 
 // ignore: unused_element
   UpdateRegistrationInfo$ call(
-      {String username, String email, bool obscurePassword}) {
+      {String username,
+      String email,
+      bool obscurePassword,
+      bool weakPassword}) {
     return UpdateRegistrationInfo$(
       username: username,
       email: email,
       obscurePassword: obscurePassword,
+      weakPassword: weakPassword,
     );
   }
 }
@@ -603,6 +607,7 @@ mixin _$UpdateRegistrationInfo {
   String get username;
   String get email;
   bool get obscurePassword;
+  bool get weakPassword;
 
   @JsonKey(ignore: true)
   $UpdateRegistrationInfoCopyWith<UpdateRegistrationInfo> get copyWith;
@@ -613,7 +618,8 @@ abstract class $UpdateRegistrationInfoCopyWith<$Res> {
   factory $UpdateRegistrationInfoCopyWith(UpdateRegistrationInfo value,
           $Res Function(UpdateRegistrationInfo) then) =
       _$UpdateRegistrationInfoCopyWithImpl<$Res>;
-  $Res call({String username, String email, bool obscurePassword});
+  $Res call(
+      {String username, String email, bool obscurePassword, bool weakPassword});
 }
 
 /// @nodoc
@@ -630,6 +636,7 @@ class _$UpdateRegistrationInfoCopyWithImpl<$Res>
     Object username = freezed,
     Object email = freezed,
     Object obscurePassword = freezed,
+    Object weakPassword = freezed,
   }) {
     return _then(_value.copyWith(
       username: username == freezed ? _value.username : username as String,
@@ -637,6 +644,8 @@ class _$UpdateRegistrationInfoCopyWithImpl<$Res>
       obscurePassword: obscurePassword == freezed
           ? _value.obscurePassword
           : obscurePassword as bool,
+      weakPassword:
+          weakPassword == freezed ? _value.weakPassword : weakPassword as bool,
     ));
   }
 }
@@ -648,7 +657,8 @@ abstract class $UpdateRegistrationInfo$CopyWith<$Res>
           $Res Function(UpdateRegistrationInfo$) then) =
       _$UpdateRegistrationInfo$CopyWithImpl<$Res>;
   @override
-  $Res call({String username, String email, bool obscurePassword});
+  $Res call(
+      {String username, String email, bool obscurePassword, bool weakPassword});
 }
 
 /// @nodoc
@@ -667,6 +677,7 @@ class _$UpdateRegistrationInfo$CopyWithImpl<$Res>
     Object username = freezed,
     Object email = freezed,
     Object obscurePassword = freezed,
+    Object weakPassword = freezed,
   }) {
     return _then(UpdateRegistrationInfo$(
       username: username == freezed ? _value.username : username as String,
@@ -674,6 +685,8 @@ class _$UpdateRegistrationInfo$CopyWithImpl<$Res>
       obscurePassword: obscurePassword == freezed
           ? _value.obscurePassword
           : obscurePassword as bool,
+      weakPassword:
+          weakPassword == freezed ? _value.weakPassword : weakPassword as bool,
     ));
   }
 }
@@ -681,7 +694,7 @@ class _$UpdateRegistrationInfo$CopyWithImpl<$Res>
 /// @nodoc
 class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
   const _$UpdateRegistrationInfo$(
-      {this.username, this.email, this.obscurePassword});
+      {this.username, this.email, this.obscurePassword, this.weakPassword});
 
   @override
   final String username;
@@ -689,10 +702,12 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
   final String email;
   @override
   final bool obscurePassword;
+  @override
+  final bool weakPassword;
 
   @override
   String toString() {
-    return 'UpdateRegistrationInfo(username: $username, email: $email, obscurePassword: $obscurePassword)';
+    return 'UpdateRegistrationInfo(username: $username, email: $email, obscurePassword: $obscurePassword, weakPassword: $weakPassword)';
   }
 
   @override
@@ -706,7 +721,10 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
                 const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.obscurePassword, obscurePassword) ||
                 const DeepCollectionEquality()
-                    .equals(other.obscurePassword, obscurePassword)));
+                    .equals(other.obscurePassword, obscurePassword)) &&
+            (identical(other.weakPassword, weakPassword) ||
+                const DeepCollectionEquality()
+                    .equals(other.weakPassword, weakPassword)));
   }
 
   @override
@@ -714,7 +732,8 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(obscurePassword);
+      const DeepCollectionEquality().hash(obscurePassword) ^
+      const DeepCollectionEquality().hash(weakPassword);
 
   @JsonKey(ignore: true)
   @override
@@ -727,7 +746,8 @@ abstract class UpdateRegistrationInfo$ implements UpdateRegistrationInfo {
   const factory UpdateRegistrationInfo$(
       {String username,
       String email,
-      bool obscurePassword}) = _$UpdateRegistrationInfo$;
+      bool obscurePassword,
+      bool weakPassword}) = _$UpdateRegistrationInfo$;
 
   @override
   String get username;
@@ -735,6 +755,8 @@ abstract class UpdateRegistrationInfo$ implements UpdateRegistrationInfo {
   String get email;
   @override
   bool get obscurePassword;
+  @override
+  bool get weakPassword;
   @override
   @JsonKey(ignore: true)
   $UpdateRegistrationInfo$CopyWith<UpdateRegistrationInfo$> get copyWith;

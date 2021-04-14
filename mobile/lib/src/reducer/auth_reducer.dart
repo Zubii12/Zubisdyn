@@ -14,8 +14,12 @@ AuthState _updateRegistrationInfo(AuthState state, UpdateRegistrationInfo$ actio
     if (action.email != null) {
       b.info.email = action.email;
     }
-    if (action.obscurePassword != null) {
+    if (action.obscurePassword != b.info.obscurePassword) {
       b.info.obscurePassword = action.obscurePassword;
+    }
+    print(action.weakPassword);
+    if (action.weakPassword != null) {
+      b.info.weakPassword = action.weakPassword;
     }
   });
 }

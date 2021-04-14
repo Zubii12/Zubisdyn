@@ -21,6 +21,9 @@ abstract class RegistrationInfo implements Built<RegistrationInfo, RegistrationI
 
   bool get obscurePassword;
 
+  @nullable
+  bool get weakPassword;
+
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 
   static Serializer<RegistrationInfo> get serializer => _$registrationInfoSerializer;

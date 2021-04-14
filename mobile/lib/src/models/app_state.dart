@@ -4,7 +4,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
   factory AppState([void Function(AppStateBuilder b) updates]) = _$AppState;
 
   factory AppState.initialState() {
-    return _$AppState((AppStateBuilder b){
+    return _$AppState((AppStateBuilder b) {
       b.auth = AuthState.initialState().toBuilder();
     });
   }

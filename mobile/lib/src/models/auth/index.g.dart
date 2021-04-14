@@ -164,6 +164,13 @@ class _$RegistrationInfoSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.weakPassword;
+    if (value != null) {
+      result
+        ..add('weakPassword')
+        ..add(
+            serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -189,6 +196,10 @@ class _$RegistrationInfoSerializer
           break;
         case 'obscurePassword':
           result.obscurePassword = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
+          break;
+        case 'weakPassword':
+          result.weakPassword = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
       }
@@ -434,12 +445,15 @@ class _$RegistrationInfo extends RegistrationInfo {
   final String email;
   @override
   final bool obscurePassword;
+  @override
+  final bool weakPassword;
 
   factory _$RegistrationInfo(
           [void Function(RegistrationInfoBuilder) updates]) =>
       (new RegistrationInfoBuilder()..update(updates)).build();
 
-  _$RegistrationInfo._({this.username, this.email, this.obscurePassword})
+  _$RegistrationInfo._(
+      {this.username, this.email, this.obscurePassword, this.weakPassword})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         obscurePassword, 'RegistrationInfo', 'obscurePassword');
@@ -459,13 +473,16 @@ class _$RegistrationInfo extends RegistrationInfo {
     return other is RegistrationInfo &&
         username == other.username &&
         email == other.email &&
-        obscurePassword == other.obscurePassword;
+        obscurePassword == other.obscurePassword &&
+        weakPassword == other.weakPassword;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc($jc(0, username.hashCode), email.hashCode),
-        obscurePassword.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, username.hashCode), email.hashCode),
+            obscurePassword.hashCode),
+        weakPassword.hashCode));
   }
 
   @override
@@ -473,7 +490,8 @@ class _$RegistrationInfo extends RegistrationInfo {
     return (newBuiltValueToStringHelper('RegistrationInfo')
           ..add('username', username)
           ..add('email', email)
-          ..add('obscurePassword', obscurePassword))
+          ..add('obscurePassword', obscurePassword)
+          ..add('weakPassword', weakPassword))
         .toString();
   }
 }
@@ -495,6 +513,10 @@ class RegistrationInfoBuilder
   set obscurePassword(bool obscurePassword) =>
       _$this._obscurePassword = obscurePassword;
 
+  bool _weakPassword;
+  bool get weakPassword => _$this._weakPassword;
+  set weakPassword(bool weakPassword) => _$this._weakPassword = weakPassword;
+
   RegistrationInfoBuilder();
 
   RegistrationInfoBuilder get _$this {
@@ -503,6 +525,7 @@ class RegistrationInfoBuilder
       _username = $v.username;
       _email = $v.email;
       _obscurePassword = $v.obscurePassword;
+      _weakPassword = $v.weakPassword;
       _$v = null;
     }
     return this;
@@ -526,7 +549,8 @@ class RegistrationInfoBuilder
             username: username,
             email: email,
             obscurePassword: BuiltValueNullFieldError.checkNotNull(
-                obscurePassword, 'RegistrationInfo', 'obscurePassword'));
+                obscurePassword, 'RegistrationInfo', 'obscurePassword'),
+            weakPassword: weakPassword);
     replace(_$result);
     return _$result;
   }
