@@ -10,15 +10,11 @@ AuthState _updateRegistrationInfo(AuthState state, UpdateRegistrationInfo$ actio
   return state.rebuild((AuthStateBuilder b) {
     if (action.username != null) {
       b.info.username = action.email;
-    }
-    if (action.email != null) {
+    } else if (action.email != null) {
       b.info.email = action.email;
-    }
-    if (action.obscurePassword != b.info.obscurePassword) {
+    } else if (action.obscurePassword != null) {
       b.info.obscurePassword = action.obscurePassword;
-    }
-    print(action.weakPassword);
-    if (action.weakPassword != null) {
+    } else if (action.weakPassword != null) {
       b.info.weakPassword = action.weakPassword;
     }
   });

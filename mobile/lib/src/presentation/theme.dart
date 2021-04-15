@@ -23,5 +23,10 @@ ThemeData get appTheme {
       fillColor: Colors.white,
       filled: true,
     ),
+    bottomSheetTheme: BottomSheetThemeData(
+      shape: UnderlineInputBorder(
+        borderRadius: BorderRadius.circular(24.0),
+      ),
+    ),
   );
 }

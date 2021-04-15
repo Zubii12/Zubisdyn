@@ -1,9 +1,11 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zubisdyn/src/actions/auth/index.dart';
 import 'package:zubisdyn/src/containers/auth/index.dart';
 import 'package:zubisdyn/src/models/auth/index.dart';
 import 'package:zubisdyn/src/presentation/mixins/store_mixin.dart';
+import 'package:zubisdyn/src/presentation/widgets/app_modal_bottom_sheet.dart';
 
 class SignUpPart extends StatefulWidget {
   @override
@@ -22,50 +24,15 @@ class _SignUpPartState extends State<SignUpPart> with StoreMixin<SignUpPart> {
     if (password.length <= 8 || !password.contains(RegExp(r'[0-9]'))) {
       dispatch(const UpdateRegistrationInfo(weakPassword: true));
       await showModalBottomSheet<dynamic>(
-          context: context,
-          shape: UnderlineInputBorder(
-            borderRadius: BorderRadius.circular(24.0),
-          ),
-          builder: (BuildContext context) {
-            return Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 100.0),
-                  child: Image.asset(
-                    'res/x_circle.png',
-                    height: 96.0,
-                  ),
-                ),
-                const Spacer(),
-                const Text(
-                  'Password to Weak',
-                  style: TextStyle(
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(
-                    top: 16.0,
-                    left: 4.0,
-                    right: 4.0,
-                  ),
-                  child: Text(
-                    'Password must be at least 8 character long and must contain at least 1 number.',
-                    style: TextStyle(
-                      color: Color(
-                        0xcc383838,
-                      ),
-                      fontSize: 16.0,
-                      height: 1.6,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                const Spacer(flex: 2),
-              ],
-            );
-          });
+        context: context,
+        builder: (BuildContext context) {
+          return const AppModalBottomSheet(
+            text: 'Password to Weak',
+            description: 'Password must be at least 8 character long and must contain at least 1 number.',
+            success: false,
+          );
+        },
+      );
     } else {
       dispatch(const UpdateRegistrationInfo(weakPassword: false));
     }
@@ -77,8 +44,6 @@ class _SignUpPartState extends State<SignUpPart> with StoreMixin<SignUpPart> {
     final Size size = MediaQuery.of(context).size;
 
     return RegistrationInfoContainer(builder: (BuildContext context, RegistrationInfo info) {
-      final bool weakPassword = info.weakPassword;
-      print('z1z:: $weakPassword');
       return Scaffold(
         body: SafeArea(
           child: Form(
@@ -139,6 +104,8 @@ class _SignUpPartState extends State<SignUpPart> with StoreMixin<SignUpPart> {
                           validator: (String value) {
                             if (value.trim().isEmpty) {
                               return 'Please enter an email';
+                            } else if (!EmailValidator.validate(value)) {
+                              return 'Please use a valid email';
                             }
                             return null;
                           },
@@ -155,21 +122,17 @@ class _SignUpPartState extends State<SignUpPart> with StoreMixin<SignUpPart> {
                         ),
                         TextFormField(
                           controller: _passwordController,
-                          obscureText: info.obscurePassword,
+                          obscureText: info.obscurePassword ?? false,
                           decoration: InputDecoration(
                             hintText: 'Create your password',
                             suffixIcon: Padding(
                               padding: const EdgeInsets.only(right: 4.0),
-                              child: weakPassword == null
-                                  ? IconButton(
-                                      icon: Image.asset('res/eye.png'),
-                                      onPressed: () {
-                                        dispatch(UpdateRegistrationInfo(obscurePassword: !info.obscurePassword));
-                                      },
-                                    )
-                                  : weakPassword == false
-                                      ? Image.asset('res/check_circle.png')
-                                      : Image.asset('res/x_circle.png'),
+                              child: IconButton(
+                                icon: Image.asset('res/eye.png'),
+                                onPressed: () {
+                                  dispatch(UpdateRegistrationInfo(obscurePassword: !info.obscurePassword));
+                                },
+                              ),
                             ),
                           ),
                         ),
@@ -182,8 +145,9 @@ class _SignUpPartState extends State<SignUpPart> with StoreMixin<SignUpPart> {
                       onPressed: () {
                         if (_formKey.currentState.validate()) {
                           //_formKey.currentState
+                        } else {
+                          checkPassword();
                         }
-                        checkPassword();
                       },
                       child: const Text(
                         'Sign Up',
