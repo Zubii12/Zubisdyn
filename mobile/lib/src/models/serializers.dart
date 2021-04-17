@@ -12,6 +12,7 @@ part 'serializers.g.dart';
   AppState,
   AuthState,
   AppUser,
+  RegistrationInfo,
 ])
 Serializers serializers = (_$serializers.toBuilder() //
       ..add(DateTimeSerializer())

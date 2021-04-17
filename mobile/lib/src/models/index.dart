@@ -6,5 +6,7 @@ import 'package:zubisdyn/src/models/auth/index.dart';
 import 'package:zubisdyn/src/models/serializers.dart';
 
 
+export 'auth/index.dart';
+
 part 'app_state.dart';
 part 'index.g.dart';

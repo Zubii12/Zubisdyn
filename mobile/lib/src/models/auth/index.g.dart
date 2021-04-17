@@ -78,22 +78,11 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
       'username',
       serializers.serialize(object.username,
           specifiedType: const FullType(String)),
+      'email',
+      serializers.serialize(object.email,
+          specifiedType: const FullType(String)),
     ];
     Object value;
-    value = object.phoneNumber;
-    if (value != null) {
-      result
-        ..add('phoneNumber')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.email;
-    if (value != null) {
-      result
-        ..add('email')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.photoUrl;
     if (value != null) {
       result
@@ -121,10 +110,6 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
           break;
         case 'username':
           result.username = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'phoneNumber':
-          result.phoneNumber = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'email':
@@ -311,8 +296,6 @@ class _$AppUser extends AppUser {
   @override
   final String username;
   @override
-  final String phoneNumber;
-  @override
   final String email;
   @override
   final String photoUrl;
@@ -320,11 +303,11 @@ class _$AppUser extends AppUser {
   factory _$AppUser([void Function(AppUserBuilder) updates]) =>
       (new AppUserBuilder()..update(updates)).build();
 
-  _$AppUser._(
-      {this.uid, this.username, this.phoneNumber, this.email, this.photoUrl})
+  _$AppUser._({this.uid, this.username, this.email, this.photoUrl})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(uid, 'AppUser', 'uid');
     BuiltValueNullFieldError.checkNotNull(username, 'AppUser', 'username');
+    BuiltValueNullFieldError.checkNotNull(email, 'AppUser', 'email');
   }
 
   @override
@@ -340,7 +323,6 @@ class _$AppUser extends AppUser {
     return other is AppUser &&
         uid == other.uid &&
         username == other.username &&
-        phoneNumber == other.phoneNumber &&
         email == other.email &&
         photoUrl == other.photoUrl;
   }
@@ -348,10 +330,7 @@ class _$AppUser extends AppUser {
   @override
   int get hashCode {
     return $jf($jc(
-        $jc(
-            $jc($jc($jc(0, uid.hashCode), username.hashCode),
-                phoneNumber.hashCode),
-            email.hashCode),
+        $jc($jc($jc(0, uid.hashCode), username.hashCode), email.hashCode),
         photoUrl.hashCode));
   }
 
@@ -360,7 +339,6 @@ class _$AppUser extends AppUser {
     return (newBuiltValueToStringHelper('AppUser')
           ..add('uid', uid)
           ..add('username', username)
-          ..add('phoneNumber', phoneNumber)
           ..add('email', email)
           ..add('photoUrl', photoUrl))
         .toString();
@@ -378,10 +356,6 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
   String get username => _$this._username;
   set username(String username) => _$this._username = username;
 
-  String _phoneNumber;
-  String get phoneNumber => _$this._phoneNumber;
-  set phoneNumber(String phoneNumber) => _$this._phoneNumber = phoneNumber;
-
   String _email;
   String get email => _$this._email;
   set email(String email) => _$this._email = email;
@@ -397,7 +371,6 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
     if ($v != null) {
       _uid = $v.uid;
       _username = $v.username;
-      _phoneNumber = $v.phoneNumber;
       _email = $v.email;
       _photoUrl = $v.photoUrl;
       _$v = null;
@@ -423,8 +396,8 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
             uid: BuiltValueNullFieldError.checkNotNull(uid, 'AppUser', 'uid'),
             username: BuiltValueNullFieldError.checkNotNull(
                 username, 'AppUser', 'username'),
-            phoneNumber: phoneNumber,
-            email: email,
+            email: BuiltValueNullFieldError.checkNotNull(
+                email, 'AppUser', 'email'),
             photoUrl: photoUrl);
     replace(_$result);
     return _$result;
