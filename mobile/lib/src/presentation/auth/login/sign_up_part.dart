@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zubisdyn/src/actions/auth/index.dart';
+import 'package:zubisdyn/src/actions/index.dart';
 import 'package:zubisdyn/src/containers/auth/index.dart';
 import 'package:zubisdyn/src/models/auth/index.dart';
 import 'package:zubisdyn/src/presentation/mixins/store_mixin.dart';
@@ -18,11 +19,10 @@ class _SignUpPartState extends State<SignUpPart> with StoreMixin<SignUpPart> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  Future<void> checkPassword() async {
+  Future<bool> validatePassword() async {
     final String password = _passwordController.text;
 
     if (password.length <= 8 || !password.contains(RegExp(r'[0-9]'))) {
-      dispatch(const UpdateRegistrationInfo(weakPassword: true));
       await showModalBottomSheet<dynamic>(
         context: context,
         builder: (BuildContext context) {
@@ -33,8 +33,9 @@ class _SignUpPartState extends State<SignUpPart> with StoreMixin<SignUpPart> {
           );
         },
       );
+      return false;
     } else {
-      dispatch(const UpdateRegistrationInfo(weakPassword: false));
+      return true;
     }
   }
 
@@ -142,11 +143,18 @@ class _SignUpPartState extends State<SignUpPart> with StoreMixin<SignUpPart> {
                   Container(
                     width: size.width < maxWidth ? size.width - 24.0 : maxWidth,
                     child: TextButton(
-                      onPressed: () {
-                        if (_formKey.currentState.validate()) {
-                          //_formKey.currentState
-                        } else {
-                          checkPassword();
+                      onPressed: () async {
+                        if (_formKey.currentState.validate() && await validatePassword()) {
+                          dispatch(UpdateRegistrationInfo(username: _usernameController.text));
+                          dispatch(UpdateRegistrationInfo(email: _emailController.text));
+                          dispatch(
+                            SignUpWithEmail$(
+                              password: _passwordController.text,
+                              result: (AppAction result) {
+                                print('z1z::result sign up $result');
+                              },
+                            ),
+                          );
                         }
                       },
                       child: const Text(

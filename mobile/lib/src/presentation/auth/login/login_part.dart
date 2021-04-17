@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zubisdyn/src/actions/auth/index.dart';
+import 'package:zubisdyn/src/actions/index.dart';
 import 'package:zubisdyn/src/containers/index.dart';
 import 'package:zubisdyn/src/models/auth/index.dart';
 import 'package:zubisdyn/src/presentation/mixins/store_mixin.dart';
@@ -39,7 +40,7 @@ class _LoginPartState extends State<LoginPart> with StoreMixin<LoginPart> {
                         const Padding(
                           padding: EdgeInsets.only(bottom: 16.0),
                           child: Text(
-                            'Phone or email',
+                            'Email or username',
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.w500,
@@ -56,6 +57,10 @@ class _LoginPartState extends State<LoginPart> with StoreMixin<LoginPart> {
                               return 'Please enter an email or username';
                             }
                             return null;
+                          },
+                          onChanged: (String value) {
+                            // todo make this better - for phone & email
+                            dispatch(UpdateRegistrationInfo$(email: value));
                           },
                         ),
                         const Padding(
@@ -106,7 +111,10 @@ class _LoginPartState extends State<LoginPart> with StoreMixin<LoginPart> {
                     width: size.width < maxWidth ? size.width - 24.0 : maxWidth,
                     child: TextButton(
                       onPressed: () {
-                        // todo
+                        // todo make this better
+                        dispatch(LoginWithEmail.start(password: _passwordController.text, result: (AppAction action){
+                          print('z1z::result_login ${action.toString()}');
+                        }));
                       },
                       child: const Text(
                         'Login',

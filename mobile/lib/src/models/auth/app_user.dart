@@ -17,8 +17,6 @@ abstract class AppUser implements Built<AppUser, AppUserBuilder> {
 
   String get email;
 
-  String get usernameEmail;
-
   @nullable
   String get photoUrl;
 

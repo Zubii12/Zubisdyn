@@ -81,9 +81,6 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
       'email',
       serializers.serialize(object.email,
           specifiedType: const FullType(String)),
-      'usernameEmail',
-      serializers.serialize(object.usernameEmail,
-          specifiedType: const FullType(String)),
     ];
     Object value;
     value = object.photoUrl;
@@ -117,10 +114,6 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
           break;
         case 'email':
           result.email = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-        case 'usernameEmail':
-          result.usernameEmail = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
         case 'photoUrl':
@@ -164,13 +157,6 @@ class _$RegistrationInfoSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.weakPassword;
-    if (value != null) {
-      result
-        ..add('weakPassword')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     return result;
   }
 
@@ -196,10 +182,6 @@ class _$RegistrationInfoSerializer
           break;
         case 'obscurePassword':
           result.obscurePassword = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool;
-          break;
-        case 'weakPassword':
-          result.weakPassword = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
       }
@@ -316,21 +298,16 @@ class _$AppUser extends AppUser {
   @override
   final String email;
   @override
-  final String usernameEmail;
-  @override
   final String photoUrl;
 
   factory _$AppUser([void Function(AppUserBuilder) updates]) =>
       (new AppUserBuilder()..update(updates)).build();
 
-  _$AppUser._(
-      {this.uid, this.username, this.email, this.usernameEmail, this.photoUrl})
+  _$AppUser._({this.uid, this.username, this.email, this.photoUrl})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(uid, 'AppUser', 'uid');
     BuiltValueNullFieldError.checkNotNull(username, 'AppUser', 'username');
     BuiltValueNullFieldError.checkNotNull(email, 'AppUser', 'email');
-    BuiltValueNullFieldError.checkNotNull(
-        usernameEmail, 'AppUser', 'usernameEmail');
   }
 
   @override
@@ -347,15 +324,13 @@ class _$AppUser extends AppUser {
         uid == other.uid &&
         username == other.username &&
         email == other.email &&
-        usernameEmail == other.usernameEmail &&
         photoUrl == other.photoUrl;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc($jc(0, uid.hashCode), username.hashCode), email.hashCode),
-            usernameEmail.hashCode),
+        $jc($jc($jc(0, uid.hashCode), username.hashCode), email.hashCode),
         photoUrl.hashCode));
   }
 
@@ -365,7 +340,6 @@ class _$AppUser extends AppUser {
           ..add('uid', uid)
           ..add('username', username)
           ..add('email', email)
-          ..add('usernameEmail', usernameEmail)
           ..add('photoUrl', photoUrl))
         .toString();
   }
@@ -386,11 +360,6 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
   String get email => _$this._email;
   set email(String email) => _$this._email = email;
 
-  String _usernameEmail;
-  String get usernameEmail => _$this._usernameEmail;
-  set usernameEmail(String usernameEmail) =>
-      _$this._usernameEmail = usernameEmail;
-
   String _photoUrl;
   String get photoUrl => _$this._photoUrl;
   set photoUrl(String photoUrl) => _$this._photoUrl = photoUrl;
@@ -403,7 +372,6 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
       _uid = $v.uid;
       _username = $v.username;
       _email = $v.email;
-      _usernameEmail = $v.usernameEmail;
       _photoUrl = $v.photoUrl;
       _$v = null;
     }
@@ -430,8 +398,6 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
                 username, 'AppUser', 'username'),
             email: BuiltValueNullFieldError.checkNotNull(
                 email, 'AppUser', 'email'),
-            usernameEmail: BuiltValueNullFieldError.checkNotNull(
-                usernameEmail, 'AppUser', 'usernameEmail'),
             photoUrl: photoUrl);
     replace(_$result);
     return _$result;
@@ -445,15 +411,12 @@ class _$RegistrationInfo extends RegistrationInfo {
   final String email;
   @override
   final bool obscurePassword;
-  @override
-  final bool weakPassword;
 
   factory _$RegistrationInfo(
           [void Function(RegistrationInfoBuilder) updates]) =>
       (new RegistrationInfoBuilder()..update(updates)).build();
 
-  _$RegistrationInfo._(
-      {this.username, this.email, this.obscurePassword, this.weakPassword})
+  _$RegistrationInfo._({this.username, this.email, this.obscurePassword})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         obscurePassword, 'RegistrationInfo', 'obscurePassword');
@@ -473,16 +436,13 @@ class _$RegistrationInfo extends RegistrationInfo {
     return other is RegistrationInfo &&
         username == other.username &&
         email == other.email &&
-        obscurePassword == other.obscurePassword &&
-        weakPassword == other.weakPassword;
+        obscurePassword == other.obscurePassword;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc($jc($jc(0, username.hashCode), email.hashCode),
-            obscurePassword.hashCode),
-        weakPassword.hashCode));
+    return $jf($jc($jc($jc(0, username.hashCode), email.hashCode),
+        obscurePassword.hashCode));
   }
 
   @override
@@ -490,8 +450,7 @@ class _$RegistrationInfo extends RegistrationInfo {
     return (newBuiltValueToStringHelper('RegistrationInfo')
           ..add('username', username)
           ..add('email', email)
-          ..add('obscurePassword', obscurePassword)
-          ..add('weakPassword', weakPassword))
+          ..add('obscurePassword', obscurePassword))
         .toString();
   }
 }
@@ -513,10 +472,6 @@ class RegistrationInfoBuilder
   set obscurePassword(bool obscurePassword) =>
       _$this._obscurePassword = obscurePassword;
 
-  bool _weakPassword;
-  bool get weakPassword => _$this._weakPassword;
-  set weakPassword(bool weakPassword) => _$this._weakPassword = weakPassword;
-
   RegistrationInfoBuilder();
 
   RegistrationInfoBuilder get _$this {
@@ -525,7 +480,6 @@ class RegistrationInfoBuilder
       _username = $v.username;
       _email = $v.email;
       _obscurePassword = $v.obscurePassword;
-      _weakPassword = $v.weakPassword;
       _$v = null;
     }
     return this;
@@ -549,8 +503,7 @@ class RegistrationInfoBuilder
             username: username,
             email: email,
             obscurePassword: BuiltValueNullFieldError.checkNotNull(
-                obscurePassword, 'RegistrationInfo', 'obscurePassword'),
-            weakPassword: weakPassword);
+                obscurePassword, 'RegistrationInfo', 'obscurePassword'));
     replace(_$result);
     return _$result;
   }
