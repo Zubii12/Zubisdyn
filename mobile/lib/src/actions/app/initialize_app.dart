@@ -1,11 +1,27 @@
 part of app_actions;
 
+const String _kInitializeAppPendingId = 'InitializeApp';
+
 @freezed
 abstract class InitializeApp with _$InitializeApp implements AppAction {
-  const factory InitializeApp() = InitializeApp$;
+  @Implements(ActionStart)
+  const factory InitializeApp([
+    @Default(_kInitializeAppPendingId) String pendingId,
+  ]) = InitializeApp$;
 
-  const factory InitializeApp.successful(@nullable AppUser user) = InitializeAppSuccessful;
+  @Implements(ActionDone)
+  const factory InitializeApp.successful(
+    @nullable AppUser user, [
+    @Default(_kInitializeAppPendingId) String pendingId,
+  ]) = InitializeAppSuccessful;
 
+  @Implements(ActionDone)
   @Implements(ErrorAction)
-  const factory InitializeApp.error(Object error, StackTrace stackTrace) = InitializeAppError;
+  const factory InitializeApp.error(
+    Object error,
+    StackTrace stackTrace, [
+    @Default(_kInitializeAppPendingId) String pendingId,
+  ]) = InitializeAppError;
+
+  static String get pendingKey => _kInitializeAppPendingId;
 }

@@ -16,6 +16,13 @@ class _LoginPartState extends State<LoginPart> with StoreMixin<LoginPart> {
   final TextEditingController _passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  @override
+  void initState() {
+    super.initState();
+    _passwordController.text = 'qwertyuiop1';
+    dispatch(const UpdateRegistrationInfo$(email: 'zubii1@yahoo.ro'));
+  }
+
   Future<void> showModal() async {
     await showModalBottomSheet<dynamic>(
       context: context,
@@ -65,6 +72,7 @@ class _LoginPartState extends State<LoginPart> with StoreMixin<LoginPart> {
                             ),
                           ),
                           TextFormField(
+                            initialValue: 'zubii1@yahoo.ro',
                             decoration: const InputDecoration(
                               hintText: 'Enter your email or username',
                             ),
@@ -77,6 +85,10 @@ class _LoginPartState extends State<LoginPart> with StoreMixin<LoginPart> {
                               return null;
                             },
                             onChanged: (String value) {
+                              // todo make this better - for phone & email
+                              dispatch(UpdateRegistrationInfo$(email: value));
+                            },
+                            onFieldSubmitted: (String value) {
                               // todo make this better - for phone & email
                               dispatch(UpdateRegistrationInfo$(email: value));
                             },
@@ -135,6 +147,7 @@ class _LoginPartState extends State<LoginPart> with StoreMixin<LoginPart> {
                                 password: _passwordController.text,
                                 result: (AppAction action) {
                                   if (action is LoginWithEmailError) {
+                                    // todo add more cases
                                     showModal();
                                   }
                                 },
