@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,7 +13,6 @@ import 'package:zubisdyn/src/epics/app_epics.dart';
 import 'package:zubisdyn/src/middleware/app_middleware.dart';
 import 'package:zubisdyn/src/models/index.dart';
 import 'package:zubisdyn/src/reducer/reducer.dart';
-import 'dart:developer';
 
 Future<InitResult> init() async {
   final DateTime start = DateTime.now();
@@ -27,7 +27,7 @@ Future<InitResult> init() async {
   final AppEpics appEpics = AppEpics(authApi: authApi);
 
   final StreamController<dynamic> actions = StreamController<dynamic>.broadcast();
-  final AppMiddleware appMiddleware = AppMiddleware();
+  const AppMiddleware appMiddleware = AppMiddleware();
   auth.signOut();
   log('salutareee', time: DateTime.now());
   final Store<AppState> store = Store<AppState>(
