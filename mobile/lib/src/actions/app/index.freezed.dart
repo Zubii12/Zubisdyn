@@ -14,22 +14,28 @@ class _$InitializeAppTearOff {
   const _$InitializeAppTearOff();
 
 // ignore: unused_element
-  InitializeApp$ call() {
-    return const InitializeApp$();
-  }
-
-// ignore: unused_element
-  InitializeAppSuccessful successful(@nullable AppUser user) {
-    return InitializeAppSuccessful(
-      user,
+  InitializeApp$ call([String pendingId = _kInitializeAppPendingId]) {
+    return InitializeApp$(
+      pendingId,
     );
   }
 
 // ignore: unused_element
-  InitializeAppError error(Object error, StackTrace stackTrace) {
+  InitializeAppSuccessful successful(@nullable AppUser user,
+      [String pendingId = _kInitializeAppPendingId]) {
+    return InitializeAppSuccessful(
+      user,
+      pendingId,
+    );
+  }
+
+// ignore: unused_element
+  InitializeAppError error(Object error, StackTrace stackTrace,
+      [String pendingId = _kInitializeAppPendingId]) {
     return InitializeAppError(
       error,
       stackTrace,
+      pendingId,
     );
   }
 }
@@ -40,17 +46,20 @@ const $InitializeApp = _$InitializeAppTearOff();
 
 /// @nodoc
 mixin _$InitializeApp {
+  String get pendingId;
+
   @optionalTypeArgs
   TResult when<TResult extends Object>(
-    TResult $default(), {
-    @required TResult successful(@nullable AppUser user),
-    @required TResult error(Object error, StackTrace stackTrace),
+    TResult $default(String pendingId), {
+    @required TResult successful(@nullable AppUser user, String pendingId),
+    @required
+        TResult error(Object error, StackTrace stackTrace, String pendingId),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
-    TResult $default(), {
-    TResult successful(@nullable AppUser user),
-    TResult error(Object error, StackTrace stackTrace),
+    TResult $default(String pendingId), {
+    TResult successful(@nullable AppUser user, String pendingId),
+    TResult error(Object error, StackTrace stackTrace, String pendingId),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -66,6 +75,9 @@ mixin _$InitializeApp {
     TResult error(InitializeAppError value),
     @required TResult orElse(),
   });
+
+  @JsonKey(ignore: true)
+  $InitializeAppCopyWith<InitializeApp> get copyWith;
 }
 
 /// @nodoc
@@ -73,6 +85,7 @@ abstract class $InitializeAppCopyWith<$Res> {
   factory $InitializeAppCopyWith(
           InitializeApp value, $Res Function(InitializeApp) then) =
       _$InitializeAppCopyWithImpl<$Res>;
+  $Res call({String pendingId});
 }
 
 /// @nodoc
@@ -83,13 +96,25 @@ class _$InitializeAppCopyWithImpl<$Res>
   final InitializeApp _value;
   // ignore: unused_field
   final $Res Function(InitializeApp) _then;
+
+  @override
+  $Res call({
+    Object pendingId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      pendingId: pendingId == freezed ? _value.pendingId : pendingId as String,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $InitializeApp$CopyWith<$Res> {
+abstract class $InitializeApp$CopyWith<$Res>
+    implements $InitializeAppCopyWith<$Res> {
   factory $InitializeApp$CopyWith(
           InitializeApp$ value, $Res Function(InitializeApp$) then) =
       _$InitializeApp$CopyWithImpl<$Res>;
+  @override
+  $Res call({String pendingId});
 }
 
 /// @nodoc
@@ -102,49 +127,76 @@ class _$InitializeApp$CopyWithImpl<$Res>
 
   @override
   InitializeApp$ get _value => super._value as InitializeApp$;
+
+  @override
+  $Res call({
+    Object pendingId = freezed,
+  }) {
+    return _then(InitializeApp$(
+      pendingId == freezed ? _value.pendingId : pendingId as String,
+    ));
+  }
 }
+
+@Implements(ActionStart)
 
 /// @nodoc
 class _$InitializeApp$ implements InitializeApp$ {
-  const _$InitializeApp$();
+  const _$InitializeApp$([this.pendingId = _kInitializeAppPendingId])
+      : assert(pendingId != null);
+
+  @JsonKey(defaultValue: _kInitializeAppPendingId)
+  @override
+  final String pendingId;
 
   @override
   String toString() {
-    return 'InitializeApp()';
+    return 'InitializeApp(pendingId: $pendingId)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InitializeApp$);
+    return identical(this, other) ||
+        (other is InitializeApp$ &&
+            (identical(other.pendingId, pendingId) ||
+                const DeepCollectionEquality()
+                    .equals(other.pendingId, pendingId)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(pendingId);
+
+  @JsonKey(ignore: true)
+  @override
+  $InitializeApp$CopyWith<InitializeApp$> get copyWith =>
+      _$InitializeApp$CopyWithImpl<InitializeApp$>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>(
-    TResult $default(), {
-    @required TResult successful(@nullable AppUser user),
-    @required TResult error(Object error, StackTrace stackTrace),
+    TResult $default(String pendingId), {
+    @required TResult successful(@nullable AppUser user, String pendingId),
+    @required
+        TResult error(Object error, StackTrace stackTrace, String pendingId),
   }) {
     assert($default != null);
     assert(successful != null);
     assert(error != null);
-    return $default();
+    return $default(pendingId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
-    TResult $default(), {
-    TResult successful(@nullable AppUser user),
-    TResult error(Object error, StackTrace stackTrace),
+    TResult $default(String pendingId), {
+    TResult successful(@nullable AppUser user, String pendingId),
+    TResult error(Object error, StackTrace stackTrace, String pendingId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if ($default != null) {
-      return $default();
+      return $default(pendingId);
     }
     return orElse();
   }
@@ -178,16 +230,24 @@ class _$InitializeApp$ implements InitializeApp$ {
   }
 }
 
-abstract class InitializeApp$ implements InitializeApp {
-  const factory InitializeApp$() = _$InitializeApp$;
+abstract class InitializeApp$ implements InitializeApp, ActionStart {
+  const factory InitializeApp$([String pendingId]) = _$InitializeApp$;
+
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  $InitializeApp$CopyWith<InitializeApp$> get copyWith;
 }
 
 /// @nodoc
-abstract class $InitializeAppSuccessfulCopyWith<$Res> {
+abstract class $InitializeAppSuccessfulCopyWith<$Res>
+    implements $InitializeAppCopyWith<$Res> {
   factory $InitializeAppSuccessfulCopyWith(InitializeAppSuccessful value,
           $Res Function(InitializeAppSuccessful) then) =
       _$InitializeAppSuccessfulCopyWithImpl<$Res>;
-  $Res call({@nullable AppUser user});
+  @override
+  $Res call({@nullable AppUser user, String pendingId});
 }
 
 /// @nodoc
@@ -204,24 +264,33 @@ class _$InitializeAppSuccessfulCopyWithImpl<$Res>
   @override
   $Res call({
     Object user = freezed,
+    Object pendingId = freezed,
   }) {
     return _then(InitializeAppSuccessful(
       user == freezed ? _value.user : user as AppUser,
+      pendingId == freezed ? _value.pendingId : pendingId as String,
     ));
   }
 }
 
+@Implements(ActionDone)
+
 /// @nodoc
 class _$InitializeAppSuccessful implements InitializeAppSuccessful {
-  const _$InitializeAppSuccessful(@nullable this.user);
+  const _$InitializeAppSuccessful(@nullable this.user,
+      [this.pendingId = _kInitializeAppPendingId])
+      : assert(pendingId != null);
 
   @override
   @nullable
   final AppUser user;
+  @JsonKey(defaultValue: _kInitializeAppPendingId)
+  @override
+  final String pendingId;
 
   @override
   String toString() {
-    return 'InitializeApp.successful(user: $user)';
+    return 'InitializeApp.successful(user: $user, pendingId: $pendingId)';
   }
 
   @override
@@ -229,12 +298,17 @@ class _$InitializeAppSuccessful implements InitializeAppSuccessful {
     return identical(this, other) ||
         (other is InitializeAppSuccessful &&
             (identical(other.user, user) ||
-                const DeepCollectionEquality().equals(other.user, user)));
+                const DeepCollectionEquality().equals(other.user, user)) &&
+            (identical(other.pendingId, pendingId) ||
+                const DeepCollectionEquality()
+                    .equals(other.pendingId, pendingId)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(user);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(user) ^
+      const DeepCollectionEquality().hash(pendingId);
 
   @JsonKey(ignore: true)
   @override
@@ -245,27 +319,28 @@ class _$InitializeAppSuccessful implements InitializeAppSuccessful {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>(
-    TResult $default(), {
-    @required TResult successful(@nullable AppUser user),
-    @required TResult error(Object error, StackTrace stackTrace),
+    TResult $default(String pendingId), {
+    @required TResult successful(@nullable AppUser user, String pendingId),
+    @required
+        TResult error(Object error, StackTrace stackTrace, String pendingId),
   }) {
     assert($default != null);
     assert(successful != null);
     assert(error != null);
-    return successful(user);
+    return successful(user, pendingId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
-    TResult $default(), {
-    TResult successful(@nullable AppUser user),
-    TResult error(Object error, StackTrace stackTrace),
+    TResult $default(String pendingId), {
+    TResult successful(@nullable AppUser user, String pendingId),
+    TResult error(Object error, StackTrace stackTrace, String pendingId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (successful != null) {
-      return successful(user);
+      return successful(user, pendingId);
     }
     return orElse();
   }
@@ -299,22 +374,27 @@ class _$InitializeAppSuccessful implements InitializeAppSuccessful {
   }
 }
 
-abstract class InitializeAppSuccessful implements InitializeApp {
-  const factory InitializeAppSuccessful(@nullable AppUser user) =
-      _$InitializeAppSuccessful;
+abstract class InitializeAppSuccessful implements InitializeApp, ActionDone {
+  const factory InitializeAppSuccessful(@nullable AppUser user,
+      [String pendingId]) = _$InitializeAppSuccessful;
 
   @nullable
   AppUser get user;
+  @override
+  String get pendingId;
+  @override
   @JsonKey(ignore: true)
   $InitializeAppSuccessfulCopyWith<InitializeAppSuccessful> get copyWith;
 }
 
 /// @nodoc
-abstract class $InitializeAppErrorCopyWith<$Res> {
+abstract class $InitializeAppErrorCopyWith<$Res>
+    implements $InitializeAppCopyWith<$Res> {
   factory $InitializeAppErrorCopyWith(
           InitializeAppError value, $Res Function(InitializeAppError) then) =
       _$InitializeAppErrorCopyWithImpl<$Res>;
-  $Res call({Object error, StackTrace stackTrace});
+  @override
+  $Res call({Object error, StackTrace stackTrace, String pendingId});
 }
 
 /// @nodoc
@@ -332,30 +412,38 @@ class _$InitializeAppErrorCopyWithImpl<$Res>
   $Res call({
     Object error = freezed,
     Object stackTrace = freezed,
+    Object pendingId = freezed,
   }) {
     return _then(InitializeAppError(
       error == freezed ? _value.error : error,
       stackTrace == freezed ? _value.stackTrace : stackTrace as StackTrace,
+      pendingId == freezed ? _value.pendingId : pendingId as String,
     ));
   }
 }
 
+@Implements(ActionDone)
 @Implements(ErrorAction)
 
 /// @nodoc
 class _$InitializeAppError implements InitializeAppError {
-  const _$InitializeAppError(this.error, this.stackTrace)
+  const _$InitializeAppError(this.error, this.stackTrace,
+      [this.pendingId = _kInitializeAppPendingId])
       : assert(error != null),
-        assert(stackTrace != null);
+        assert(stackTrace != null),
+        assert(pendingId != null);
 
   @override
   final Object error;
   @override
   final StackTrace stackTrace;
+  @JsonKey(defaultValue: _kInitializeAppPendingId)
+  @override
+  final String pendingId;
 
   @override
   String toString() {
-    return 'InitializeApp.error(error: $error, stackTrace: $stackTrace)';
+    return 'InitializeApp.error(error: $error, stackTrace: $stackTrace, pendingId: $pendingId)';
   }
 
   @override
@@ -366,14 +454,18 @@ class _$InitializeAppError implements InitializeAppError {
                 const DeepCollectionEquality().equals(other.error, error)) &&
             (identical(other.stackTrace, stackTrace) ||
                 const DeepCollectionEquality()
-                    .equals(other.stackTrace, stackTrace)));
+                    .equals(other.stackTrace, stackTrace)) &&
+            (identical(other.pendingId, pendingId) ||
+                const DeepCollectionEquality()
+                    .equals(other.pendingId, pendingId)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(error) ^
-      const DeepCollectionEquality().hash(stackTrace);
+      const DeepCollectionEquality().hash(stackTrace) ^
+      const DeepCollectionEquality().hash(pendingId);
 
   @JsonKey(ignore: true)
   @override
@@ -383,27 +475,28 @@ class _$InitializeAppError implements InitializeAppError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>(
-    TResult $default(), {
-    @required TResult successful(@nullable AppUser user),
-    @required TResult error(Object error, StackTrace stackTrace),
+    TResult $default(String pendingId), {
+    @required TResult successful(@nullable AppUser user, String pendingId),
+    @required
+        TResult error(Object error, StackTrace stackTrace, String pendingId),
   }) {
     assert($default != null);
     assert(successful != null);
     assert(error != null);
-    return error(this.error, stackTrace);
+    return error(this.error, stackTrace, pendingId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>(
-    TResult $default(), {
-    TResult successful(@nullable AppUser user),
-    TResult error(Object error, StackTrace stackTrace),
+    TResult $default(String pendingId), {
+    TResult successful(@nullable AppUser user, String pendingId),
+    TResult error(Object error, StackTrace stackTrace, String pendingId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (error != null) {
-      return error(this.error, stackTrace);
+      return error(this.error, stackTrace, pendingId);
     }
     return orElse();
   }
@@ -437,12 +530,16 @@ class _$InitializeAppError implements InitializeAppError {
   }
 }
 
-abstract class InitializeAppError implements InitializeApp, ErrorAction {
-  const factory InitializeAppError(Object error, StackTrace stackTrace) =
-      _$InitializeAppError;
+abstract class InitializeAppError
+    implements InitializeApp, ActionDone, ErrorAction {
+  const factory InitializeAppError(Object error, StackTrace stackTrace,
+      [String pendingId]) = _$InitializeAppError;
 
   Object get error;
   StackTrace get stackTrace;
+  @override
+  String get pendingId;
+  @override
   @JsonKey(ignore: true)
   $InitializeAppErrorCopyWith<InitializeAppError> get copyWith;
 }

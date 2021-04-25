@@ -1,6 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:zubisdyn/src/actions/index.dart';
 import 'package:zubisdyn/src/models/auth/index.dart';
 
 abstract class AuthApi {

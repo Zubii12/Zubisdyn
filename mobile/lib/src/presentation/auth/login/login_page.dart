@@ -1,14 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:zubisdyn/src/actions/auth/index.dart';
-import 'package:zubisdyn/src/containers/auth/index.dart';
-import 'package:zubisdyn/src/models/auth/index.dart';
-import 'package:email_validator/email_validator.dart';
-import 'package:zubisdyn/src/models/index.dart';
+import 'package:loading_overlay/loading_overlay.dart';
+import 'package:zubisdyn/src/containers/pending/index.dart';
 import 'package:zubisdyn/src/presentation/auth/login/login_part.dart';
 import 'package:zubisdyn/src/presentation/auth/login/sign_up_part.dart';
-import 'package:zubisdyn/src/presentation/mixins/store_mixin.dart';
+import 'package:zubisdyn/src/presentation/theme.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -26,49 +23,57 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            TabBar(
-              controller: _controller,
-              tabs: const <Widget>[
-                Text(
-                  'Login',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                  ),
-                ),
-                Text(
-                  'Sign up',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                  ),
-                ),
-              ],
-              indicatorWeight: 24,
-              indicator: CircleTabIndicator(
-                color: const Color(0xFF327FEB),
-                radius: 4,
-              ),
-              unselectedLabelStyle: const TextStyle(
-                color: Color(0xcca9a9a9),
-              ),
-            ),
-            Expanded(
-              child: TabBarView(
-                controller: _controller,
+    return IsCheckingLoginContainer(
+      builder: (BuildContext context, bool isLoading) {
+        return LoadingOverlay(
+          isLoading: isLoading,
+          color: AppColors.screen,
+          child: Scaffold(
+            body: SafeArea(
+              child: Column(
                 children: <Widget>[
-                  LoginPart(),
-                  SignUpPart(),
+                  TabBar(
+                    controller: _controller,
+                    tabs: const <Widget>[
+                      Text(
+                        'Login',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 24,
+                        ),
+                      ),
+                      Text(
+                        'Sign up',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 24,
+                        ),
+                      ),
+                    ],
+                    indicatorWeight: 24,
+                    indicator: CircleTabIndicator(
+                      color: const Color(0xFF327FEB),
+                      radius: 4,
+                    ),
+                    unselectedLabelStyle: const TextStyle(
+                      color: Color(0xcca9a9a9),
+                    ),
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      controller: _controller,
+                      children: <Widget>[
+                        LoginPart(),
+                        SignUpPart(),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
