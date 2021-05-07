@@ -82,5 +82,12 @@ ThemeData get appTheme {
         borderRadius: BorderRadius.circular(24.0),
       ),
     ),
+    appBarTheme: const AppBarTheme(
+      color: AppColors.screen,
+      elevation: 0.1,
+      iconTheme: IconThemeData(
+        color: AppColors.dark,
+      ),
+    ),
   );
 }

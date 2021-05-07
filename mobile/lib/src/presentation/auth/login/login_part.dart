@@ -5,6 +5,7 @@ import 'package:zubisdyn/src/actions/index.dart';
 import 'package:zubisdyn/src/containers/index.dart';
 import 'package:zubisdyn/src/models/auth/index.dart';
 import 'package:zubisdyn/src/presentation/mixins/store_mixin.dart';
+import 'package:zubisdyn/src/presentation/routes.dart';
 import 'package:zubisdyn/src/presentation/widgets/app_modal_bottom_sheet.dart';
 
 class LoginPart extends StatefulWidget {
@@ -124,7 +125,7 @@ class _LoginPartState extends State<LoginPart> with StoreMixin<LoginPart> {
                             heightFactor: 2.5,
                             child: InkWell(
                               onTap: () {
-                                // todo
+                                Navigator.pushNamed(context, AppRoutes.forgotPassword);
                               },
                               child: const Text(
                                 'Forgot Password?',
