@@ -16,6 +16,9 @@ abstract class AppRoutes {
       return LoginPage();
     },
     forgotPassword: (BuildContext context) => ForgotPasswordPage(),
-    codeVerification: (BuildContext context) => CodeVerificationPage(),
+    codeVerification: (BuildContext context) {
+      final String code = ModalRoute.of(context).settings.arguments;
+      return CodeVerificationPage(code: code);
+    },
   };
 }

@@ -6,6 +6,10 @@ import 'package:zubisdyn/src/presentation/theme.dart';
 const int _kSmsCodeLength = 4;
 
 class CodeVerificationPage extends StatefulWidget {
+  const CodeVerificationPage({Key key, @required this.code}) : super(key: key);
+
+  final String code;
+
   @override
   _CodeVerificationPageState createState() => _CodeVerificationPageState();
 }
@@ -158,8 +162,11 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> with StoreM
                   width: size.width < maxWidth ? size.width - 24.0 : maxWidth,
                   child: TextButton(
                     onPressed: () {
-                      // todo
-                      //Navigator.pushNamed(context, AppRoutes.codeVerification);
+                      if (widget.code == _code.text) {
+                        // Navigator.pushNamed(context, AppRoutes.resetPassword);
+                      } else {
+                        // todo
+                      }
                     },
                     child: const Text(
                       'Continue',

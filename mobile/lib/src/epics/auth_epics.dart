@@ -19,6 +19,7 @@ class AuthEpics {
       TypedEpic<AppState, LoginWithEmail$>(_loginWithEmail),
       TypedEpic<AppState, GetAuthProviders$>(_getAuthProviders),
       TypedEpic<AppState, SignUpWithEmail$>(_signUpWithEmail),
+      TypedEpic<AppState, SendCodeResetPasswordEmail$>(_sendCodeResetPasswordEmail),
     ]);
   }
 
@@ -50,6 +51,15 @@ class AuthEpics {
                 ))
             .mapTo(const SignUpWithEmail.successful())
             .onError($SignUpWithEmail.error)
+            .doOnData(action.result));
+  }
+
+  Stream<AppAction> _sendCodeResetPasswordEmail(Stream<SendCodeResetPasswordEmail$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((SendCodeResetPasswordEmail$ action) => Stream<void>.value(null)
+            .asyncMap((_) => _api.sendCodeResetPasswordEmail(email: store.state.auth.info.email))
+            .map((String code) => SendCodeResetPasswordEmail.successful(code))
+            .onError($SendCodeResetPasswordEmail.error)
             .doOnData(action.result));
   }
 }

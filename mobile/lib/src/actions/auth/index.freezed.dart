@@ -10,6 +10,578 @@ part of auth_actions;
 T _$identity<T>(T value) => value;
 
 /// @nodoc
+class _$SendCodeResetPasswordEmailTearOff {
+  const _$SendCodeResetPasswordEmailTearOff();
+
+// ignore: unused_element
+  SendCodeResetPasswordEmail$ start(
+      {@required void Function(AppAction) result,
+      String pendingId = _kSendCodeResetPasswordEmailPendingId}) {
+    return SendCodeResetPasswordEmail$(
+      result: result,
+      pendingId: pendingId,
+    );
+  }
+
+// ignore: unused_element
+  SendCodeResetPasswordEmailSuccessful successful(String code,
+      [String pendingId = _kSendCodeResetPasswordEmailPendingId]) {
+    return SendCodeResetPasswordEmailSuccessful(
+      code,
+      pendingId,
+    );
+  }
+
+// ignore: unused_element
+  SendCodeResetPasswordEmailError error(Object error, StackTrace stackTrace,
+      [String pendingId = _kSendCodeResetPasswordEmailPendingId]) {
+    return SendCodeResetPasswordEmailError(
+      error,
+      stackTrace,
+      pendingId,
+    );
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $SendCodeResetPasswordEmail = _$SendCodeResetPasswordEmailTearOff();
+
+/// @nodoc
+mixin _$SendCodeResetPasswordEmail {
+  String get pendingId;
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult start(void Function(AppAction) result, String pendingId),
+    @required TResult successful(String code, String pendingId),
+    @required
+        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  });
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult start(void Function(AppAction) result, String pendingId),
+    TResult successful(String code, String pendingId),
+    TResult error(Object error, StackTrace stackTrace, String pendingId),
+    @required TResult orElse(),
+  });
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult start(SendCodeResetPasswordEmail$ value),
+    @required TResult successful(SendCodeResetPasswordEmailSuccessful value),
+    @required TResult error(SendCodeResetPasswordEmailError value),
+  });
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult start(SendCodeResetPasswordEmail$ value),
+    TResult successful(SendCodeResetPasswordEmailSuccessful value),
+    TResult error(SendCodeResetPasswordEmailError value),
+    @required TResult orElse(),
+  });
+
+  @JsonKey(ignore: true)
+  $SendCodeResetPasswordEmailCopyWith<SendCodeResetPasswordEmail> get copyWith;
+}
+
+/// @nodoc
+abstract class $SendCodeResetPasswordEmailCopyWith<$Res> {
+  factory $SendCodeResetPasswordEmailCopyWith(SendCodeResetPasswordEmail value,
+          $Res Function(SendCodeResetPasswordEmail) then) =
+      _$SendCodeResetPasswordEmailCopyWithImpl<$Res>;
+  $Res call({String pendingId});
+}
+
+/// @nodoc
+class _$SendCodeResetPasswordEmailCopyWithImpl<$Res>
+    implements $SendCodeResetPasswordEmailCopyWith<$Res> {
+  _$SendCodeResetPasswordEmailCopyWithImpl(this._value, this._then);
+
+  final SendCodeResetPasswordEmail _value;
+  // ignore: unused_field
+  final $Res Function(SendCodeResetPasswordEmail) _then;
+
+  @override
+  $Res call({
+    Object pendingId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      pendingId: pendingId == freezed ? _value.pendingId : pendingId as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class $SendCodeResetPasswordEmail$CopyWith<$Res>
+    implements $SendCodeResetPasswordEmailCopyWith<$Res> {
+  factory $SendCodeResetPasswordEmail$CopyWith(
+          SendCodeResetPasswordEmail$ value,
+          $Res Function(SendCodeResetPasswordEmail$) then) =
+      _$SendCodeResetPasswordEmail$CopyWithImpl<$Res>;
+  @override
+  $Res call({void Function(AppAction) result, String pendingId});
+}
+
+/// @nodoc
+class _$SendCodeResetPasswordEmail$CopyWithImpl<$Res>
+    extends _$SendCodeResetPasswordEmailCopyWithImpl<$Res>
+    implements $SendCodeResetPasswordEmail$CopyWith<$Res> {
+  _$SendCodeResetPasswordEmail$CopyWithImpl(SendCodeResetPasswordEmail$ _value,
+      $Res Function(SendCodeResetPasswordEmail$) _then)
+      : super(_value, (v) => _then(v as SendCodeResetPasswordEmail$));
+
+  @override
+  SendCodeResetPasswordEmail$ get _value =>
+      super._value as SendCodeResetPasswordEmail$;
+
+  @override
+  $Res call({
+    Object result = freezed,
+    Object pendingId = freezed,
+  }) {
+    return _then(SendCodeResetPasswordEmail$(
+      result: result == freezed
+          ? _value.result
+          : result as void Function(AppAction),
+      pendingId: pendingId == freezed ? _value.pendingId : pendingId as String,
+    ));
+  }
+}
+
+@Implements(ActionStart)
+
+/// @nodoc
+class _$SendCodeResetPasswordEmail$ implements SendCodeResetPasswordEmail$ {
+  const _$SendCodeResetPasswordEmail$(
+      {@required this.result,
+      this.pendingId = _kSendCodeResetPasswordEmailPendingId})
+      : assert(result != null),
+        assert(pendingId != null);
+
+  @override
+  final void Function(AppAction) result;
+  @JsonKey(defaultValue: _kSendCodeResetPasswordEmailPendingId)
+  @override
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'SendCodeResetPasswordEmail.start(result: $result, pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SendCodeResetPasswordEmail$ &&
+            (identical(other.result, result) ||
+                const DeepCollectionEquality().equals(other.result, result)) &&
+            (identical(other.pendingId, pendingId) ||
+                const DeepCollectionEquality()
+                    .equals(other.pendingId, pendingId)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(result) ^
+      const DeepCollectionEquality().hash(pendingId);
+
+  @JsonKey(ignore: true)
+  @override
+  $SendCodeResetPasswordEmail$CopyWith<SendCodeResetPasswordEmail$>
+      get copyWith => _$SendCodeResetPasswordEmail$CopyWithImpl<
+          SendCodeResetPasswordEmail$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult start(void Function(AppAction) result, String pendingId),
+    @required TResult successful(String code, String pendingId),
+    @required
+        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  }) {
+    assert(start != null);
+    assert(successful != null);
+    assert(error != null);
+    return start(result, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult start(void Function(AppAction) result, String pendingId),
+    TResult successful(String code, String pendingId),
+    TResult error(Object error, StackTrace stackTrace, String pendingId),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (start != null) {
+      return start(result, pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult start(SendCodeResetPasswordEmail$ value),
+    @required TResult successful(SendCodeResetPasswordEmailSuccessful value),
+    @required TResult error(SendCodeResetPasswordEmailError value),
+  }) {
+    assert(start != null);
+    assert(successful != null);
+    assert(error != null);
+    return start(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult start(SendCodeResetPasswordEmail$ value),
+    TResult successful(SendCodeResetPasswordEmailSuccessful value),
+    TResult error(SendCodeResetPasswordEmailError value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (start != null) {
+      return start(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SendCodeResetPasswordEmail$
+    implements SendCodeResetPasswordEmail, ActionStart {
+  const factory SendCodeResetPasswordEmail$(
+      {@required void Function(AppAction) result,
+      String pendingId}) = _$SendCodeResetPasswordEmail$;
+
+  void Function(AppAction) get result;
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  $SendCodeResetPasswordEmail$CopyWith<SendCodeResetPasswordEmail$>
+      get copyWith;
+}
+
+/// @nodoc
+abstract class $SendCodeResetPasswordEmailSuccessfulCopyWith<$Res>
+    implements $SendCodeResetPasswordEmailCopyWith<$Res> {
+  factory $SendCodeResetPasswordEmailSuccessfulCopyWith(
+          SendCodeResetPasswordEmailSuccessful value,
+          $Res Function(SendCodeResetPasswordEmailSuccessful) then) =
+      _$SendCodeResetPasswordEmailSuccessfulCopyWithImpl<$Res>;
+  @override
+  $Res call({String code, String pendingId});
+}
+
+/// @nodoc
+class _$SendCodeResetPasswordEmailSuccessfulCopyWithImpl<$Res>
+    extends _$SendCodeResetPasswordEmailCopyWithImpl<$Res>
+    implements $SendCodeResetPasswordEmailSuccessfulCopyWith<$Res> {
+  _$SendCodeResetPasswordEmailSuccessfulCopyWithImpl(
+      SendCodeResetPasswordEmailSuccessful _value,
+      $Res Function(SendCodeResetPasswordEmailSuccessful) _then)
+      : super(_value, (v) => _then(v as SendCodeResetPasswordEmailSuccessful));
+
+  @override
+  SendCodeResetPasswordEmailSuccessful get _value =>
+      super._value as SendCodeResetPasswordEmailSuccessful;
+
+  @override
+  $Res call({
+    Object code = freezed,
+    Object pendingId = freezed,
+  }) {
+    return _then(SendCodeResetPasswordEmailSuccessful(
+      code == freezed ? _value.code : code as String,
+      pendingId == freezed ? _value.pendingId : pendingId as String,
+    ));
+  }
+}
+
+@Implements(ActionDone)
+
+/// @nodoc
+class _$SendCodeResetPasswordEmailSuccessful
+    implements SendCodeResetPasswordEmailSuccessful {
+  const _$SendCodeResetPasswordEmailSuccessful(this.code,
+      [this.pendingId = _kSendCodeResetPasswordEmailPendingId])
+      : assert(code != null),
+        assert(pendingId != null);
+
+  @override
+  final String code;
+  @JsonKey(defaultValue: _kSendCodeResetPasswordEmailPendingId)
+  @override
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'SendCodeResetPasswordEmail.successful(code: $code, pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SendCodeResetPasswordEmailSuccessful &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.pendingId, pendingId) ||
+                const DeepCollectionEquality()
+                    .equals(other.pendingId, pendingId)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(pendingId);
+
+  @JsonKey(ignore: true)
+  @override
+  $SendCodeResetPasswordEmailSuccessfulCopyWith<
+          SendCodeResetPasswordEmailSuccessful>
+      get copyWith => _$SendCodeResetPasswordEmailSuccessfulCopyWithImpl<
+          SendCodeResetPasswordEmailSuccessful>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult start(void Function(AppAction) result, String pendingId),
+    @required TResult successful(String code, String pendingId),
+    @required
+        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  }) {
+    assert(start != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(code, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult start(void Function(AppAction) result, String pendingId),
+    TResult successful(String code, String pendingId),
+    TResult error(Object error, StackTrace stackTrace, String pendingId),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(code, pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult start(SendCodeResetPasswordEmail$ value),
+    @required TResult successful(SendCodeResetPasswordEmailSuccessful value),
+    @required TResult error(SendCodeResetPasswordEmailError value),
+  }) {
+    assert(start != null);
+    assert(successful != null);
+    assert(error != null);
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult start(SendCodeResetPasswordEmail$ value),
+    TResult successful(SendCodeResetPasswordEmailSuccessful value),
+    TResult error(SendCodeResetPasswordEmailError value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SendCodeResetPasswordEmailSuccessful
+    implements SendCodeResetPasswordEmail, ActionDone {
+  const factory SendCodeResetPasswordEmailSuccessful(String code,
+      [String pendingId]) = _$SendCodeResetPasswordEmailSuccessful;
+
+  String get code;
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  $SendCodeResetPasswordEmailSuccessfulCopyWith<
+      SendCodeResetPasswordEmailSuccessful> get copyWith;
+}
+
+/// @nodoc
+abstract class $SendCodeResetPasswordEmailErrorCopyWith<$Res>
+    implements $SendCodeResetPasswordEmailCopyWith<$Res> {
+  factory $SendCodeResetPasswordEmailErrorCopyWith(
+          SendCodeResetPasswordEmailError value,
+          $Res Function(SendCodeResetPasswordEmailError) then) =
+      _$SendCodeResetPasswordEmailErrorCopyWithImpl<$Res>;
+  @override
+  $Res call({Object error, StackTrace stackTrace, String pendingId});
+}
+
+/// @nodoc
+class _$SendCodeResetPasswordEmailErrorCopyWithImpl<$Res>
+    extends _$SendCodeResetPasswordEmailCopyWithImpl<$Res>
+    implements $SendCodeResetPasswordEmailErrorCopyWith<$Res> {
+  _$SendCodeResetPasswordEmailErrorCopyWithImpl(
+      SendCodeResetPasswordEmailError _value,
+      $Res Function(SendCodeResetPasswordEmailError) _then)
+      : super(_value, (v) => _then(v as SendCodeResetPasswordEmailError));
+
+  @override
+  SendCodeResetPasswordEmailError get _value =>
+      super._value as SendCodeResetPasswordEmailError;
+
+  @override
+  $Res call({
+    Object error = freezed,
+    Object stackTrace = freezed,
+    Object pendingId = freezed,
+  }) {
+    return _then(SendCodeResetPasswordEmailError(
+      error == freezed ? _value.error : error,
+      stackTrace == freezed ? _value.stackTrace : stackTrace as StackTrace,
+      pendingId == freezed ? _value.pendingId : pendingId as String,
+    ));
+  }
+}
+
+@Implements(ActionDone)
+@Implements(ErrorAction)
+
+/// @nodoc
+class _$SendCodeResetPasswordEmailError
+    implements SendCodeResetPasswordEmailError {
+  const _$SendCodeResetPasswordEmailError(this.error, this.stackTrace,
+      [this.pendingId = _kSendCodeResetPasswordEmailPendingId])
+      : assert(error != null),
+        assert(stackTrace != null),
+        assert(pendingId != null);
+
+  @override
+  final Object error;
+  @override
+  final StackTrace stackTrace;
+  @JsonKey(defaultValue: _kSendCodeResetPasswordEmailPendingId)
+  @override
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'SendCodeResetPasswordEmail.error(error: $error, stackTrace: $stackTrace, pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is SendCodeResetPasswordEmailError &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)) &&
+            (identical(other.stackTrace, stackTrace) ||
+                const DeepCollectionEquality()
+                    .equals(other.stackTrace, stackTrace)) &&
+            (identical(other.pendingId, pendingId) ||
+                const DeepCollectionEquality()
+                    .equals(other.pendingId, pendingId)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(error) ^
+      const DeepCollectionEquality().hash(stackTrace) ^
+      const DeepCollectionEquality().hash(pendingId);
+
+  @JsonKey(ignore: true)
+  @override
+  $SendCodeResetPasswordEmailErrorCopyWith<SendCodeResetPasswordEmailError>
+      get copyWith => _$SendCodeResetPasswordEmailErrorCopyWithImpl<
+          SendCodeResetPasswordEmailError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult start(void Function(AppAction) result, String pendingId),
+    @required TResult successful(String code, String pendingId),
+    @required
+        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  }) {
+    assert(start != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this.error, stackTrace, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult start(void Function(AppAction) result, String pendingId),
+    TResult successful(String code, String pendingId),
+    TResult error(Object error, StackTrace stackTrace, String pendingId),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this.error, stackTrace, pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult start(SendCodeResetPasswordEmail$ value),
+    @required TResult successful(SendCodeResetPasswordEmailSuccessful value),
+    @required TResult error(SendCodeResetPasswordEmailError value),
+  }) {
+    assert(start != null);
+    assert(successful != null);
+    assert(error != null);
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult start(SendCodeResetPasswordEmail$ value),
+    TResult successful(SendCodeResetPasswordEmailSuccessful value),
+    TResult error(SendCodeResetPasswordEmailError value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SendCodeResetPasswordEmailError
+    implements SendCodeResetPasswordEmail, ActionDone, ErrorAction {
+  const factory SendCodeResetPasswordEmailError(
+          Object error, StackTrace stackTrace, [String pendingId]) =
+      _$SendCodeResetPasswordEmailError;
+
+  Object get error;
+  StackTrace get stackTrace;
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  $SendCodeResetPasswordEmailErrorCopyWith<SendCodeResetPasswordEmailError>
+      get copyWith;
+}
+
+/// @nodoc
 class _$SignUpWithEmailTearOff {
   const _$SignUpWithEmailTearOff();
 

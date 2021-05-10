@@ -89,4 +89,10 @@ class AuthApiImpl implements AuthApi {
     final AppUser appUser = await authState.first;
     await _firestore.doc('users/${appUser.uid}').update(<String, dynamic>{'username': username});
   }
+
+  @override
+  Future<String> sendCodeResetPasswordEmail({String email}) {
+    // todo: implement sendResetPasswordEmail
+    throw UnimplementedError();
+  }
 }

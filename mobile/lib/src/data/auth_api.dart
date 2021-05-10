@@ -9,4 +9,6 @@ abstract class AuthApi {
   Future<List<String>> getAuthProviders({@required String email});
 
   Future<void> signUpWithEmail({@required String username, @required String email, @required String password});
+
+  Future<String> sendCodeResetPasswordEmail({@required String email});
 }

@@ -1,5 +1,10 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import 'package:redux/src/store.dart';
+import 'package:zubisdyn/src/actions/auth/index.dart';
+import 'package:zubisdyn/src/actions/index.dart';
+import 'package:zubisdyn/src/models/index.dart';
 import 'package:zubisdyn/src/presentation/routes.dart';
 import 'package:zubisdyn/src/presentation/theme.dart';
 
@@ -8,6 +13,7 @@ class ForgotPasswordPage extends StatelessWidget {
   Widget build(BuildContext context) {
     const double maxWidth = 384.0;
     final Size size = MediaQuery.of(context).size;
+    final Store<AppState> store = StoreProvider.of<AppState>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -33,7 +39,7 @@ class ForgotPasswordPage extends StatelessWidget {
               Container(
                 width: size.width < maxWidth ? size.width - 24.0 : maxWidth,
                 child: const Text(
-                  'Enter your email for the verification proccess,'
+                  'Enter your email for the verification process,'
                   ' and we will send 4 digits code to your email'
                   ' for the verification.',
                   style: TextStyle(
@@ -74,7 +80,7 @@ class ForgotPasswordPage extends StatelessWidget {
                         return null;
                       },
                       onChanged: (String value) {
-                        // todo
+                        store.dispatch(UpdateRegistrationInfo(email: value));
                       },
                     ),
                   ],
@@ -85,8 +91,16 @@ class ForgotPasswordPage extends StatelessWidget {
                 width: size.width < maxWidth ? size.width - 24.0 : maxWidth,
                 child: TextButton(
                   onPressed: () {
-                    // todo
-                    Navigator.pushNamed(context, AppRoutes.codeVerification);
+                    String code;
+                    store.dispatch(SendCodeResetPasswordEmail.start(
+                      result: (AppAction action) {
+                        if (action is SendCodeResetPasswordEmailSuccessful) {
+                          code = action.code;
+                        }
+                      },
+                    ));
+                    // todo: maybe the code will be null if the request take too long
+                    Navigator.pushNamed(context, AppRoutes.codeVerification, arguments: code);
                   },
                   child: const Text(
                     'Continue',
