@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package zubisdyn.v1;
+
+import "google/protobuf/empty.proto";
+
+service Auth {
+  rpc SendEmailLink (SendEmailLinkRequest) returns (google.protobuf.Empty) {}
+}
+
+message SendEmailLinkRequest {
+  enum EmailLinkType {
+    RESET_PASSWORD = 0;
+  }
+
+  string locale = 1;
+  string email = 2;
+  EmailLinkType type = 4;
+}
