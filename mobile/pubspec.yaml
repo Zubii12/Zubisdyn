@@ -16,6 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^1.0.1
   cloud_firestore: ^1.0.3
+  cloud_functions: ^1.0.6
 
   # flutter
   flutter_redux: ^0.7.0
@@ -27,6 +28,8 @@ dependencies:
   built_collection: ^5.0.0
   redux: ^5.0.0
   email_validator: ^2.0.1
+  grpc: ^3.0.0
+  protobuf: ^2.0.0
 
   # packages
   redux_epics: ^0.14.0
