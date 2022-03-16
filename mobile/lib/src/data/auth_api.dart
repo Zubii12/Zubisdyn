@@ -1,14 +1,15 @@
-import 'package:flutter/cupertino.dart';
 import 'package:zubisdyn/src/models/auth/index.dart';
 
 abstract class AuthApi {
-  Stream<AppUser> get authState;
+  Stream<AppUser?> get authState;
 
-  Future<void> loginWithEmail({@required String email, @required String password});
+  Future<void> loginWithEmail({required String email, required String password});
 
-  Future<List<String>> getAuthProviders({@required String email});
+  Future<List<String>> getAuthProviders({required String email});
 
-  Future<void> signUpWithEmail({@required String username, @required String email, @required String password});
+  Future<void> signUpWithEmail({required String username, required String email, required String password});
 
-  Future<String> sendCodeResetPasswordEmail({@required String email});
+  Future<String> sendCodeResetPasswordEmail({required String email});
+
+  Future<void> signOut();
 }

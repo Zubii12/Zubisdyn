@@ -3,23 +3,23 @@ part of app_actions;
 const String _kInitializeAppPendingId = 'InitializeApp';
 
 @freezed
-abstract class InitializeApp with _$InitializeApp implements AppAction {
-  @Implements(ActionStart)
+class InitializeApp with _$InitializeApp implements AppAction {
+  @Implements<ActionStart>()
   const factory InitializeApp([
     @Default(_kInitializeAppPendingId) String pendingId,
   ]) = InitializeApp$;
 
-  @Implements(ActionDone)
+  @Implements<ActionDone>()
   const factory InitializeApp.successful(
-    @nullable AppUser user, [
+    AppUser? user, [
     @Default(_kInitializeAppPendingId) String pendingId,
   ]) = InitializeAppSuccessful;
 
-  @Implements(ActionDone)
-  @Implements(ErrorAction)
+  @Implements<ActionDone>()
+  @Implements<ErrorAction>()
   const factory InitializeApp.error(
-    Object error,
-    StackTrace stackTrace, [
+    Object? error,
+    StackTrace? stackTrace, [
     @Default(_kInitializeAppPendingId) String pendingId,
   ]) = InitializeAppError;
 

@@ -6,7 +6,7 @@ import 'package:zubisdyn/src/presentation/theme.dart';
 const int _kSmsCodeLength = 4;
 
 class CodeVerificationPage extends StatefulWidget {
-  const CodeVerificationPage({Key key, @required this.code}) : super(key: key);
+  const CodeVerificationPage({Key? key, required this.code}) : super(key: key);
 
   final String code;
 
@@ -146,8 +146,8 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> with StoreM
                               ),
                             );
                           },
-                          validator: (String code) {
-                            if (code.length != _kSmsCodeLength) {
+                          validator: (String? code) {
+                            if (code?.length != _kSmsCodeLength) {
                               return 'The code is 6 digits long.';
                             }
                             return null;

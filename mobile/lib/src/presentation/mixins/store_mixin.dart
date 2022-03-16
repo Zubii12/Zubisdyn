@@ -7,7 +7,7 @@ import 'package:zubisdyn/src/models/index.dart';
 import 'package:zubisdyn/src/presentation/mixins/init_mixin.dart';
 
 mixin StoreMixin<S extends StatefulWidget> on State<S> implements StoreReadyProvider {
-  Store<AppState> _store;
+  late Store<AppState> _store;
 
   @override
   void initState() {

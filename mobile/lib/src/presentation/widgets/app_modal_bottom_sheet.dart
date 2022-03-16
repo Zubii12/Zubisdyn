@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class AppModalBottomSheet extends StatelessWidget {
   const AppModalBottomSheet({
-    Key key,
-    @required this.text,
-    @required this.description,
-    @required this.success,
+    Key? key,
+    required this.text,
+    required this.description,
+    required this.success,
   }) : super(key: key);
 
   final String text;
@@ -19,7 +19,7 @@ class AppModalBottomSheet extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 100.0),
           child: Image.asset(
-            success == false ? 'res/x_circle.png' : 'res/check_circle.png',
+            success == false ? 'res/icons/x_circle.png' : 'res/icons/check_circle.png',
             height: 96.0,
           ),
         ),

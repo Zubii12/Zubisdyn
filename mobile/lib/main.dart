@@ -8,8 +8,8 @@ import 'package:zubisdyn/src/init/init.dart';
 import 'package:zubisdyn/src/models/index.dart';
 import 'package:zubisdyn/src/presentation/home.dart';
 import 'package:zubisdyn/src/presentation/routes.dart';
-import 'package:zubisdyn/src/presentation/widgets/action_interceptor.dart';
 import 'package:zubisdyn/src/presentation/theme.dart';
+import 'package:zubisdyn/src/presentation/widgets/action_interceptor.dart';
 
 Future<void> main() async {
   runZonedGuarded(() async {
@@ -19,20 +19,14 @@ Future<void> main() async {
       runApp(ZubisdynApp(result: initResult));
     } catch (error, stackTrace) {
       log('1Zone Error', error: error, stackTrace: stackTrace, zone: Zone.current);
-      print('1Zone z_error: $error');
-      print('1z_stackTrace: $stackTrace');
-      print('1z_zone ${Zone.current}');
     }
   }, (Object error, StackTrace stackTrace) {
     log('2Zone Error', error: error, stackTrace: stackTrace, zone: Zone.current);
-    print('2Zone z_error: $error');
-    print('2z_stackTrace: $stackTrace');
-    print('2z_zone ${Zone.current}');
   });
 }
 
 class ZubisdynApp extends StatefulWidget {
-  const ZubisdynApp({Key key, @required this.result}) : super(key: key);
+  const ZubisdynApp({Key? key, required this.result}) : super(key: key);
 
   final InitResult result;
 

@@ -1,6 +1,4 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:zubisdyn/src/containers/pending/index.dart';
 import 'package:zubisdyn/src/presentation/auth/login/login_part.dart';
@@ -13,7 +11,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMixin {
-  TabController _controller;
+  late TabController _controller;
 
   @override
   void initState() {
@@ -79,12 +77,12 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
 }
 
 class CircleTabIndicator extends Decoration {
-  CircleTabIndicator({@required Color color, @required double radius}) : _painter = _CirclePainter(color, radius);
+  CircleTabIndicator({required Color color, required double radius}) : _painter = _CirclePainter(color, radius);
 
   final BoxPainter _painter;
 
   @override
-  BoxPainter createBoxPainter([VoidCallback onChanged]) => _painter;
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) => _painter;
 }
 
 class _CirclePainter extends BoxPainter {
@@ -99,7 +97,8 @@ class _CirclePainter extends BoxPainter {
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    final Offset circleOffset = offset + Offset(configuration.size.width / 2, configuration.size.height - _radius - 5);
+    final Offset circleOffset =
+        offset + Offset(configuration.size!.width / 2, configuration.size!.height - _radius - 5);
     canvas.drawCircle(circleOffset, _radius, _paint);
   }
 }

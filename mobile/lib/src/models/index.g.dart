@@ -15,12 +15,18 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
   final String wireName = 'AppState';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, AppState object,
+  Iterable<Object?> serialize(Serializers serializers, AppState object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
+    final result = <Object?>[
       'auth',
       serializers.serialize(object.auth,
           specifiedType: const FullType(AuthState)),
+      'posts',
+      serializers.serialize(object.posts,
+          specifiedType: const FullType(PostsState)),
+      'tabIndex',
+      serializers.serialize(object.tabIndex,
+          specifiedType: const FullType(int)),
       'pendingActions',
       serializers.serialize(object.pendingActions,
           specifiedType:
@@ -31,7 +37,7 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
   }
 
   @override
-  AppState deserialize(Serializers serializers, Iterable<Object> serialized,
+  AppState deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
     final result = new AppStateBuilder();
 
@@ -39,17 +45,25 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
     while (iterator.moveNext()) {
       final key = iterator.current as String;
       iterator.moveNext();
-      final Object value = iterator.current;
+      final Object? value = iterator.current;
       switch (key) {
         case 'auth':
           result.auth.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AuthState)) as AuthState);
+              specifiedType: const FullType(AuthState))! as AuthState);
+          break;
+        case 'posts':
+          result.posts.replace(serializers.deserialize(value,
+              specifiedType: const FullType(PostsState))! as PostsState);
+          break;
+        case 'tabIndex':
+          result.tabIndex = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
           break;
         case 'pendingActions':
           result.pendingActions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltSet, const [const FullType(String)]))
-              as BuiltSet<Object>);
+                      const FullType(BuiltSet, const [const FullType(String)]))!
+              as BuiltSet<Object?>);
           break;
       }
     }
@@ -62,13 +76,24 @@ class _$AppState extends AppState {
   @override
   final AuthState auth;
   @override
+  final PostsState posts;
+  @override
+  final int tabIndex;
+  @override
   final BuiltSet<String> pendingActions;
 
-  factory _$AppState([void Function(AppStateBuilder) updates]) =>
+  factory _$AppState([void Function(AppStateBuilder)? updates]) =>
       (new AppStateBuilder()..update(updates)).build();
 
-  _$AppState._({this.auth, this.pendingActions}) : super._() {
+  _$AppState._(
+      {required this.auth,
+      required this.posts,
+      required this.tabIndex,
+      required this.pendingActions})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(auth, 'AppState', 'auth');
+    BuiltValueNullFieldError.checkNotNull(posts, 'AppState', 'posts');
+    BuiltValueNullFieldError.checkNotNull(tabIndex, 'AppState', 'tabIndex');
     BuiltValueNullFieldError.checkNotNull(
         pendingActions, 'AppState', 'pendingActions');
   }
@@ -85,34 +110,48 @@ class _$AppState extends AppState {
     if (identical(other, this)) return true;
     return other is AppState &&
         auth == other.auth &&
+        posts == other.posts &&
+        tabIndex == other.tabIndex &&
         pendingActions == other.pendingActions;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, auth.hashCode), pendingActions.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, auth.hashCode), posts.hashCode), tabIndex.hashCode),
+        pendingActions.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('AppState')
           ..add('auth', auth)
+          ..add('posts', posts)
+          ..add('tabIndex', tabIndex)
           ..add('pendingActions', pendingActions))
         .toString();
   }
 }
 
 class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
-  _$AppState _$v;
+  _$AppState? _$v;
 
-  AuthStateBuilder _auth;
+  AuthStateBuilder? _auth;
   AuthStateBuilder get auth => _$this._auth ??= new AuthStateBuilder();
-  set auth(AuthStateBuilder auth) => _$this._auth = auth;
+  set auth(AuthStateBuilder? auth) => _$this._auth = auth;
 
-  SetBuilder<String> _pendingActions;
+  PostsStateBuilder? _posts;
+  PostsStateBuilder get posts => _$this._posts ??= new PostsStateBuilder();
+  set posts(PostsStateBuilder? posts) => _$this._posts = posts;
+
+  int? _tabIndex;
+  int? get tabIndex => _$this._tabIndex;
+  set tabIndex(int? tabIndex) => _$this._tabIndex = tabIndex;
+
+  SetBuilder<String>? _pendingActions;
   SetBuilder<String> get pendingActions =>
       _$this._pendingActions ??= new SetBuilder<String>();
-  set pendingActions(SetBuilder<String> pendingActions) =>
+  set pendingActions(SetBuilder<String>? pendingActions) =>
       _$this._pendingActions = pendingActions;
 
   AppStateBuilder();
@@ -121,6 +160,8 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
     final $v = _$v;
     if ($v != null) {
       _auth = $v.auth.toBuilder();
+      _posts = $v.posts.toBuilder();
+      _tabIndex = $v.tabIndex;
       _pendingActions = $v.pendingActions.toBuilder();
       _$v = null;
     }
@@ -134,7 +175,7 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   }
 
   @override
-  void update(void Function(AppStateBuilder) updates) {
+  void update(void Function(AppStateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
@@ -144,12 +185,19 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
     try {
       _$result = _$v ??
           new _$AppState._(
-              auth: auth.build(), pendingActions: pendingActions.build());
+              auth: auth.build(),
+              posts: posts.build(),
+              tabIndex: BuiltValueNullFieldError.checkNotNull(
+                  tabIndex, 'AppState', 'tabIndex'),
+              pendingActions: pendingActions.build());
     } catch (_) {
-      String _$failedField;
+      late String _$failedField;
       try {
         _$failedField = 'auth';
         auth.build();
+        _$failedField = 'posts';
+        posts.build();
+
         _$failedField = 'pendingActions';
         pendingActions.build();
       } catch (e) {
@@ -163,4 +211,4 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
