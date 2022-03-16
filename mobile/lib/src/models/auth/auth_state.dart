@@ -9,12 +9,11 @@ abstract class AuthState implements Built<AuthState, AuthStateBuilder> {
     });
   }
 
-  factory AuthState.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
+  factory AuthState.fromJson(dynamic json) => serializers.deserializeWith(serializer, json)!;
 
   AuthState._();
 
-  @nullable
-  AppUser get user;
+  AppUser? get user;
 
   RegistrationInfo get info;
 

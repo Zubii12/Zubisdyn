@@ -1,6 +1,5 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:zubisdyn/src/actions/auth/index.dart';
 import 'package:zubisdyn/src/actions/index.dart';
 import 'package:zubisdyn/src/containers/auth/index.dart';
@@ -49,124 +48,131 @@ class _SignUpPartState extends State<SignUpPart> with StoreMixin<SignUpPart> {
         body: SafeArea(
           child: Form(
             key: _formKey,
-            child: SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  const Center(
-                    child: FlutterLogo(
-                      size: 42.0,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    const Center(
+                      child: FlutterLogo(
+                        size: 42.0,
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 48),
-                    width: size.width < maxWidth ? size.width - 24.0 : maxWidth,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const Padding(
-                          padding: EdgeInsets.only(bottom: 16.0),
-                          child: Text(
-                            'Username',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        TextFormField(
-                          controller: _usernameController,
-                          decoration: const InputDecoration(
-                            hintText: 'Create your username',
-                          ),
-                          validator: (String value) {
-                            if (value.trim().isEmpty) {
-                              return 'Please enter a username';
-                            } else if (value.trim().length < 3) {
-                              return 'Please enter a username of at least 3 characters';
-                            }
-                            return null;
-                          },
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 32.0, bottom: 16.0),
-                          child: Text(
-                            'Email',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        TextFormField(
-                          controller: _emailController,
-                          decoration: const InputDecoration(
-                            hintText: 'Enter your email',
-                          ),
-                          validator: (String value) {
-                            if (value.trim().isEmpty) {
-                              return 'Please enter an email';
-                            } else if (!EmailValidator.validate(value)) {
-                              return 'Please use a valid email';
-                            }
-                            return null;
-                          },
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 32.0, bottom: 16.0),
-                          child: Text(
-                            'Password',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                        TextFormField(
-                          controller: _passwordController,
-                          obscureText: info.obscurePassword ?? false,
-                          decoration: InputDecoration(
-                            hintText: 'Create your password',
-                            suffixIcon: Padding(
-                              padding: const EdgeInsets.only(right: 4.0),
-                              child: IconButton(
-                                icon: Image.asset('res/eye.png'),
-                                onPressed: () {
-                                  dispatch(UpdateRegistrationInfo(obscurePassword: !info.obscurePassword));
-                                },
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 48),
+                      width: size.width < maxWidth ? size.width - 24.0 : maxWidth,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          const Padding(
+                            padding: EdgeInsets.only(bottom: 16.0),
+                            child: Text(
+                              'Username',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    width: size.width < maxWidth ? size.width - 24.0 : maxWidth,
-                    child: TextButton(
-                      onPressed: () async {
-                        if (_formKey.currentState.validate() && await validatePassword()) {
-                          dispatch(UpdateRegistrationInfo(username: _usernameController.text));
-                          dispatch(UpdateRegistrationInfo(email: _emailController.text));
-                          dispatch(
-                            SignUpWithEmail$(
-                              password: _passwordController.text,
-                              result: (AppAction result) {
-                                print('z1z::result sign up $result');
-                              },
+                          TextFormField(
+                            controller: _usernameController,
+                            decoration: const InputDecoration(
+                              hintText: 'Create your username',
                             ),
-                          );
-                        }
-                      },
-                      child: const Text(
-                        'Sign Up',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
+                            validator: (String? value) {
+                              if (value != null) {
+                                if (value.trim().isEmpty) {
+                                  return 'Please enter a username';
+                                } else if (value.trim().length < 3) {
+                                  return 'Please enter a username of at least 3 characters';
+                                }
+                              }
+                              return null;
+                            },
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 24.0, bottom: 16.0),
+                            child: Text(
+                              'Email',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          TextFormField(
+                            controller: _emailController,
+                            decoration: const InputDecoration(
+                              hintText: 'Enter your email',
+                            ),
+                            validator: (String? value) {
+                              if (value != null) {
+                                if (value.trim().isEmpty) {
+                                  return 'Please enter an email';
+                                } else if (!EmailValidator.validate(value)) {
+                                  return 'Please use a valid email';
+                                }
+                              }
+                              return null;
+                            },
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(top: 24.0, bottom: 16.0),
+                            child: Text(
+                              'Password',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                          TextFormField(
+                            controller: _passwordController,
+                            obscureText: info.obscurePassword ?? false,
+                            decoration: InputDecoration(
+                              hintText: 'Create your password',
+                              suffixIcon: Padding(
+                                padding: const EdgeInsets.only(right: 4.0),
+                                child: IconButton(
+                                  icon: Image.asset('res/icons/eye.png'),
+                                  onPressed: () {
+                                    dispatch(UpdateRegistrationInfo(obscurePassword: info.obscurePassword));
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: size.width < maxWidth ? size.width - 24.0 : maxWidth,
+                      child: TextButton(
+                        onPressed: () async {
+                          if (_formKey.currentState!.validate() && await validatePassword()) {
+                            dispatch(UpdateRegistrationInfo(username: _usernameController.text));
+                            dispatch(UpdateRegistrationInfo(email: _emailController.text));
+                            dispatch(
+                              SignUpWithEmail$(
+                                password: _passwordController.text,
+                                result: (AppAction result) {
+                                  print('z1z::result sign up $result');
+                                },
+                              ),
+                            );
+                          }
+                        },
+                        child: const Text(
+                          'Sign Up',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

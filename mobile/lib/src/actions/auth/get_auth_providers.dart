@@ -3,25 +3,25 @@ part of auth_actions;
 const String _kGetAuthProvidersPendingId = 'GetAuthProviders';
 
 @freezed
-abstract class GetAuthProviders with _$GetAuthProviders implements AppAction {
-  @Implements(ActionStart)
+class GetAuthProviders with _$GetAuthProviders implements AppAction {
+  @Implements<ActionStart>()
   const factory GetAuthProviders.start({
-    String email,
-    @required ActionResult result,
+    required String email,
+    required ActionResult result,
     @Default(_kGetAuthProvidersPendingId) String pendingId,
   }) = GetAuthProviders$;
 
-  @Implements(ActionDone)
+  @Implements<ActionDone>()
   const factory GetAuthProviders.successful(
     List<String> providers, [
     @Default(_kGetAuthProvidersPendingId) String pendingId,
   ]) = GetAuthProvidersSuccessful;
 
-  @Implements(ActionDone)
-  @Implements(ErrorAction)
+  @Implements<ActionDone>()
+  @Implements<ErrorAction>()
   const factory GetAuthProviders.error(
-    Object error,
-    StackTrace stackTrace, [
+    Object? error,
+    StackTrace? stackTrace, [
     @Default(_kGetAuthProvidersPendingId) String pendingId,
   ]) = GetAuthProvidersError;
 

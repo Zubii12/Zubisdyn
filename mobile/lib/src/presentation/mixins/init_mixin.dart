@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:redux/redux.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:zubisdyn/src/init/init.dart';
 import 'package:zubisdyn/src/models/index.dart';
-import 'package:rxdart/rxdart.dart';
 
 abstract class StoreReadyProvider {
   Store<AppState> get store;
@@ -14,7 +14,7 @@ abstract class StoreReadyProvider {
 
 mixin InitMixin<S extends StatefulWidget> on State<S> implements StoreReadyProvider {
   final Completer<InitResult> _completer = Completer<InitResult>();
-  Store<AppState> _store;
+  late Store<AppState> _store;
 
   @override
   void initState() {

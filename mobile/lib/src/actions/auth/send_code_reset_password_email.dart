@@ -3,24 +3,24 @@ part of auth_actions;
 const String _kSendCodeResetPasswordEmailPendingId = 'SendCodeResetPasswordEmail';
 
 @freezed
-abstract class SendCodeResetPasswordEmail with _$SendCodeResetPasswordEmail implements AppAction {
-  @Implements(ActionStart)
+ class SendCodeResetPasswordEmail with _$SendCodeResetPasswordEmail implements AppAction {
+  @Implements<ActionStart>()
   const factory SendCodeResetPasswordEmail.start({
-    @required ActionResult result,
+    required ActionResult result,
     @Default(_kSendCodeResetPasswordEmailPendingId) String pendingId,
   }) = SendCodeResetPasswordEmail$;
 
-  @Implements(ActionDone)
+  @Implements<ActionDone>()
   const factory SendCodeResetPasswordEmail.successful(
     String code, [
     @Default(_kSendCodeResetPasswordEmailPendingId) String pendingId,
   ]) = SendCodeResetPasswordEmailSuccessful;
 
-  @Implements(ActionDone)
-  @Implements(ErrorAction)
+  @Implements<ActionDone>()
+  @Implements<ErrorAction>()
   const factory SendCodeResetPasswordEmail.error(
-    Object error,
-    StackTrace stackTrace, [
+    Object? error,
+    StackTrace? stackTrace, [
     @Default(_kSendCodeResetPasswordEmailPendingId) String pendingId,
   ]) = SendCodeResetPasswordEmailError;
 

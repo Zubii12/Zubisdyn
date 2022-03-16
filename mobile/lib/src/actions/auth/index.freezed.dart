@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of auth_actions;
 
@@ -9,13 +11,15 @@ part of auth_actions;
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SendCodeResetPasswordEmailTearOff {
   const _$SendCodeResetPasswordEmailTearOff();
 
-// ignore: unused_element
   SendCodeResetPasswordEmail$ start(
-      {@required void Function(AppAction) result,
+      {required ActionResult result,
       String pendingId = _kSendCodeResetPasswordEmailPendingId}) {
     return SendCodeResetPasswordEmail$(
       result: result,
@@ -23,7 +27,6 @@ class _$SendCodeResetPasswordEmailTearOff {
     );
   }
 
-// ignore: unused_element
   SendCodeResetPasswordEmailSuccessful successful(String code,
       [String pendingId = _kSendCodeResetPasswordEmailPendingId]) {
     return SendCodeResetPasswordEmailSuccessful(
@@ -32,8 +35,7 @@ class _$SendCodeResetPasswordEmailTearOff {
     );
   }
 
-// ignore: unused_element
-  SendCodeResetPasswordEmailError error(Object error, StackTrace stackTrace,
+  SendCodeResetPasswordEmailError error(Object? error, StackTrace? stackTrace,
       [String pendingId = _kSendCodeResetPasswordEmailPendingId]) {
     return SendCodeResetPasswordEmailError(
       error,
@@ -44,43 +46,65 @@ class _$SendCodeResetPasswordEmailTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SendCodeResetPasswordEmail = _$SendCodeResetPasswordEmailTearOff();
 
 /// @nodoc
 mixin _$SendCodeResetPasswordEmail {
-  String get pendingId;
+  String get pendingId => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult start(void Function(AppAction) result, String pendingId),
-    @required TResult successful(String code, String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(ActionResult result, String pendingId) start,
+    required TResult Function(String code, String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(void Function(AppAction) result, String pendingId),
-    TResult successful(String code, String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(ActionResult result, String pendingId)? start,
+    TResult Function(String code, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(SendCodeResetPasswordEmail$ value),
-    @required TResult successful(SendCodeResetPasswordEmailSuccessful value),
-    @required TResult error(SendCodeResetPasswordEmailError value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ActionResult result, String pendingId)? start,
+    TResult Function(String code, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(SendCodeResetPasswordEmail$ value),
-    TResult successful(SendCodeResetPasswordEmailSuccessful value),
-    TResult error(SendCodeResetPasswordEmailError value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(SendCodeResetPasswordEmail$ value) start,
+    required TResult Function(SendCodeResetPasswordEmailSuccessful value)
+        successful,
+    required TResult Function(SendCodeResetPasswordEmailError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(SendCodeResetPasswordEmail$ value)? start,
+    TResult Function(SendCodeResetPasswordEmailSuccessful value)? successful,
+    TResult Function(SendCodeResetPasswordEmailError value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SendCodeResetPasswordEmail$ value)? start,
+    TResult Function(SendCodeResetPasswordEmailSuccessful value)? successful,
+    TResult Function(SendCodeResetPasswordEmailError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SendCodeResetPasswordEmailCopyWith<SendCodeResetPasswordEmail> get copyWith;
+  $SendCodeResetPasswordEmailCopyWith<SendCodeResetPasswordEmail>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -102,10 +126,13 @@ class _$SendCodeResetPasswordEmailCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object pendingId = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(_value.copyWith(
-      pendingId: pendingId == freezed ? _value.pendingId : pendingId as String,
+      pendingId: pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -118,7 +145,7 @@ abstract class $SendCodeResetPasswordEmail$CopyWith<$Res>
           $Res Function(SendCodeResetPasswordEmail$) then) =
       _$SendCodeResetPasswordEmail$CopyWithImpl<$Res>;
   @override
-  $Res call({void Function(AppAction) result, String pendingId});
+  $Res call({ActionResult result, String pendingId});
 }
 
 /// @nodoc
@@ -135,31 +162,33 @@ class _$SendCodeResetPasswordEmail$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object result = freezed,
-    Object pendingId = freezed,
+    Object? result = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(SendCodeResetPasswordEmail$(
       result: result == freezed
           ? _value.result
-          : result as void Function(AppAction),
-      pendingId: pendingId == freezed ? _value.pendingId : pendingId as String,
+          : result // ignore: cast_nullable_to_non_nullable
+              as ActionResult,
+      pendingId: pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ActionStart)
-
 /// @nodoc
+
+@Implements<ActionStart>()
 class _$SendCodeResetPasswordEmail$ implements SendCodeResetPasswordEmail$ {
   const _$SendCodeResetPasswordEmail$(
-      {@required this.result,
-      this.pendingId = _kSendCodeResetPasswordEmailPendingId})
-      : assert(result != null),
-        assert(pendingId != null);
+      {required this.result,
+      this.pendingId = _kSendCodeResetPasswordEmailPendingId});
 
   @override
-  final void Function(AppAction) result;
-  @JsonKey(defaultValue: _kSendCodeResetPasswordEmailPendingId)
+  final ActionResult result;
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -171,19 +200,15 @@ class _$SendCodeResetPasswordEmail$ implements SendCodeResetPasswordEmail$ {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SendCodeResetPasswordEmail$ &&
-            (identical(other.result, result) ||
-                const DeepCollectionEquality().equals(other.result, result)) &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is SendCodeResetPasswordEmail$ &&
+            (identical(other.result, result) || other.result == result) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(result) ^
-      const DeepCollectionEquality().hash(pendingId);
+  int get hashCode => Object.hash(
+      runtimeType, result, const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -193,27 +218,36 @@ class _$SendCodeResetPasswordEmail$ implements SendCodeResetPasswordEmail$ {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult start(void Function(AppAction) result, String pendingId),
-    @required TResult successful(String code, String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>({
+    required TResult Function(ActionResult result, String pendingId) start,
+    required TResult Function(String code, String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return start(result, pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(void Function(AppAction) result, String pendingId),
-    TResult successful(String code, String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(ActionResult result, String pendingId)? start,
+    TResult Function(String code, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return start?.call(result, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ActionResult result, String pendingId)? start,
+    TResult Function(String code, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if (start != null) {
       return start(result, pendingId);
     }
@@ -222,26 +256,33 @@ class _$SendCodeResetPasswordEmail$ implements SendCodeResetPasswordEmail$ {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(SendCodeResetPasswordEmail$ value),
-    @required TResult successful(SendCodeResetPasswordEmailSuccessful value),
-    @required TResult error(SendCodeResetPasswordEmailError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(SendCodeResetPasswordEmail$ value) start,
+    required TResult Function(SendCodeResetPasswordEmailSuccessful value)
+        successful,
+    required TResult Function(SendCodeResetPasswordEmailError value) error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return start(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(SendCodeResetPasswordEmail$ value),
-    TResult successful(SendCodeResetPasswordEmailSuccessful value),
-    TResult error(SendCodeResetPasswordEmailError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(SendCodeResetPasswordEmail$ value)? start,
+    TResult Function(SendCodeResetPasswordEmailSuccessful value)? successful,
+    TResult Function(SendCodeResetPasswordEmailError value)? error,
   }) {
-    assert(orElse != null);
+    return start?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SendCodeResetPasswordEmail$ value)? start,
+    TResult Function(SendCodeResetPasswordEmailSuccessful value)? successful,
+    TResult Function(SendCodeResetPasswordEmailError value)? error,
+    required TResult orElse(),
+  }) {
     if (start != null) {
       return start(this);
     }
@@ -252,16 +293,16 @@ class _$SendCodeResetPasswordEmail$ implements SendCodeResetPasswordEmail$ {
 abstract class SendCodeResetPasswordEmail$
     implements SendCodeResetPasswordEmail, ActionStart {
   const factory SendCodeResetPasswordEmail$(
-      {@required void Function(AppAction) result,
+      {required ActionResult result,
       String pendingId}) = _$SendCodeResetPasswordEmail$;
 
-  void Function(AppAction) get result;
+  ActionResult get result;
   @override
   String get pendingId;
   @override
   @JsonKey(ignore: true)
   $SendCodeResetPasswordEmail$CopyWith<SendCodeResetPasswordEmail$>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -290,29 +331,33 @@ class _$SendCodeResetPasswordEmailSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object code = freezed,
-    Object pendingId = freezed,
+    Object? code = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(SendCodeResetPasswordEmailSuccessful(
-      code == freezed ? _value.code : code as String,
-      pendingId == freezed ? _value.pendingId : pendingId as String,
+      code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String,
+      pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ActionDone)
-
 /// @nodoc
+
+@Implements<ActionDone>()
 class _$SendCodeResetPasswordEmailSuccessful
     implements SendCodeResetPasswordEmailSuccessful {
   const _$SendCodeResetPasswordEmailSuccessful(this.code,
-      [this.pendingId = _kSendCodeResetPasswordEmailPendingId])
-      : assert(code != null),
-        assert(pendingId != null);
+      [this.pendingId = _kSendCodeResetPasswordEmailPendingId]);
 
   @override
   final String code;
-  @JsonKey(defaultValue: _kSendCodeResetPasswordEmailPendingId)
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -324,19 +369,17 @@ class _$SendCodeResetPasswordEmailSuccessful
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SendCodeResetPasswordEmailSuccessful &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is SendCodeResetPasswordEmailSuccessful &&
+            const DeepCollectionEquality().equals(other.code, code) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(pendingId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(code),
+      const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -347,27 +390,36 @@ class _$SendCodeResetPasswordEmailSuccessful
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult start(void Function(AppAction) result, String pendingId),
-    @required TResult successful(String code, String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>({
+    required TResult Function(ActionResult result, String pendingId) start,
+    required TResult Function(String code, String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(code, pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(void Function(AppAction) result, String pendingId),
-    TResult successful(String code, String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(ActionResult result, String pendingId)? start,
+    TResult Function(String code, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return successful?.call(code, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ActionResult result, String pendingId)? start,
+    TResult Function(String code, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if (successful != null) {
       return successful(code, pendingId);
     }
@@ -376,26 +428,33 @@ class _$SendCodeResetPasswordEmailSuccessful
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(SendCodeResetPasswordEmail$ value),
-    @required TResult successful(SendCodeResetPasswordEmailSuccessful value),
-    @required TResult error(SendCodeResetPasswordEmailError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(SendCodeResetPasswordEmail$ value) start,
+    required TResult Function(SendCodeResetPasswordEmailSuccessful value)
+        successful,
+    required TResult Function(SendCodeResetPasswordEmailError value) error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(SendCodeResetPasswordEmail$ value),
-    TResult successful(SendCodeResetPasswordEmailSuccessful value),
-    TResult error(SendCodeResetPasswordEmailError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(SendCodeResetPasswordEmail$ value)? start,
+    TResult Function(SendCodeResetPasswordEmailSuccessful value)? successful,
+    TResult Function(SendCodeResetPasswordEmailError value)? error,
   }) {
-    assert(orElse != null);
+    return successful?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SendCodeResetPasswordEmail$ value)? start,
+    TResult Function(SendCodeResetPasswordEmailSuccessful value)? successful,
+    TResult Function(SendCodeResetPasswordEmailError value)? error,
+    required TResult orElse(),
+  }) {
     if (successful != null) {
       return successful(this);
     }
@@ -414,7 +473,8 @@ abstract class SendCodeResetPasswordEmailSuccessful
   @override
   @JsonKey(ignore: true)
   $SendCodeResetPasswordEmailSuccessfulCopyWith<
-      SendCodeResetPasswordEmailSuccessful> get copyWith;
+          SendCodeResetPasswordEmailSuccessful>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -425,7 +485,7 @@ abstract class $SendCodeResetPasswordEmailErrorCopyWith<$Res>
           $Res Function(SendCodeResetPasswordEmailError) then) =
       _$SendCodeResetPasswordEmailErrorCopyWithImpl<$Res>;
   @override
-  $Res call({Object error, StackTrace stackTrace, String pendingId});
+  $Res call({Object? error, StackTrace? stackTrace, String pendingId});
 }
 
 /// @nodoc
@@ -443,35 +503,38 @@ class _$SendCodeResetPasswordEmailErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
-    Object stackTrace = freezed,
-    Object pendingId = freezed,
+    Object? error = freezed,
+    Object? stackTrace = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(SendCodeResetPasswordEmailError(
       error == freezed ? _value.error : error,
-      stackTrace == freezed ? _value.stackTrace : stackTrace as StackTrace,
-      pendingId == freezed ? _value.pendingId : pendingId as String,
+      stackTrace == freezed
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace?,
+      pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ActionDone)
-@Implements(ErrorAction)
-
 /// @nodoc
+
+@Implements<ActionDone>()
+@Implements<ErrorAction>()
 class _$SendCodeResetPasswordEmailError
     implements SendCodeResetPasswordEmailError {
   const _$SendCodeResetPasswordEmailError(this.error, this.stackTrace,
-      [this.pendingId = _kSendCodeResetPasswordEmailPendingId])
-      : assert(error != null),
-        assert(stackTrace != null),
-        assert(pendingId != null);
+      [this.pendingId = _kSendCodeResetPasswordEmailPendingId]);
 
   @override
-  final Object error;
+  final Object? error;
   @override
-  final StackTrace stackTrace;
-  @JsonKey(defaultValue: _kSendCodeResetPasswordEmailPendingId)
+  final StackTrace? stackTrace;
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -483,23 +546,20 @@ class _$SendCodeResetPasswordEmailError
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SendCodeResetPasswordEmailError &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)) &&
-            (identical(other.stackTrace, stackTrace) ||
-                const DeepCollectionEquality()
-                    .equals(other.stackTrace, stackTrace)) &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is SendCodeResetPasswordEmailError &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality()
+                .equals(other.stackTrace, stackTrace) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(error) ^
-      const DeepCollectionEquality().hash(stackTrace) ^
-      const DeepCollectionEquality().hash(pendingId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(stackTrace),
+      const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -509,27 +569,36 @@ class _$SendCodeResetPasswordEmailError
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult start(void Function(AppAction) result, String pendingId),
-    @required TResult successful(String code, String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>({
+    required TResult Function(ActionResult result, String pendingId) start,
+    required TResult Function(String code, String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error, stackTrace, pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(void Function(AppAction) result, String pendingId),
-    TResult successful(String code, String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(ActionResult result, String pendingId)? start,
+    TResult Function(String code, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return error?.call(this.error, stackTrace, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ActionResult result, String pendingId)? start,
+    TResult Function(String code, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this.error, stackTrace, pendingId);
     }
@@ -538,26 +607,33 @@ class _$SendCodeResetPasswordEmailError
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(SendCodeResetPasswordEmail$ value),
-    @required TResult successful(SendCodeResetPasswordEmailSuccessful value),
-    @required TResult error(SendCodeResetPasswordEmailError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(SendCodeResetPasswordEmail$ value) start,
+    required TResult Function(SendCodeResetPasswordEmailSuccessful value)
+        successful,
+    required TResult Function(SendCodeResetPasswordEmailError value) error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(SendCodeResetPasswordEmail$ value),
-    TResult successful(SendCodeResetPasswordEmailSuccessful value),
-    TResult error(SendCodeResetPasswordEmailError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(SendCodeResetPasswordEmail$ value)? start,
+    TResult Function(SendCodeResetPasswordEmailSuccessful value)? successful,
+    TResult Function(SendCodeResetPasswordEmailError value)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SendCodeResetPasswordEmail$ value)? start,
+    TResult Function(SendCodeResetPasswordEmailSuccessful value)? successful,
+    TResult Function(SendCodeResetPasswordEmailError value)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this);
     }
@@ -568,27 +644,26 @@ class _$SendCodeResetPasswordEmailError
 abstract class SendCodeResetPasswordEmailError
     implements SendCodeResetPasswordEmail, ActionDone, ErrorAction {
   const factory SendCodeResetPasswordEmailError(
-          Object error, StackTrace stackTrace, [String pendingId]) =
+          Object? error, StackTrace? stackTrace, [String pendingId]) =
       _$SendCodeResetPasswordEmailError;
 
-  Object get error;
-  StackTrace get stackTrace;
+  Object? get error;
+  StackTrace? get stackTrace;
   @override
   String get pendingId;
   @override
   @JsonKey(ignore: true)
   $SendCodeResetPasswordEmailErrorCopyWith<SendCodeResetPasswordEmailError>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$SignUpWithEmailTearOff {
   const _$SignUpWithEmailTearOff();
 
-// ignore: unused_element
   SignUpWithEmail$ call(
-      {@required String password,
-      @required void Function(AppAction) result,
+      {required String password,
+      required ActionResult result,
       String pendingId = _kSignUpWithEmailLinkPendingId}) {
     return SignUpWithEmail$(
       password: password,
@@ -597,7 +672,6 @@ class _$SignUpWithEmailTearOff {
     );
   }
 
-// ignore: unused_element
   SignUpWithEmailSuccessful successful(
       [String pendingId = _kLoginWithEmailLinkPendingId]) {
     return SignUpWithEmailSuccessful(
@@ -605,8 +679,7 @@ class _$SignUpWithEmailTearOff {
     );
   }
 
-// ignore: unused_element
-  SignUpWithEmailError error(Object error, StackTrace stackTrace,
+  SignUpWithEmailError error(Object? error, StackTrace? stackTrace,
       [String pendingId = _kSignUpWithEmailLinkPendingId]) {
     return SignUpWithEmailError(
       error,
@@ -617,45 +690,67 @@ class _$SignUpWithEmailTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SignUpWithEmail = _$SignUpWithEmailTearOff();
 
 /// @nodoc
 mixin _$SignUpWithEmail {
-  String get pendingId;
+  String get pendingId => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        String password, void Function(AppAction) result, String pendingId), {
-    @required TResult successful(String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
-  });
+  TResult when<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)
+        $default, {
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        String password, void Function(AppAction) result, String pendingId), {
-    TResult successful(String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)?
+        $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(SignUpWithEmail$ value), {
-    @required TResult successful(SignUpWithEmailSuccessful value),
-    @required TResult error(SignUpWithEmailError value),
-  });
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)?
+        $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(SignUpWithEmail$ value), {
-    TResult successful(SignUpWithEmailSuccessful value),
-    TResult error(SignUpWithEmailError value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value) $default, {
+    required TResult Function(SignUpWithEmailSuccessful value) successful,
+    required TResult Function(SignUpWithEmailError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value)? $default, {
+    TResult Function(SignUpWithEmailSuccessful value)? successful,
+    TResult Function(SignUpWithEmailError value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value)? $default, {
+    TResult Function(SignUpWithEmailSuccessful value)? successful,
+    TResult Function(SignUpWithEmailError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SignUpWithEmailCopyWith<SignUpWithEmail> get copyWith;
+  $SignUpWithEmailCopyWith<SignUpWithEmail> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -677,10 +772,13 @@ class _$SignUpWithEmailCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object pendingId = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(_value.copyWith(
-      pendingId: pendingId == freezed ? _value.pendingId : pendingId as String,
+      pendingId: pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -692,8 +790,7 @@ abstract class $SignUpWithEmail$CopyWith<$Res>
           SignUpWithEmail$ value, $Res Function(SignUpWithEmail$) then) =
       _$SignUpWithEmail$CopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String password, void Function(AppAction) result, String pendingId});
+  $Res call({String password, ActionResult result, String pendingId});
 }
 
 /// @nodoc
@@ -709,37 +806,41 @@ class _$SignUpWithEmail$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object password = freezed,
-    Object result = freezed,
-    Object pendingId = freezed,
+    Object? password = freezed,
+    Object? result = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(SignUpWithEmail$(
-      password: password == freezed ? _value.password : password as String,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
       result: result == freezed
           ? _value.result
-          : result as void Function(AppAction),
-      pendingId: pendingId == freezed ? _value.pendingId : pendingId as String,
+          : result // ignore: cast_nullable_to_non_nullable
+              as ActionResult,
+      pendingId: pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ActionStart)
-
 /// @nodoc
+
+@Implements<ActionStart>()
 class _$SignUpWithEmail$ implements SignUpWithEmail$ {
   const _$SignUpWithEmail$(
-      {@required this.password,
-      @required this.result,
-      this.pendingId = _kSignUpWithEmailLinkPendingId})
-      : assert(password != null),
-        assert(result != null),
-        assert(pendingId != null);
+      {required this.password,
+      required this.result,
+      this.pendingId = _kSignUpWithEmailLinkPendingId});
 
   @override
   final String password;
   @override
-  final void Function(AppAction) result;
-  @JsonKey(defaultValue: _kSignUpWithEmailLinkPendingId)
+  final ActionResult result;
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -751,23 +852,19 @@ class _$SignUpWithEmail$ implements SignUpWithEmail$ {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SignUpWithEmail$ &&
-            (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)) &&
-            (identical(other.result, result) ||
-                const DeepCollectionEquality().equals(other.result, result)) &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is SignUpWithEmail$ &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            (identical(other.result, result) || other.result == result) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(password) ^
-      const DeepCollectionEquality().hash(result) ^
-      const DeepCollectionEquality().hash(pendingId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(password),
+      result,
+      const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -776,29 +873,39 @@ class _$SignUpWithEmail$ implements SignUpWithEmail$ {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        String password, void Function(AppAction) result, String pendingId), {
-    @required TResult successful(String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)
+        $default, {
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(password, result, pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        String password, void Function(AppAction) result, String pendingId), {
-    TResult successful(String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)?
+        $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return $default?.call(password, result, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)?
+        $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if ($default != null) {
       return $default(password, result, pendingId);
     }
@@ -807,26 +914,32 @@ class _$SignUpWithEmail$ implements SignUpWithEmail$ {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(SignUpWithEmail$ value), {
-    @required TResult successful(SignUpWithEmailSuccessful value),
-    @required TResult error(SignUpWithEmailError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value) $default, {
+    required TResult Function(SignUpWithEmailSuccessful value) successful,
+    required TResult Function(SignUpWithEmailError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(SignUpWithEmail$ value), {
-    TResult successful(SignUpWithEmailSuccessful value),
-    TResult error(SignUpWithEmailError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value)? $default, {
+    TResult Function(SignUpWithEmailSuccessful value)? successful,
+    TResult Function(SignUpWithEmailError value)? error,
   }) {
-    assert(orElse != null);
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value)? $default, {
+    TResult Function(SignUpWithEmailSuccessful value)? successful,
+    TResult Function(SignUpWithEmailError value)? error,
+    required TResult orElse(),
+  }) {
     if ($default != null) {
       return $default(this);
     }
@@ -836,17 +949,18 @@ class _$SignUpWithEmail$ implements SignUpWithEmail$ {
 
 abstract class SignUpWithEmail$ implements SignUpWithEmail, ActionStart {
   const factory SignUpWithEmail$(
-      {@required String password,
-      @required void Function(AppAction) result,
+      {required String password,
+      required ActionResult result,
       String pendingId}) = _$SignUpWithEmail$;
 
   String get password;
-  void Function(AppAction) get result;
+  ActionResult get result;
   @override
   String get pendingId;
   @override
   @JsonKey(ignore: true)
-  $SignUpWithEmail$CopyWith<SignUpWithEmail$> get copyWith;
+  $SignUpWithEmail$CopyWith<SignUpWithEmail$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -873,23 +987,25 @@ class _$SignUpWithEmailSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object pendingId = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(SignUpWithEmailSuccessful(
-      pendingId == freezed ? _value.pendingId : pendingId as String,
+      pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ActionDone)
-
 /// @nodoc
+
+@Implements<ActionDone>()
 class _$SignUpWithEmailSuccessful implements SignUpWithEmailSuccessful {
   const _$SignUpWithEmailSuccessful(
-      [this.pendingId = _kLoginWithEmailLinkPendingId])
-      : assert(pendingId != null);
+      [this.pendingId = _kLoginWithEmailLinkPendingId]);
 
-  @JsonKey(defaultValue: _kLoginWithEmailLinkPendingId)
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -901,15 +1017,14 @@ class _$SignUpWithEmailSuccessful implements SignUpWithEmailSuccessful {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SignUpWithEmailSuccessful &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is SignUpWithEmailSuccessful &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(pendingId);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -919,29 +1034,39 @@ class _$SignUpWithEmailSuccessful implements SignUpWithEmailSuccessful {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        String password, void Function(AppAction) result, String pendingId), {
-    @required TResult successful(String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)
+        $default, {
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        String password, void Function(AppAction) result, String pendingId), {
-    TResult successful(String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)?
+        $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return successful?.call(pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)?
+        $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if (successful != null) {
       return successful(pendingId);
     }
@@ -950,26 +1075,32 @@ class _$SignUpWithEmailSuccessful implements SignUpWithEmailSuccessful {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(SignUpWithEmail$ value), {
-    @required TResult successful(SignUpWithEmailSuccessful value),
-    @required TResult error(SignUpWithEmailError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value) $default, {
+    required TResult Function(SignUpWithEmailSuccessful value) successful,
+    required TResult Function(SignUpWithEmailError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(SignUpWithEmail$ value), {
-    TResult successful(SignUpWithEmailSuccessful value),
-    TResult error(SignUpWithEmailError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value)? $default, {
+    TResult Function(SignUpWithEmailSuccessful value)? successful,
+    TResult Function(SignUpWithEmailError value)? error,
   }) {
-    assert(orElse != null);
+    return successful?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value)? $default, {
+    TResult Function(SignUpWithEmailSuccessful value)? successful,
+    TResult Function(SignUpWithEmailError value)? error,
+    required TResult orElse(),
+  }) {
     if (successful != null) {
       return successful(this);
     }
@@ -986,7 +1117,8 @@ abstract class SignUpWithEmailSuccessful
   String get pendingId;
   @override
   @JsonKey(ignore: true)
-  $SignUpWithEmailSuccessfulCopyWith<SignUpWithEmailSuccessful> get copyWith;
+  $SignUpWithEmailSuccessfulCopyWith<SignUpWithEmailSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -996,7 +1128,7 @@ abstract class $SignUpWithEmailErrorCopyWith<$Res>
           $Res Function(SignUpWithEmailError) then) =
       _$SignUpWithEmailErrorCopyWithImpl<$Res>;
   @override
-  $Res call({Object error, StackTrace stackTrace, String pendingId});
+  $Res call({Object? error, StackTrace? stackTrace, String pendingId});
 }
 
 /// @nodoc
@@ -1012,33 +1144,36 @@ class _$SignUpWithEmailErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
-    Object stackTrace = freezed,
-    Object pendingId = freezed,
+    Object? error = freezed,
+    Object? stackTrace = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(SignUpWithEmailError(
       error == freezed ? _value.error : error,
-      stackTrace == freezed ? _value.stackTrace : stackTrace as StackTrace,
-      pendingId == freezed ? _value.pendingId : pendingId as String,
+      stackTrace == freezed
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace?,
+      pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ErrorAction)
-
 /// @nodoc
+
+@Implements<ErrorAction>()
 class _$SignUpWithEmailError implements SignUpWithEmailError {
   const _$SignUpWithEmailError(this.error, this.stackTrace,
-      [this.pendingId = _kSignUpWithEmailLinkPendingId])
-      : assert(error != null),
-        assert(stackTrace != null),
-        assert(pendingId != null);
+      [this.pendingId = _kSignUpWithEmailLinkPendingId]);
 
   @override
-  final Object error;
+  final Object? error;
   @override
-  final StackTrace stackTrace;
-  @JsonKey(defaultValue: _kSignUpWithEmailLinkPendingId)
+  final StackTrace? stackTrace;
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -1050,23 +1185,20 @@ class _$SignUpWithEmailError implements SignUpWithEmailError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is SignUpWithEmailError &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)) &&
-            (identical(other.stackTrace, stackTrace) ||
-                const DeepCollectionEquality()
-                    .equals(other.stackTrace, stackTrace)) &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is SignUpWithEmailError &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality()
+                .equals(other.stackTrace, stackTrace) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(error) ^
-      const DeepCollectionEquality().hash(stackTrace) ^
-      const DeepCollectionEquality().hash(pendingId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(stackTrace),
+      const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -1076,29 +1208,39 @@ class _$SignUpWithEmailError implements SignUpWithEmailError {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>(
-    TResult $default(
-        String password, void Function(AppAction) result, String pendingId), {
-    @required TResult successful(String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)
+        $default, {
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error, stackTrace, pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>(
-    TResult $default(
-        String password, void Function(AppAction) result, String pendingId), {
-    TResult successful(String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)?
+        $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return error?.call(this.error, stackTrace, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String password, ActionResult result, String pendingId)?
+        $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this.error, stackTrace, pendingId);
     }
@@ -1107,26 +1249,32 @@ class _$SignUpWithEmailError implements SignUpWithEmailError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>(
-    TResult $default(SignUpWithEmail$ value), {
-    @required TResult successful(SignUpWithEmailSuccessful value),
-    @required TResult error(SignUpWithEmailError value),
+  TResult map<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value) $default, {
+    required TResult Function(SignUpWithEmailSuccessful value) successful,
+    required TResult Function(SignUpWithEmailError value) error,
   }) {
-    assert($default != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>(
-    TResult $default(SignUpWithEmail$ value), {
-    TResult successful(SignUpWithEmailSuccessful value),
-    TResult error(SignUpWithEmailError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value)? $default, {
+    TResult Function(SignUpWithEmailSuccessful value)? successful,
+    TResult Function(SignUpWithEmailError value)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignUpWithEmail$ value)? $default, {
+    TResult Function(SignUpWithEmailSuccessful value)? successful,
+    TResult Function(SignUpWithEmailError value)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this);
     }
@@ -1135,26 +1283,26 @@ class _$SignUpWithEmailError implements SignUpWithEmailError {
 }
 
 abstract class SignUpWithEmailError implements SignUpWithEmail, ErrorAction {
-  const factory SignUpWithEmailError(Object error, StackTrace stackTrace,
+  const factory SignUpWithEmailError(Object? error, StackTrace? stackTrace,
       [String pendingId]) = _$SignUpWithEmailError;
 
-  Object get error;
-  StackTrace get stackTrace;
+  Object? get error;
+  StackTrace? get stackTrace;
   @override
   String get pendingId;
   @override
   @JsonKey(ignore: true)
-  $SignUpWithEmailErrorCopyWith<SignUpWithEmailError> get copyWith;
+  $SignUpWithEmailErrorCopyWith<SignUpWithEmailError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$LoginWithEmailTearOff {
   const _$LoginWithEmailTearOff();
 
-// ignore: unused_element
   LoginWithEmail$ start(
-      {@required String password,
-      @required void Function(AppAction) result,
+      {required String password,
+      required ActionResult result,
       String pendingId = _kLoginWithEmailLinkPendingId}) {
     return LoginWithEmail$(
       password: password,
@@ -1163,7 +1311,6 @@ class _$LoginWithEmailTearOff {
     );
   }
 
-// ignore: unused_element
   LoginWithEmailSuccessful successful(
       [String pendingId = _kLoginWithEmailLinkPendingId]) {
     return LoginWithEmailSuccessful(
@@ -1171,8 +1318,7 @@ class _$LoginWithEmailTearOff {
     );
   }
 
-// ignore: unused_element
-  LoginWithEmailError error(Object error, StackTrace stackTrace,
+  LoginWithEmailError error(Object? error, StackTrace? stackTrace,
       [String pendingId = _kLoginWithEmailLinkPendingId]) {
     return LoginWithEmailError(
       error,
@@ -1183,46 +1329,68 @@ class _$LoginWithEmailTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $LoginWithEmail = _$LoginWithEmailTearOff();
 
 /// @nodoc
 mixin _$LoginWithEmail {
-  String get pendingId;
+  String get pendingId => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult start(
-            String password, void Function(AppAction) result, String pendingId),
-    @required TResult successful(String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String password, ActionResult result, String pendingId)
+        start,
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(
-        String password, void Function(AppAction) result, String pendingId),
-    TResult successful(String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String password, ActionResult result, String pendingId)?
+        start,
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(LoginWithEmail$ value),
-    @required TResult successful(LoginWithEmailSuccessful value),
-    @required TResult error(LoginWithEmailError value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String password, ActionResult result, String pendingId)?
+        start,
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(LoginWithEmail$ value),
-    TResult successful(LoginWithEmailSuccessful value),
-    TResult error(LoginWithEmailError value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoginWithEmail$ value) start,
+    required TResult Function(LoginWithEmailSuccessful value) successful,
+    required TResult Function(LoginWithEmailError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoginWithEmail$ value)? start,
+    TResult Function(LoginWithEmailSuccessful value)? successful,
+    TResult Function(LoginWithEmailError value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoginWithEmail$ value)? start,
+    TResult Function(LoginWithEmailSuccessful value)? successful,
+    TResult Function(LoginWithEmailError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LoginWithEmailCopyWith<LoginWithEmail> get copyWith;
+  $LoginWithEmailCopyWith<LoginWithEmail> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1244,10 +1412,13 @@ class _$LoginWithEmailCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object pendingId = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(_value.copyWith(
-      pendingId: pendingId == freezed ? _value.pendingId : pendingId as String,
+      pendingId: pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1259,8 +1430,7 @@ abstract class $LoginWithEmail$CopyWith<$Res>
           LoginWithEmail$ value, $Res Function(LoginWithEmail$) then) =
       _$LoginWithEmail$CopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String password, void Function(AppAction) result, String pendingId});
+  $Res call({String password, ActionResult result, String pendingId});
 }
 
 /// @nodoc
@@ -1276,37 +1446,41 @@ class _$LoginWithEmail$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object password = freezed,
-    Object result = freezed,
-    Object pendingId = freezed,
+    Object? password = freezed,
+    Object? result = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(LoginWithEmail$(
-      password: password == freezed ? _value.password : password as String,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
       result: result == freezed
           ? _value.result
-          : result as void Function(AppAction),
-      pendingId: pendingId == freezed ? _value.pendingId : pendingId as String,
+          : result // ignore: cast_nullable_to_non_nullable
+              as ActionResult,
+      pendingId: pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ActionStart)
-
 /// @nodoc
+
+@Implements<ActionStart>()
 class _$LoginWithEmail$ implements LoginWithEmail$ {
   const _$LoginWithEmail$(
-      {@required this.password,
-      @required this.result,
-      this.pendingId = _kLoginWithEmailLinkPendingId})
-      : assert(password != null),
-        assert(result != null),
-        assert(pendingId != null);
+      {required this.password,
+      required this.result,
+      this.pendingId = _kLoginWithEmailLinkPendingId});
 
   @override
   final String password;
   @override
-  final void Function(AppAction) result;
-  @JsonKey(defaultValue: _kLoginWithEmailLinkPendingId)
+  final ActionResult result;
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -1318,23 +1492,19 @@ class _$LoginWithEmail$ implements LoginWithEmail$ {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LoginWithEmail$ &&
-            (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)) &&
-            (identical(other.result, result) ||
-                const DeepCollectionEquality().equals(other.result, result)) &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is LoginWithEmail$ &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            (identical(other.result, result) || other.result == result) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(password) ^
-      const DeepCollectionEquality().hash(result) ^
-      const DeepCollectionEquality().hash(pendingId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(password),
+      result,
+      const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -1343,30 +1513,40 @@ class _$LoginWithEmail$ implements LoginWithEmail$ {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult start(
-            String password, void Function(AppAction) result, String pendingId),
-    @required TResult successful(String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String password, ActionResult result, String pendingId)
+        start,
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return start(password, result, pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(
-        String password, void Function(AppAction) result, String pendingId),
-    TResult successful(String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String password, ActionResult result, String pendingId)?
+        start,
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return start?.call(password, result, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String password, ActionResult result, String pendingId)?
+        start,
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if (start != null) {
       return start(password, result, pendingId);
     }
@@ -1375,26 +1555,32 @@ class _$LoginWithEmail$ implements LoginWithEmail$ {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(LoginWithEmail$ value),
-    @required TResult successful(LoginWithEmailSuccessful value),
-    @required TResult error(LoginWithEmailError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoginWithEmail$ value) start,
+    required TResult Function(LoginWithEmailSuccessful value) successful,
+    required TResult Function(LoginWithEmailError value) error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return start(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(LoginWithEmail$ value),
-    TResult successful(LoginWithEmailSuccessful value),
-    TResult error(LoginWithEmailError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoginWithEmail$ value)? start,
+    TResult Function(LoginWithEmailSuccessful value)? successful,
+    TResult Function(LoginWithEmailError value)? error,
   }) {
-    assert(orElse != null);
+    return start?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoginWithEmail$ value)? start,
+    TResult Function(LoginWithEmailSuccessful value)? successful,
+    TResult Function(LoginWithEmailError value)? error,
+    required TResult orElse(),
+  }) {
     if (start != null) {
       return start(this);
     }
@@ -1404,17 +1590,18 @@ class _$LoginWithEmail$ implements LoginWithEmail$ {
 
 abstract class LoginWithEmail$ implements LoginWithEmail, ActionStart {
   const factory LoginWithEmail$(
-      {@required String password,
-      @required void Function(AppAction) result,
+      {required String password,
+      required ActionResult result,
       String pendingId}) = _$LoginWithEmail$;
 
   String get password;
-  void Function(AppAction) get result;
+  ActionResult get result;
   @override
   String get pendingId;
   @override
   @JsonKey(ignore: true)
-  $LoginWithEmail$CopyWith<LoginWithEmail$> get copyWith;
+  $LoginWithEmail$CopyWith<LoginWithEmail$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1441,23 +1628,25 @@ class _$LoginWithEmailSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object pendingId = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(LoginWithEmailSuccessful(
-      pendingId == freezed ? _value.pendingId : pendingId as String,
+      pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ActionDone)
-
 /// @nodoc
+
+@Implements<ActionDone>()
 class _$LoginWithEmailSuccessful implements LoginWithEmailSuccessful {
   const _$LoginWithEmailSuccessful(
-      [this.pendingId = _kLoginWithEmailLinkPendingId])
-      : assert(pendingId != null);
+      [this.pendingId = _kLoginWithEmailLinkPendingId]);
 
-  @JsonKey(defaultValue: _kLoginWithEmailLinkPendingId)
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -1469,15 +1658,14 @@ class _$LoginWithEmailSuccessful implements LoginWithEmailSuccessful {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LoginWithEmailSuccessful &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is LoginWithEmailSuccessful &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(pendingId);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -1487,30 +1675,40 @@ class _$LoginWithEmailSuccessful implements LoginWithEmailSuccessful {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult start(
-            String password, void Function(AppAction) result, String pendingId),
-    @required TResult successful(String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String password, ActionResult result, String pendingId)
+        start,
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(
-        String password, void Function(AppAction) result, String pendingId),
-    TResult successful(String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String password, ActionResult result, String pendingId)?
+        start,
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return successful?.call(pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String password, ActionResult result, String pendingId)?
+        start,
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if (successful != null) {
       return successful(pendingId);
     }
@@ -1519,26 +1717,32 @@ class _$LoginWithEmailSuccessful implements LoginWithEmailSuccessful {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(LoginWithEmail$ value),
-    @required TResult successful(LoginWithEmailSuccessful value),
-    @required TResult error(LoginWithEmailError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoginWithEmail$ value) start,
+    required TResult Function(LoginWithEmailSuccessful value) successful,
+    required TResult Function(LoginWithEmailError value) error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(LoginWithEmail$ value),
-    TResult successful(LoginWithEmailSuccessful value),
-    TResult error(LoginWithEmailError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoginWithEmail$ value)? start,
+    TResult Function(LoginWithEmailSuccessful value)? successful,
+    TResult Function(LoginWithEmailError value)? error,
   }) {
-    assert(orElse != null);
+    return successful?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoginWithEmail$ value)? start,
+    TResult Function(LoginWithEmailSuccessful value)? successful,
+    TResult Function(LoginWithEmailError value)? error,
+    required TResult orElse(),
+  }) {
     if (successful != null) {
       return successful(this);
     }
@@ -1554,7 +1758,8 @@ abstract class LoginWithEmailSuccessful implements LoginWithEmail, ActionDone {
   String get pendingId;
   @override
   @JsonKey(ignore: true)
-  $LoginWithEmailSuccessfulCopyWith<LoginWithEmailSuccessful> get copyWith;
+  $LoginWithEmailSuccessfulCopyWith<LoginWithEmailSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1564,7 +1769,7 @@ abstract class $LoginWithEmailErrorCopyWith<$Res>
           LoginWithEmailError value, $Res Function(LoginWithEmailError) then) =
       _$LoginWithEmailErrorCopyWithImpl<$Res>;
   @override
-  $Res call({Object error, StackTrace stackTrace, String pendingId});
+  $Res call({Object? error, StackTrace? stackTrace, String pendingId});
 }
 
 /// @nodoc
@@ -1580,34 +1785,37 @@ class _$LoginWithEmailErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
-    Object stackTrace = freezed,
-    Object pendingId = freezed,
+    Object? error = freezed,
+    Object? stackTrace = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(LoginWithEmailError(
       error == freezed ? _value.error : error,
-      stackTrace == freezed ? _value.stackTrace : stackTrace as StackTrace,
-      pendingId == freezed ? _value.pendingId : pendingId as String,
+      stackTrace == freezed
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace?,
+      pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ActionDone)
-@Implements(ErrorAction)
-
 /// @nodoc
+
+@Implements<ActionDone>()
+@Implements<ErrorAction>()
 class _$LoginWithEmailError implements LoginWithEmailError {
   const _$LoginWithEmailError(this.error, this.stackTrace,
-      [this.pendingId = _kLoginWithEmailLinkPendingId])
-      : assert(error != null),
-        assert(stackTrace != null),
-        assert(pendingId != null);
+      [this.pendingId = _kLoginWithEmailLinkPendingId]);
 
   @override
-  final Object error;
+  final Object? error;
   @override
-  final StackTrace stackTrace;
-  @JsonKey(defaultValue: _kLoginWithEmailLinkPendingId)
+  final StackTrace? stackTrace;
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -1619,23 +1827,20 @@ class _$LoginWithEmailError implements LoginWithEmailError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LoginWithEmailError &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)) &&
-            (identical(other.stackTrace, stackTrace) ||
-                const DeepCollectionEquality()
-                    .equals(other.stackTrace, stackTrace)) &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is LoginWithEmailError &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality()
+                .equals(other.stackTrace, stackTrace) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(error) ^
-      const DeepCollectionEquality().hash(stackTrace) ^
-      const DeepCollectionEquality().hash(pendingId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(stackTrace),
+      const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -1644,30 +1849,40 @@ class _$LoginWithEmailError implements LoginWithEmailError {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult start(
-            String password, void Function(AppAction) result, String pendingId),
-    @required TResult successful(String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String password, ActionResult result, String pendingId)
+        start,
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error, stackTrace, pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(
-        String password, void Function(AppAction) result, String pendingId),
-    TResult successful(String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String password, ActionResult result, String pendingId)?
+        start,
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return error?.call(this.error, stackTrace, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String password, ActionResult result, String pendingId)?
+        start,
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this.error, stackTrace, pendingId);
     }
@@ -1676,26 +1891,32 @@ class _$LoginWithEmailError implements LoginWithEmailError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(LoginWithEmail$ value),
-    @required TResult successful(LoginWithEmailSuccessful value),
-    @required TResult error(LoginWithEmailError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoginWithEmail$ value) start,
+    required TResult Function(LoginWithEmailSuccessful value) successful,
+    required TResult Function(LoginWithEmailError value) error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(LoginWithEmail$ value),
-    TResult successful(LoginWithEmailSuccessful value),
-    TResult error(LoginWithEmailError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoginWithEmail$ value)? start,
+    TResult Function(LoginWithEmailSuccessful value)? successful,
+    TResult Function(LoginWithEmailError value)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoginWithEmail$ value)? start,
+    TResult Function(LoginWithEmailSuccessful value)? successful,
+    TResult Function(LoginWithEmailError value)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this);
     }
@@ -1705,28 +1926,28 @@ class _$LoginWithEmailError implements LoginWithEmailError {
 
 abstract class LoginWithEmailError
     implements LoginWithEmail, ActionDone, ErrorAction {
-  const factory LoginWithEmailError(Object error, StackTrace stackTrace,
+  const factory LoginWithEmailError(Object? error, StackTrace? stackTrace,
       [String pendingId]) = _$LoginWithEmailError;
 
-  Object get error;
-  StackTrace get stackTrace;
+  Object? get error;
+  StackTrace? get stackTrace;
   @override
   String get pendingId;
   @override
   @JsonKey(ignore: true)
-  $LoginWithEmailErrorCopyWith<LoginWithEmailError> get copyWith;
+  $LoginWithEmailErrorCopyWith<LoginWithEmailError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$UpdateRegistrationInfoTearOff {
   const _$UpdateRegistrationInfoTearOff();
 
-// ignore: unused_element
   UpdateRegistrationInfo$ call(
-      {String username,
-      String email,
-      bool obscurePassword,
-      bool weakPassword}) {
+      {String? username,
+      String? email,
+      bool? obscurePassword,
+      bool? weakPassword}) {
     return UpdateRegistrationInfo$(
       username: username,
       email: email,
@@ -1737,18 +1958,18 @@ class _$UpdateRegistrationInfoTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $UpdateRegistrationInfo = _$UpdateRegistrationInfoTearOff();
 
 /// @nodoc
 mixin _$UpdateRegistrationInfo {
-  String get username;
-  String get email;
-  bool get obscurePassword;
-  bool get weakPassword;
+  String? get username => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  bool? get obscurePassword => throw _privateConstructorUsedError;
+  bool? get weakPassword => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UpdateRegistrationInfoCopyWith<UpdateRegistrationInfo> get copyWith;
+  $UpdateRegistrationInfoCopyWith<UpdateRegistrationInfo> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1757,7 +1978,10 @@ abstract class $UpdateRegistrationInfoCopyWith<$Res> {
           $Res Function(UpdateRegistrationInfo) then) =
       _$UpdateRegistrationInfoCopyWithImpl<$Res>;
   $Res call(
-      {String username, String email, bool obscurePassword, bool weakPassword});
+      {String? username,
+      String? email,
+      bool? obscurePassword,
+      bool? weakPassword});
 }
 
 /// @nodoc
@@ -1771,19 +1995,28 @@ class _$UpdateRegistrationInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object username = freezed,
-    Object email = freezed,
-    Object obscurePassword = freezed,
-    Object weakPassword = freezed,
+    Object? username = freezed,
+    Object? email = freezed,
+    Object? obscurePassword = freezed,
+    Object? weakPassword = freezed,
   }) {
     return _then(_value.copyWith(
-      username: username == freezed ? _value.username : username as String,
-      email: email == freezed ? _value.email : email as String,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
       obscurePassword: obscurePassword == freezed
           ? _value.obscurePassword
-          : obscurePassword as bool,
-      weakPassword:
-          weakPassword == freezed ? _value.weakPassword : weakPassword as bool,
+          : obscurePassword // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      weakPassword: weakPassword == freezed
+          ? _value.weakPassword
+          : weakPassword // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -1796,7 +2029,10 @@ abstract class $UpdateRegistrationInfo$CopyWith<$Res>
       _$UpdateRegistrationInfo$CopyWithImpl<$Res>;
   @override
   $Res call(
-      {String username, String email, bool obscurePassword, bool weakPassword});
+      {String? username,
+      String? email,
+      bool? obscurePassword,
+      bool? weakPassword});
 }
 
 /// @nodoc
@@ -1812,36 +2048,46 @@ class _$UpdateRegistrationInfo$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object username = freezed,
-    Object email = freezed,
-    Object obscurePassword = freezed,
-    Object weakPassword = freezed,
+    Object? username = freezed,
+    Object? email = freezed,
+    Object? obscurePassword = freezed,
+    Object? weakPassword = freezed,
   }) {
     return _then(UpdateRegistrationInfo$(
-      username: username == freezed ? _value.username : username as String,
-      email: email == freezed ? _value.email : email as String,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String?,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String?,
       obscurePassword: obscurePassword == freezed
           ? _value.obscurePassword
-          : obscurePassword as bool,
-      weakPassword:
-          weakPassword == freezed ? _value.weakPassword : weakPassword as bool,
+          : obscurePassword // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      weakPassword: weakPassword == freezed
+          ? _value.weakPassword
+          : weakPassword // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
 
 /// @nodoc
+
 class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
   const _$UpdateRegistrationInfo$(
       {this.username, this.email, this.obscurePassword, this.weakPassword});
 
   @override
-  final String username;
+  final String? username;
   @override
-  final String email;
+  final String? email;
   @override
-  final bool obscurePassword;
+  final bool? obscurePassword;
   @override
-  final bool weakPassword;
+  final bool? weakPassword;
 
   @override
   String toString() {
@@ -1851,27 +2097,23 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is UpdateRegistrationInfo$ &&
-            (identical(other.username, username) ||
-                const DeepCollectionEquality()
-                    .equals(other.username, username)) &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
-            (identical(other.obscurePassword, obscurePassword) ||
-                const DeepCollectionEquality()
-                    .equals(other.obscurePassword, obscurePassword)) &&
-            (identical(other.weakPassword, weakPassword) ||
-                const DeepCollectionEquality()
-                    .equals(other.weakPassword, weakPassword)));
+        (other.runtimeType == runtimeType &&
+            other is UpdateRegistrationInfo$ &&
+            const DeepCollectionEquality().equals(other.username, username) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality()
+                .equals(other.obscurePassword, obscurePassword) &&
+            const DeepCollectionEquality()
+                .equals(other.weakPassword, weakPassword));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(username) ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(obscurePassword) ^
-      const DeepCollectionEquality().hash(weakPassword);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(username),
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(obscurePassword),
+      const DeepCollectionEquality().hash(weakPassword));
 
   @JsonKey(ignore: true)
   @override
@@ -1882,32 +2124,32 @@ class _$UpdateRegistrationInfo$ implements UpdateRegistrationInfo$ {
 
 abstract class UpdateRegistrationInfo$ implements UpdateRegistrationInfo {
   const factory UpdateRegistrationInfo$(
-      {String username,
-      String email,
-      bool obscurePassword,
-      bool weakPassword}) = _$UpdateRegistrationInfo$;
+      {String? username,
+      String? email,
+      bool? obscurePassword,
+      bool? weakPassword}) = _$UpdateRegistrationInfo$;
 
   @override
-  String get username;
+  String? get username;
   @override
-  String get email;
+  String? get email;
   @override
-  bool get obscurePassword;
+  bool? get obscurePassword;
   @override
-  bool get weakPassword;
+  bool? get weakPassword;
   @override
   @JsonKey(ignore: true)
-  $UpdateRegistrationInfo$CopyWith<UpdateRegistrationInfo$> get copyWith;
+  $UpdateRegistrationInfo$CopyWith<UpdateRegistrationInfo$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$GetAuthProvidersTearOff {
   const _$GetAuthProvidersTearOff();
 
-// ignore: unused_element
   GetAuthProviders$ start(
-      {String email,
-      @required void Function(AppAction) result,
+      {required String email,
+      required ActionResult result,
       String pendingId = _kGetAuthProvidersPendingId}) {
     return GetAuthProviders$(
       email: email,
@@ -1916,7 +2158,6 @@ class _$GetAuthProvidersTearOff {
     );
   }
 
-// ignore: unused_element
   GetAuthProvidersSuccessful successful(List<String> providers,
       [String pendingId = _kGetAuthProvidersPendingId]) {
     return GetAuthProvidersSuccessful(
@@ -1925,8 +2166,7 @@ class _$GetAuthProvidersTearOff {
     );
   }
 
-// ignore: unused_element
-  GetAuthProvidersError error(Object error, StackTrace stackTrace,
+  GetAuthProvidersError error(Object? error, StackTrace? stackTrace,
       [String pendingId = _kGetAuthProvidersPendingId]) {
     return GetAuthProvidersError(
       error,
@@ -1937,46 +2177,69 @@ class _$GetAuthProvidersTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $GetAuthProviders = _$GetAuthProvidersTearOff();
 
 /// @nodoc
 mixin _$GetAuthProviders {
-  String get pendingId;
+  String get pendingId => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult start(
-            String email, void Function(AppAction) result, String pendingId),
-    @required TResult successful(List<String> providers, String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String email, ActionResult result, String pendingId)
+        start,
+    required TResult Function(List<String> providers, String pendingId)
+        successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(
-        String email, void Function(AppAction) result, String pendingId),
-    TResult successful(List<String> providers, String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String email, ActionResult result, String pendingId)?
+        start,
+    TResult Function(List<String> providers, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(GetAuthProviders$ value),
-    @required TResult successful(GetAuthProvidersSuccessful value),
-    @required TResult error(GetAuthProvidersError value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, ActionResult result, String pendingId)?
+        start,
+    TResult Function(List<String> providers, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(GetAuthProviders$ value),
-    TResult successful(GetAuthProvidersSuccessful value),
-    TResult error(GetAuthProvidersError value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAuthProviders$ value) start,
+    required TResult Function(GetAuthProvidersSuccessful value) successful,
+    required TResult Function(GetAuthProvidersError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetAuthProviders$ value)? start,
+    TResult Function(GetAuthProvidersSuccessful value)? successful,
+    TResult Function(GetAuthProvidersError value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAuthProviders$ value)? start,
+    TResult Function(GetAuthProvidersSuccessful value)? successful,
+    TResult Function(GetAuthProvidersError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $GetAuthProvidersCopyWith<GetAuthProviders> get copyWith;
+  $GetAuthProvidersCopyWith<GetAuthProviders> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1998,10 +2261,13 @@ class _$GetAuthProvidersCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object pendingId = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(_value.copyWith(
-      pendingId: pendingId == freezed ? _value.pendingId : pendingId as String,
+      pendingId: pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -2013,7 +2279,7 @@ abstract class $GetAuthProviders$CopyWith<$Res>
           GetAuthProviders$ value, $Res Function(GetAuthProviders$) then) =
       _$GetAuthProviders$CopyWithImpl<$Res>;
   @override
-  $Res call({String email, void Function(AppAction) result, String pendingId});
+  $Res call({String email, ActionResult result, String pendingId});
 }
 
 /// @nodoc
@@ -2029,36 +2295,41 @@ class _$GetAuthProviders$CopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object email = freezed,
-    Object result = freezed,
-    Object pendingId = freezed,
+    Object? email = freezed,
+    Object? result = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(GetAuthProviders$(
-      email: email == freezed ? _value.email : email as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
       result: result == freezed
           ? _value.result
-          : result as void Function(AppAction),
-      pendingId: pendingId == freezed ? _value.pendingId : pendingId as String,
+          : result // ignore: cast_nullable_to_non_nullable
+              as ActionResult,
+      pendingId: pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ActionStart)
-
 /// @nodoc
+
+@Implements<ActionStart>()
 class _$GetAuthProviders$ implements GetAuthProviders$ {
   const _$GetAuthProviders$(
-      {this.email,
-      @required this.result,
-      this.pendingId = _kGetAuthProvidersPendingId})
-      : assert(result != null),
-        assert(pendingId != null);
+      {required this.email,
+      required this.result,
+      this.pendingId = _kGetAuthProvidersPendingId});
 
   @override
   final String email;
   @override
-  final void Function(AppAction) result;
-  @JsonKey(defaultValue: _kGetAuthProvidersPendingId)
+  final ActionResult result;
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -2070,22 +2341,19 @@ class _$GetAuthProviders$ implements GetAuthProviders$ {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is GetAuthProviders$ &&
-            (identical(other.email, email) ||
-                const DeepCollectionEquality().equals(other.email, email)) &&
-            (identical(other.result, result) ||
-                const DeepCollectionEquality().equals(other.result, result)) &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is GetAuthProviders$ &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            (identical(other.result, result) || other.result == result) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(email) ^
-      const DeepCollectionEquality().hash(result) ^
-      const DeepCollectionEquality().hash(pendingId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(email),
+      result,
+      const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -2094,30 +2362,41 @@ class _$GetAuthProviders$ implements GetAuthProviders$ {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult start(
-            String email, void Function(AppAction) result, String pendingId),
-    @required TResult successful(List<String> providers, String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String email, ActionResult result, String pendingId)
+        start,
+    required TResult Function(List<String> providers, String pendingId)
+        successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return start(email, result, pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(
-        String email, void Function(AppAction) result, String pendingId),
-    TResult successful(List<String> providers, String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String email, ActionResult result, String pendingId)?
+        start,
+    TResult Function(List<String> providers, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return start?.call(email, result, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, ActionResult result, String pendingId)?
+        start,
+    TResult Function(List<String> providers, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if (start != null) {
       return start(email, result, pendingId);
     }
@@ -2126,26 +2405,32 @@ class _$GetAuthProviders$ implements GetAuthProviders$ {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(GetAuthProviders$ value),
-    @required TResult successful(GetAuthProvidersSuccessful value),
-    @required TResult error(GetAuthProvidersError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAuthProviders$ value) start,
+    required TResult Function(GetAuthProvidersSuccessful value) successful,
+    required TResult Function(GetAuthProvidersError value) error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return start(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(GetAuthProviders$ value),
-    TResult successful(GetAuthProvidersSuccessful value),
-    TResult error(GetAuthProvidersError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetAuthProviders$ value)? start,
+    TResult Function(GetAuthProvidersSuccessful value)? successful,
+    TResult Function(GetAuthProvidersError value)? error,
   }) {
-    assert(orElse != null);
+    return start?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAuthProviders$ value)? start,
+    TResult Function(GetAuthProvidersSuccessful value)? successful,
+    TResult Function(GetAuthProvidersError value)? error,
+    required TResult orElse(),
+  }) {
     if (start != null) {
       return start(this);
     }
@@ -2155,17 +2440,18 @@ class _$GetAuthProviders$ implements GetAuthProviders$ {
 
 abstract class GetAuthProviders$ implements GetAuthProviders, ActionStart {
   const factory GetAuthProviders$(
-      {String email,
-      @required void Function(AppAction) result,
+      {required String email,
+      required ActionResult result,
       String pendingId}) = _$GetAuthProviders$;
 
   String get email;
-  void Function(AppAction) get result;
+  ActionResult get result;
   @override
   String get pendingId;
   @override
   @JsonKey(ignore: true)
-  $GetAuthProviders$CopyWith<GetAuthProviders$> get copyWith;
+  $GetAuthProviders$CopyWith<GetAuthProviders$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2192,28 +2478,32 @@ class _$GetAuthProvidersSuccessfulCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object providers = freezed,
-    Object pendingId = freezed,
+    Object? providers = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(GetAuthProvidersSuccessful(
-      providers == freezed ? _value.providers : providers as List<String>,
-      pendingId == freezed ? _value.pendingId : pendingId as String,
+      providers == freezed
+          ? _value.providers
+          : providers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ActionDone)
-
 /// @nodoc
+
+@Implements<ActionDone>()
 class _$GetAuthProvidersSuccessful implements GetAuthProvidersSuccessful {
   const _$GetAuthProvidersSuccessful(this.providers,
-      [this.pendingId = _kGetAuthProvidersPendingId])
-      : assert(providers != null),
-        assert(pendingId != null);
+      [this.pendingId = _kGetAuthProvidersPendingId]);
 
   @override
   final List<String> providers;
-  @JsonKey(defaultValue: _kGetAuthProvidersPendingId)
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -2225,20 +2515,17 @@ class _$GetAuthProvidersSuccessful implements GetAuthProvidersSuccessful {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is GetAuthProvidersSuccessful &&
-            (identical(other.providers, providers) ||
-                const DeepCollectionEquality()
-                    .equals(other.providers, providers)) &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is GetAuthProvidersSuccessful &&
+            const DeepCollectionEquality().equals(other.providers, providers) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(providers) ^
-      const DeepCollectionEquality().hash(pendingId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(providers),
+      const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -2249,30 +2536,41 @@ class _$GetAuthProvidersSuccessful implements GetAuthProvidersSuccessful {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult start(
-            String email, void Function(AppAction) result, String pendingId),
-    @required TResult successful(List<String> providers, String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String email, ActionResult result, String pendingId)
+        start,
+    required TResult Function(List<String> providers, String pendingId)
+        successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(providers, pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(
-        String email, void Function(AppAction) result, String pendingId),
-    TResult successful(List<String> providers, String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String email, ActionResult result, String pendingId)?
+        start,
+    TResult Function(List<String> providers, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return successful?.call(providers, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, ActionResult result, String pendingId)?
+        start,
+    TResult Function(List<String> providers, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if (successful != null) {
       return successful(providers, pendingId);
     }
@@ -2281,26 +2579,32 @@ class _$GetAuthProvidersSuccessful implements GetAuthProvidersSuccessful {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(GetAuthProviders$ value),
-    @required TResult successful(GetAuthProvidersSuccessful value),
-    @required TResult error(GetAuthProvidersError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAuthProviders$ value) start,
+    required TResult Function(GetAuthProvidersSuccessful value) successful,
+    required TResult Function(GetAuthProvidersError value) error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return successful(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(GetAuthProviders$ value),
-    TResult successful(GetAuthProvidersSuccessful value),
-    TResult error(GetAuthProvidersError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetAuthProviders$ value)? start,
+    TResult Function(GetAuthProvidersSuccessful value)? successful,
+    TResult Function(GetAuthProvidersError value)? error,
   }) {
-    assert(orElse != null);
+    return successful?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAuthProviders$ value)? start,
+    TResult Function(GetAuthProvidersSuccessful value)? successful,
+    TResult Function(GetAuthProvidersError value)? error,
+    required TResult orElse(),
+  }) {
     if (successful != null) {
       return successful(this);
     }
@@ -2318,7 +2622,8 @@ abstract class GetAuthProvidersSuccessful
   String get pendingId;
   @override
   @JsonKey(ignore: true)
-  $GetAuthProvidersSuccessfulCopyWith<GetAuthProvidersSuccessful> get copyWith;
+  $GetAuthProvidersSuccessfulCopyWith<GetAuthProvidersSuccessful>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2328,7 +2633,7 @@ abstract class $GetAuthProvidersErrorCopyWith<$Res>
           $Res Function(GetAuthProvidersError) then) =
       _$GetAuthProvidersErrorCopyWithImpl<$Res>;
   @override
-  $Res call({Object error, StackTrace stackTrace, String pendingId});
+  $Res call({Object? error, StackTrace? stackTrace, String pendingId});
 }
 
 /// @nodoc
@@ -2344,34 +2649,37 @@ class _$GetAuthProvidersErrorCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object error = freezed,
-    Object stackTrace = freezed,
-    Object pendingId = freezed,
+    Object? error = freezed,
+    Object? stackTrace = freezed,
+    Object? pendingId = freezed,
   }) {
     return _then(GetAuthProvidersError(
       error == freezed ? _value.error : error,
-      stackTrace == freezed ? _value.stackTrace : stackTrace as StackTrace,
-      pendingId == freezed ? _value.pendingId : pendingId as String,
+      stackTrace == freezed
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace?,
+      pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@Implements(ActionDone)
-@Implements(ErrorAction)
-
 /// @nodoc
+
+@Implements<ActionDone>()
+@Implements<ErrorAction>()
 class _$GetAuthProvidersError implements GetAuthProvidersError {
   const _$GetAuthProvidersError(this.error, this.stackTrace,
-      [this.pendingId = _kGetAuthProvidersPendingId])
-      : assert(error != null),
-        assert(stackTrace != null),
-        assert(pendingId != null);
+      [this.pendingId = _kGetAuthProvidersPendingId]);
 
   @override
-  final Object error;
+  final Object? error;
   @override
-  final StackTrace stackTrace;
-  @JsonKey(defaultValue: _kGetAuthProvidersPendingId)
+  final StackTrace? stackTrace;
+  @JsonKey()
   @override
   final String pendingId;
 
@@ -2383,23 +2691,20 @@ class _$GetAuthProvidersError implements GetAuthProvidersError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is GetAuthProvidersError &&
-            (identical(other.error, error) ||
-                const DeepCollectionEquality().equals(other.error, error)) &&
-            (identical(other.stackTrace, stackTrace) ||
-                const DeepCollectionEquality()
-                    .equals(other.stackTrace, stackTrace)) &&
-            (identical(other.pendingId, pendingId) ||
-                const DeepCollectionEquality()
-                    .equals(other.pendingId, pendingId)));
+        (other.runtimeType == runtimeType &&
+            other is GetAuthProvidersError &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality()
+                .equals(other.stackTrace, stackTrace) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(error) ^
-      const DeepCollectionEquality().hash(stackTrace) ^
-      const DeepCollectionEquality().hash(pendingId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(stackTrace),
+      const DeepCollectionEquality().hash(pendingId));
 
   @JsonKey(ignore: true)
   @override
@@ -2409,30 +2714,41 @@ class _$GetAuthProvidersError implements GetAuthProvidersError {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult start(
-            String email, void Function(AppAction) result, String pendingId),
-    @required TResult successful(List<String> providers, String pendingId),
-    @required
-        TResult error(Object error, StackTrace stackTrace, String pendingId),
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String email, ActionResult result, String pendingId)
+        start,
+    required TResult Function(List<String> providers, String pendingId)
+        successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this.error, stackTrace, pendingId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult start(
-        String email, void Function(AppAction) result, String pendingId),
-    TResult successful(List<String> providers, String pendingId),
-    TResult error(Object error, StackTrace stackTrace, String pendingId),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String email, ActionResult result, String pendingId)?
+        start,
+    TResult Function(List<String> providers, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
   }) {
-    assert(orElse != null);
+    return error?.call(this.error, stackTrace, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String email, ActionResult result, String pendingId)?
+        start,
+    TResult Function(List<String> providers, String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this.error, stackTrace, pendingId);
     }
@@ -2441,26 +2757,32 @@ class _$GetAuthProvidersError implements GetAuthProvidersError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult start(GetAuthProviders$ value),
-    @required TResult successful(GetAuthProvidersSuccessful value),
-    @required TResult error(GetAuthProvidersError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetAuthProviders$ value) start,
+    required TResult Function(GetAuthProvidersSuccessful value) successful,
+    required TResult Function(GetAuthProvidersError value) error,
   }) {
-    assert(start != null);
-    assert(successful != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult start(GetAuthProviders$ value),
-    TResult successful(GetAuthProvidersSuccessful value),
-    TResult error(GetAuthProvidersError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetAuthProviders$ value)? start,
+    TResult Function(GetAuthProvidersSuccessful value)? successful,
+    TResult Function(GetAuthProvidersError value)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetAuthProviders$ value)? start,
+    TResult Function(GetAuthProvidersSuccessful value)? successful,
+    TResult Function(GetAuthProvidersError value)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this);
     }
@@ -2470,14 +2792,606 @@ class _$GetAuthProvidersError implements GetAuthProvidersError {
 
 abstract class GetAuthProvidersError
     implements GetAuthProviders, ActionDone, ErrorAction {
-  const factory GetAuthProvidersError(Object error, StackTrace stackTrace,
+  const factory GetAuthProvidersError(Object? error, StackTrace? stackTrace,
       [String pendingId]) = _$GetAuthProvidersError;
 
-  Object get error;
-  StackTrace get stackTrace;
+  Object? get error;
+  StackTrace? get stackTrace;
   @override
   String get pendingId;
   @override
   @JsonKey(ignore: true)
-  $GetAuthProvidersErrorCopyWith<GetAuthProvidersError> get copyWith;
+  $GetAuthProvidersErrorCopyWith<GetAuthProvidersError> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+class _$SignOutTearOff {
+  const _$SignOutTearOff();
+
+  SignOut$ call(
+      {required ActionResult result, String pendingId = _kSignOutPendingId}) {
+    return SignOut$(
+      result: result,
+      pendingId: pendingId,
+    );
+  }
+
+  SignOutSuccessful successful([String pendingId = _kSignOutPendingId]) {
+    return SignOutSuccessful(
+      pendingId,
+    );
+  }
+
+  SignOutError error(Object? error, StackTrace? stackTrace,
+      [String pendingId = _kSignOutPendingId]) {
+    return SignOutError(
+      error,
+      stackTrace,
+      pendingId,
+    );
+  }
+}
+
+/// @nodoc
+const $SignOut = _$SignOutTearOff();
+
+/// @nodoc
+mixin _$SignOut {
+  String get pendingId => throw _privateConstructorUsedError;
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId) $default, {
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId)? $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId)? $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(SignOut$ value) $default, {
+    required TResult Function(SignOutSuccessful value) successful,
+    required TResult Function(SignOutError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SignOutCopyWith<SignOut> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SignOutCopyWith<$Res> {
+  factory $SignOutCopyWith(SignOut value, $Res Function(SignOut) then) =
+      _$SignOutCopyWithImpl<$Res>;
+  $Res call({String pendingId});
+}
+
+/// @nodoc
+class _$SignOutCopyWithImpl<$Res> implements $SignOutCopyWith<$Res> {
+  _$SignOutCopyWithImpl(this._value, this._then);
+
+  final SignOut _value;
+  // ignore: unused_field
+  final $Res Function(SignOut) _then;
+
+  @override
+  $Res call({
+    Object? pendingId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      pendingId: pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class $SignOut$CopyWith<$Res> implements $SignOutCopyWith<$Res> {
+  factory $SignOut$CopyWith(SignOut$ value, $Res Function(SignOut$) then) =
+      _$SignOut$CopyWithImpl<$Res>;
+  @override
+  $Res call({ActionResult result, String pendingId});
+}
+
+/// @nodoc
+class _$SignOut$CopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
+    implements $SignOut$CopyWith<$Res> {
+  _$SignOut$CopyWithImpl(SignOut$ _value, $Res Function(SignOut$) _then)
+      : super(_value, (v) => _then(v as SignOut$));
+
+  @override
+  SignOut$ get _value => super._value as SignOut$;
+
+  @override
+  $Res call({
+    Object? result = freezed,
+    Object? pendingId = freezed,
+  }) {
+    return _then(SignOut$(
+      result: result == freezed
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as ActionResult,
+      pendingId: pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@Implements<ActionStart>()
+class _$SignOut$ implements SignOut$ {
+  const _$SignOut$({required this.result, this.pendingId = _kSignOutPendingId});
+
+  @override
+  final ActionResult result;
+  @JsonKey()
+  @override
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'SignOut(result: $result, pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SignOut$ &&
+            (identical(other.result, result) || other.result == result) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, result, const DeepCollectionEquality().hash(pendingId));
+
+  @JsonKey(ignore: true)
+  @override
+  $SignOut$CopyWith<SignOut$> get copyWith =>
+      _$SignOut$CopyWithImpl<SignOut$>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId) $default, {
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
+  }) {
+    return $default(result, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId)? $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+  }) {
+    return $default?.call(result, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId)? $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(result, pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(SignOut$ value) $default, {
+    required TResult Function(SignOutSuccessful value) successful,
+    required TResult Function(SignOutError value) error,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOut$ implements SignOut, ActionStart {
+  const factory SignOut$({required ActionResult result, String pendingId}) =
+      _$SignOut$;
+
+  ActionResult get result;
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  $SignOut$CopyWith<SignOut$> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SignOutSuccessfulCopyWith<$Res>
+    implements $SignOutCopyWith<$Res> {
+  factory $SignOutSuccessfulCopyWith(
+          SignOutSuccessful value, $Res Function(SignOutSuccessful) then) =
+      _$SignOutSuccessfulCopyWithImpl<$Res>;
+  @override
+  $Res call({String pendingId});
+}
+
+/// @nodoc
+class _$SignOutSuccessfulCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
+    implements $SignOutSuccessfulCopyWith<$Res> {
+  _$SignOutSuccessfulCopyWithImpl(
+      SignOutSuccessful _value, $Res Function(SignOutSuccessful) _then)
+      : super(_value, (v) => _then(v as SignOutSuccessful));
+
+  @override
+  SignOutSuccessful get _value => super._value as SignOutSuccessful;
+
+  @override
+  $Res call({
+    Object? pendingId = freezed,
+  }) {
+    return _then(SignOutSuccessful(
+      pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@Implements<ActionDone>()
+class _$SignOutSuccessful implements SignOutSuccessful {
+  const _$SignOutSuccessful([this.pendingId = _kSignOutPendingId]);
+
+  @JsonKey()
+  @override
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'SignOut.successful(pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SignOutSuccessful &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(pendingId));
+
+  @JsonKey(ignore: true)
+  @override
+  $SignOutSuccessfulCopyWith<SignOutSuccessful> get copyWith =>
+      _$SignOutSuccessfulCopyWithImpl<SignOutSuccessful>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId) $default, {
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
+  }) {
+    return successful(pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId)? $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+  }) {
+    return successful?.call(pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId)? $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
+    if (successful != null) {
+      return successful(pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(SignOut$ value) $default, {
+    required TResult Function(SignOutSuccessful value) successful,
+    required TResult Function(SignOutError value) error,
+  }) {
+    return successful(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+  }) {
+    return successful?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+    required TResult orElse(),
+  }) {
+    if (successful != null) {
+      return successful(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOutSuccessful implements SignOut, ActionDone {
+  const factory SignOutSuccessful([String pendingId]) = _$SignOutSuccessful;
+
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  $SignOutSuccessfulCopyWith<SignOutSuccessful> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SignOutErrorCopyWith<$Res> implements $SignOutCopyWith<$Res> {
+  factory $SignOutErrorCopyWith(
+          SignOutError value, $Res Function(SignOutError) then) =
+      _$SignOutErrorCopyWithImpl<$Res>;
+  @override
+  $Res call({Object? error, StackTrace? stackTrace, String pendingId});
+}
+
+/// @nodoc
+class _$SignOutErrorCopyWithImpl<$Res> extends _$SignOutCopyWithImpl<$Res>
+    implements $SignOutErrorCopyWith<$Res> {
+  _$SignOutErrorCopyWithImpl(
+      SignOutError _value, $Res Function(SignOutError) _then)
+      : super(_value, (v) => _then(v as SignOutError));
+
+  @override
+  SignOutError get _value => super._value as SignOutError;
+
+  @override
+  $Res call({
+    Object? error = freezed,
+    Object? stackTrace = freezed,
+    Object? pendingId = freezed,
+  }) {
+    return _then(SignOutError(
+      error == freezed ? _value.error : error,
+      stackTrace == freezed
+          ? _value.stackTrace
+          : stackTrace // ignore: cast_nullable_to_non_nullable
+              as StackTrace?,
+      pendingId == freezed
+          ? _value.pendingId
+          : pendingId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@Implements<ActionDone>()
+@Implements<ErrorAction>()
+class _$SignOutError implements SignOutError {
+  const _$SignOutError(this.error, this.stackTrace,
+      [this.pendingId = _kSignOutPendingId]);
+
+  @override
+  final Object? error;
+  @override
+  final StackTrace? stackTrace;
+  @JsonKey()
+  @override
+  final String pendingId;
+
+  @override
+  String toString() {
+    return 'SignOut.error(error: $error, stackTrace: $stackTrace, pendingId: $pendingId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SignOutError &&
+            const DeepCollectionEquality().equals(other.error, error) &&
+            const DeepCollectionEquality()
+                .equals(other.stackTrace, stackTrace) &&
+            const DeepCollectionEquality().equals(other.pendingId, pendingId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(error),
+      const DeepCollectionEquality().hash(stackTrace),
+      const DeepCollectionEquality().hash(pendingId));
+
+  @JsonKey(ignore: true)
+  @override
+  $SignOutErrorCopyWith<SignOutError> get copyWith =>
+      _$SignOutErrorCopyWithImpl<SignOutError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId) $default, {
+    required TResult Function(String pendingId) successful,
+    required TResult Function(
+            Object? error, StackTrace? stackTrace, String pendingId)
+        error,
+  }) {
+    return error(this.error, stackTrace, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId)? $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+  }) {
+    return error?.call(this.error, stackTrace, pendingId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(ActionResult result, String pendingId)? $default, {
+    TResult Function(String pendingId)? successful,
+    TResult Function(Object? error, StackTrace? stackTrace, String pendingId)?
+        error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this.error, stackTrace, pendingId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(SignOut$ value) $default, {
+    required TResult Function(SignOutSuccessful value) successful,
+    required TResult Function(SignOutError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(SignOut$ value)? $default, {
+    TResult Function(SignOutSuccessful value)? successful,
+    TResult Function(SignOutError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignOutError implements SignOut, ActionDone, ErrorAction {
+  const factory SignOutError(Object? error, StackTrace? stackTrace,
+      [String pendingId]) = _$SignOutError;
+
+  Object? get error;
+  StackTrace? get stackTrace;
+  @override
+  String get pendingId;
+  @override
+  @JsonKey(ignore: true)
+  $SignOutErrorCopyWith<SignOutError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

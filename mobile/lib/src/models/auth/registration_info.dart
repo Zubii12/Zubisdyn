@@ -9,17 +9,15 @@ abstract class RegistrationInfo implements Built<RegistrationInfo, RegistrationI
     });
   }
 
-  factory RegistrationInfo.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
+  factory RegistrationInfo.fromJson(dynamic json) => serializers.deserializeWith(serializer, json)!;
 
   RegistrationInfo._();
 
-  @nullable
-  String get username;
+  String? get username;
 
-  @nullable
-  String get email;
+  String? get email;
 
-  bool get obscurePassword;
+  bool? get obscurePassword;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

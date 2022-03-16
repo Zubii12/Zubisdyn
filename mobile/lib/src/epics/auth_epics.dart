@@ -1,16 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:redux_epics/redux_epics.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:zubisdyn/src/actions/auth/index.dart';
 import 'package:zubisdyn/src/actions/index.dart';
-import 'package:zubisdyn/src/data/auth_api.dart';
-import 'package:zubisdyn/src/models/index.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:zubisdyn/src/data/index.dart';
+import 'package:zubisdyn/src/models/index.dart';
 
 class AuthEpics {
-  const AuthEpics({@required AuthApi api})
-      : assert(api != null),
-        _api = api;
+  const AuthEpics({required AuthApi api}) : _api = api;
 
   final AuthApi _api;
 
@@ -20,13 +16,14 @@ class AuthEpics {
       TypedEpic<AppState, GetAuthProviders$>(_getAuthProviders),
       TypedEpic<AppState, SignUpWithEmail$>(_signUpWithEmail),
       TypedEpic<AppState, SendCodeResetPasswordEmail$>(_sendCodeResetPasswordEmail),
+      TypedEpic<AppState, SignOut$>(_signOut),
     ]);
   }
 
   Stream<AppAction> _loginWithEmail(Stream<LoginWithEmail$> actions, EpicStore<AppState> store) {
     return actions //
         .flatMap((LoginWithEmail$ action) => Stream<void>.value(null)
-            .asyncMap((_) => _api.loginWithEmail(email: store.state.auth.info.email, password: action.password))
+            .asyncMap((_) => _api.loginWithEmail(email: store.state.auth.info.email!, password: action.password))
             .mapTo(const LoginWithEmail.successful())
             .onError($LoginWithEmail.error)
             .doOnData(action.result));
@@ -45,8 +42,8 @@ class AuthEpics {
     return actions //
         .flatMap((SignUpWithEmail$ action) => Stream<void>.value(null)
             .asyncMap((_) => _api.signUpWithEmail(
-                  username: store.state.auth.info.username,
-                  email: store.state.auth.info.email,
+                  username: store.state.auth.info.username!,
+                  email: store.state.auth.info.email!,
                   password: action.password,
                 ))
             .mapTo(const SignUpWithEmail.successful())
@@ -54,12 +51,24 @@ class AuthEpics {
             .doOnData(action.result));
   }
 
-  Stream<AppAction> _sendCodeResetPasswordEmail(Stream<SendCodeResetPasswordEmail$> actions, EpicStore<AppState> store) {
+  Stream<AppAction> _sendCodeResetPasswordEmail(
+    Stream<SendCodeResetPasswordEmail$> actions,
+    EpicStore<AppState> store,
+  ) {
     return actions //
         .flatMap((SendCodeResetPasswordEmail$ action) => Stream<void>.value(null)
-            .asyncMap((_) => _api.sendCodeResetPasswordEmail(email: store.state.auth.info.email))
+            .asyncMap((_) => _api.sendCodeResetPasswordEmail(email: store.state.auth.info.email!))
             .map((String code) => SendCodeResetPasswordEmail.successful(code))
-            .onError($SendCodeResetPasswordEmail.error)
+            .onError($SendCodeResetPasswordEmail.error));
+    //.doOnData(action.result));
+  }
+
+  Stream<AppAction> _signOut(Stream<SignOut$> actions, EpicStore<AppState> store) {
+    return actions //
+        .flatMap((SignOut$ action) => Stream<void>.value(null)
+            .asyncMap((_) => _api.signOut())
+            .mapTo(const SignOut.successful())
+            .onError($SignOut.error)
             .doOnData(action.result));
   }
 }

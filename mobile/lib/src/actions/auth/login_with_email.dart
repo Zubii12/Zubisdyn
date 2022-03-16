@@ -3,24 +3,24 @@ part of auth_actions;
 const String _kLoginWithEmailLinkPendingId = 'LoginWithEmailLink';
 
 @freezed
-abstract class LoginWithEmail with _$LoginWithEmail implements AppAction {
-  @Implements(ActionStart)
+class LoginWithEmail with _$LoginWithEmail implements AppAction {
+  @Implements<ActionStart>()
   const factory LoginWithEmail.start({
-    @required String password,
-    @required ActionResult result,
+    required String password,
+    required ActionResult result,
     @Default(_kLoginWithEmailLinkPendingId) String pendingId,
   }) = LoginWithEmail$;
 
-  @Implements(ActionDone)
+  @Implements<ActionDone>()
   const factory LoginWithEmail.successful([
     @Default(_kLoginWithEmailLinkPendingId) String pendingId,
   ]) = LoginWithEmailSuccessful;
 
-  @Implements(ActionDone)
-  @Implements(ErrorAction)
+  @Implements<ActionDone>()
+  @Implements<ErrorAction>()
   const factory LoginWithEmail.error(
-    Object error,
-    StackTrace stackTrace, [
+    Object? error,
+    StackTrace? stackTrace, [
     @Default(_kLoginWithEmailLinkPendingId) String pendingId,
   ]) = LoginWithEmailError;
 

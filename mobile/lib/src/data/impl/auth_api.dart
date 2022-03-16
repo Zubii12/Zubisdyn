@@ -3,32 +3,30 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:zubisdyn/src/data/auth_api.dart';
 import 'package:zubisdyn/src/models/auth/index.dart';
-import 'package:rxdart/rxdart.dart';
 
-const String _kEmailDomain = 'zubisdyn.ro';
+// const String _kEmailDomain = 'zubisdyn.ro';
 
 class AuthApiImpl implements AuthApi {
   AuthApiImpl({
-    @required FirebaseAuth auth,
-    @required FirebaseFirestore firestore,
-    StreamController<User> controller,
-  })  : assert(auth != null),
-        assert(firestore != null),
-        _auth = auth,
+    required FirebaseAuth auth,
+    required FirebaseFirestore firestore,
+    StreamController<User?>? controller,
+  })  : _auth = auth,
         _firestore = firestore,
-        _controller = controller ?? StreamController<User>.broadcast();
+        _controller = controller ?? StreamController<User?>.broadcast();
 
   final FirebaseAuth _auth;
   final FirebaseFirestore _firestore;
-  final StreamController<User> _controller;
+  final StreamController<User?> _controller;
 
-  Stream<AppUser> _authState;
+  Stream<AppUser?>? _authState;
 
   @override
-  Stream<AppUser> get authState {
-    return _authState ??= MergeStream<User>(<Stream<User>>[
+  Stream<AppUser?> get authState {
+    return _authState ??= MergeStream<User?>(<Stream<User?>>[
       _auth.authStateChanges(),
       _auth.idTokenChanges(),
       _auth.userChanges(),
@@ -40,21 +38,21 @@ class AuthApiImpl implements AuthApi {
   }
 
   @override
-  Future<void> loginWithEmail({String email, String password}) async {
+  Future<void> loginWithEmail({required String email, required String password}) async {
     await _auth.signInWithEmailAndPassword(email: email, password: password);
   }
 
   @visibleForTesting
-  Stream<AppUser> ensureUser(User firebaseUser) {
+  Stream<AppUser?> ensureUser(User? firebaseUser) {
     if (firebaseUser == null) {
-      return Stream<AppUser>.value(null);
+      return Stream<AppUser?>.value(null);
     }
 
     return _firestore //
         .doc('users/${firebaseUser.uid}')
         .get()
         .asStream()
-        .asyncMap((DocumentSnapshot snapshot) async {
+        .asyncMap((DocumentSnapshot<Map<String, dynamic>> snapshot) async {
       AppUser appUser;
       if (!snapshot.exists) {
         appUser = AppUser((AppUserBuilder b) {
@@ -73,26 +71,31 @@ class AuthApiImpl implements AuthApi {
       return _firestore //
           .doc('users/${appUser.uid}')
           .snapshots()
-          .map((DocumentSnapshot document) => AppUser.fromJson(document.data()))
+          .map((DocumentSnapshot<Map<String, dynamic>> document) => AppUser.fromJson(document.data()))
           .startWith(appUser);
     });
   }
 
   @override
-  Future<List<String>> getAuthProviders({String email}) async {
+  Future<List<String>> getAuthProviders({required String email}) async {
     return await _auth.fetchSignInMethodsForEmail(email);
   }
 
   @override
-  Future<void> signUpWithEmail({String username, String email, String password}) async {
+  Future<void> signUpWithEmail({required String username, required String email, required String password}) async {
     await _auth.createUserWithEmailAndPassword(email: email, password: password);
-    final AppUser appUser = await authState.first;
-    await _firestore.doc('users/${appUser.uid}').update(<String, dynamic>{'username': username});
+    final AppUser? appUser = await authState.first;
+    await _firestore.doc('users/${appUser!.uid}').update(<String, dynamic>{'username': username});
   }
 
   @override
-  Future<String> sendCodeResetPasswordEmail({String email}) {
+  Future<String> sendCodeResetPasswordEmail({required String email}) {
     // todo: implement sendResetPasswordEmail
     throw UnimplementedError();
+  }
+
+  @override
+  Future<void> signOut() async {
+    await _auth.signOut();
   }
 }

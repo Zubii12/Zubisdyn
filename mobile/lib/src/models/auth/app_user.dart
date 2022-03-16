@@ -7,7 +7,7 @@ abstract class AppUser implements Built<AppUser, AppUserBuilder> {
     return _$AppUser();
   }
 
-  factory AppUser.fromJson(dynamic json) => serializers.deserializeWith(serializer, json);
+  factory AppUser.fromJson(dynamic json) => serializers.deserializeWith(serializer, json)!;
 
   AppUser._();
 
@@ -17,8 +17,7 @@ abstract class AppUser implements Built<AppUser, AppUserBuilder> {
 
   String get email;
 
-  @nullable
-  String get photoUrl;
+  String? get photoUrl;
 
   Map<String, dynamic> get json => serializers.serializeWith(serializer, this) as Map<String, dynamic>;
 

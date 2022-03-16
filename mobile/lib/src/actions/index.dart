@@ -3,9 +3,9 @@ abstract class AppAction {}
 typedef ActionResult = void Function(AppAction action);
 
 abstract class ErrorAction extends AppAction {
-  Object get error;
+  Object? get error;
 
-  StackTrace get stackTrace;
+  StackTrace? get stackTrace;
 }
 
 abstract class PendingAction extends AppAction {
