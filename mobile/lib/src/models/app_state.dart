@@ -7,7 +7,7 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
     return _$AppState((AppStateBuilder b) {
       b
         ..auth = AuthState.initialState().toBuilder()
-        ..posts= PostsState.initialState().toBuilder()
+        ..posts = PostsState.initialState().toBuilder()
         ..tabIndex = 0;
     });
   }
@@ -20,6 +20,8 @@ abstract class AppState implements Built<AppState, AppStateBuilder> {
 
   PostsState get posts;
 
+  UsersState get users;
+  
   int get tabIndex;
 
   BuiltSet<String> get pendingActions;

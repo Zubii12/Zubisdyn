@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:zubisdyn/src/actions/app/index.dart';
 import 'package:zubisdyn/src/containers/app/index.dart';
 import 'package:zubisdyn/src/presentation/auth/login/login_page.dart';
-import 'package:zubisdyn/src/presentation/feed/feed_page.dart';
 import 'package:zubisdyn/src/presentation/home/chat/chat_page.dart';
 import 'package:zubisdyn/src/presentation/home/explore/explore_page.dart';
+import 'package:zubisdyn/src/presentation/home/feed/feed_page.dart';
+import 'package:zubisdyn/src/presentation/home/profile/profile_page.dart';
 import 'package:zubisdyn/src/presentation/mixins/store_mixin.dart';
-import 'package:zubisdyn/src/presentation/profile/profile_page.dart';
 import 'package:zubisdyn/src/presentation/routes.dart';
 import 'package:zubisdyn/src/presentation/theme.dart';
 

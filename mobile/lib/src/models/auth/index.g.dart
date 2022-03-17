@@ -81,6 +81,13 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
       'email',
       serializers.serialize(object.email,
           specifiedType: const FullType(String)),
+      'searchIndex',
+      serializers.serialize(object.searchIndex,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(String)])),
+      'createAt',
+      serializers.serialize(object.createAt,
+          specifiedType: const FullType(DateTime)),
     ];
     Object? value;
     value = object.photoUrl;
@@ -119,6 +126,16 @@ class _$AppUserSerializer implements StructuredSerializer<AppUser> {
         case 'photoUrl':
           result.photoUrl = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
+          break;
+        case 'searchIndex':
+          result.searchIndex.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(String)]))!
+              as BuiltList<Object?>);
+          break;
+        case 'createAt':
+          result.createAt = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime;
           break;
       }
     }
@@ -302,6 +319,10 @@ class _$AppUser extends AppUser {
   final String email;
   @override
   final String? photoUrl;
+  @override
+  final BuiltList<String> searchIndex;
+  @override
+  final DateTime createAt;
 
   factory _$AppUser([void Function(AppUserBuilder)? updates]) =>
       (new AppUserBuilder()..update(updates)).build();
@@ -310,11 +331,16 @@ class _$AppUser extends AppUser {
       {required this.uid,
       required this.username,
       required this.email,
-      this.photoUrl})
+      this.photoUrl,
+      required this.searchIndex,
+      required this.createAt})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(uid, 'AppUser', 'uid');
     BuiltValueNullFieldError.checkNotNull(username, 'AppUser', 'username');
     BuiltValueNullFieldError.checkNotNull(email, 'AppUser', 'email');
+    BuiltValueNullFieldError.checkNotNull(
+        searchIndex, 'AppUser', 'searchIndex');
+    BuiltValueNullFieldError.checkNotNull(createAt, 'AppUser', 'createAt');
   }
 
   @override
@@ -331,14 +357,21 @@ class _$AppUser extends AppUser {
         uid == other.uid &&
         username == other.username &&
         email == other.email &&
-        photoUrl == other.photoUrl;
+        photoUrl == other.photoUrl &&
+        searchIndex == other.searchIndex &&
+        createAt == other.createAt;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, uid.hashCode), username.hashCode), email.hashCode),
-        photoUrl.hashCode));
+        $jc(
+            $jc(
+                $jc($jc($jc(0, uid.hashCode), username.hashCode),
+                    email.hashCode),
+                photoUrl.hashCode),
+            searchIndex.hashCode),
+        createAt.hashCode));
   }
 
   @override
@@ -347,7 +380,9 @@ class _$AppUser extends AppUser {
           ..add('uid', uid)
           ..add('username', username)
           ..add('email', email)
-          ..add('photoUrl', photoUrl))
+          ..add('photoUrl', photoUrl)
+          ..add('searchIndex', searchIndex)
+          ..add('createAt', createAt))
         .toString();
   }
 }
@@ -371,6 +406,16 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
   String? get photoUrl => _$this._photoUrl;
   set photoUrl(String? photoUrl) => _$this._photoUrl = photoUrl;
 
+  ListBuilder<String>? _searchIndex;
+  ListBuilder<String> get searchIndex =>
+      _$this._searchIndex ??= new ListBuilder<String>();
+  set searchIndex(ListBuilder<String>? searchIndex) =>
+      _$this._searchIndex = searchIndex;
+
+  DateTime? _createAt;
+  DateTime? get createAt => _$this._createAt;
+  set createAt(DateTime? createAt) => _$this._createAt = createAt;
+
   AppUserBuilder();
 
   AppUserBuilder get _$this {
@@ -380,6 +425,8 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
       _username = $v.username;
       _email = $v.email;
       _photoUrl = $v.photoUrl;
+      _searchIndex = $v.searchIndex.toBuilder();
+      _createAt = $v.createAt;
       _$v = null;
     }
     return this;
@@ -398,14 +445,30 @@ class AppUserBuilder implements Builder<AppUser, AppUserBuilder> {
 
   @override
   _$AppUser build() {
-    final _$result = _$v ??
-        new _$AppUser._(
-            uid: BuiltValueNullFieldError.checkNotNull(uid, 'AppUser', 'uid'),
-            username: BuiltValueNullFieldError.checkNotNull(
-                username, 'AppUser', 'username'),
-            email: BuiltValueNullFieldError.checkNotNull(
-                email, 'AppUser', 'email'),
-            photoUrl: photoUrl);
+    _$AppUser _$result;
+    try {
+      _$result = _$v ??
+          new _$AppUser._(
+              uid: BuiltValueNullFieldError.checkNotNull(uid, 'AppUser', 'uid'),
+              username: BuiltValueNullFieldError.checkNotNull(
+                  username, 'AppUser', 'username'),
+              email: BuiltValueNullFieldError.checkNotNull(
+                  email, 'AppUser', 'email'),
+              photoUrl: photoUrl,
+              searchIndex: searchIndex.build(),
+              createAt: BuiltValueNullFieldError.checkNotNull(
+                  createAt, 'AppUser', 'createAt'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'searchIndex';
+        searchIndex.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'AppUser', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

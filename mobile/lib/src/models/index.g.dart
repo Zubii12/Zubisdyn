@@ -24,6 +24,9 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
       'posts',
       serializers.serialize(object.posts,
           specifiedType: const FullType(PostsState)),
+      'users',
+      serializers.serialize(object.users,
+          specifiedType: const FullType(UsersState)),
       'tabIndex',
       serializers.serialize(object.tabIndex,
           specifiedType: const FullType(int)),
@@ -55,6 +58,10 @@ class _$AppStateSerializer implements StructuredSerializer<AppState> {
           result.posts.replace(serializers.deserialize(value,
               specifiedType: const FullType(PostsState))! as PostsState);
           break;
+        case 'users':
+          result.users.replace(serializers.deserialize(value,
+              specifiedType: const FullType(UsersState))! as UsersState);
+          break;
         case 'tabIndex':
           result.tabIndex = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
@@ -78,6 +85,8 @@ class _$AppState extends AppState {
   @override
   final PostsState posts;
   @override
+  final UsersState users;
+  @override
   final int tabIndex;
   @override
   final BuiltSet<String> pendingActions;
@@ -88,11 +97,13 @@ class _$AppState extends AppState {
   _$AppState._(
       {required this.auth,
       required this.posts,
+      required this.users,
       required this.tabIndex,
       required this.pendingActions})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(auth, 'AppState', 'auth');
     BuiltValueNullFieldError.checkNotNull(posts, 'AppState', 'posts');
+    BuiltValueNullFieldError.checkNotNull(users, 'AppState', 'users');
     BuiltValueNullFieldError.checkNotNull(tabIndex, 'AppState', 'tabIndex');
     BuiltValueNullFieldError.checkNotNull(
         pendingActions, 'AppState', 'pendingActions');
@@ -111,6 +122,7 @@ class _$AppState extends AppState {
     return other is AppState &&
         auth == other.auth &&
         posts == other.posts &&
+        users == other.users &&
         tabIndex == other.tabIndex &&
         pendingActions == other.pendingActions;
   }
@@ -118,7 +130,8 @@ class _$AppState extends AppState {
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, auth.hashCode), posts.hashCode), tabIndex.hashCode),
+        $jc($jc($jc($jc(0, auth.hashCode), posts.hashCode), users.hashCode),
+            tabIndex.hashCode),
         pendingActions.hashCode));
   }
 
@@ -127,6 +140,7 @@ class _$AppState extends AppState {
     return (newBuiltValueToStringHelper('AppState')
           ..add('auth', auth)
           ..add('posts', posts)
+          ..add('users', users)
           ..add('tabIndex', tabIndex)
           ..add('pendingActions', pendingActions))
         .toString();
@@ -143,6 +157,10 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   PostsStateBuilder? _posts;
   PostsStateBuilder get posts => _$this._posts ??= new PostsStateBuilder();
   set posts(PostsStateBuilder? posts) => _$this._posts = posts;
+
+  UsersStateBuilder? _users;
+  UsersStateBuilder get users => _$this._users ??= new UsersStateBuilder();
+  set users(UsersStateBuilder? users) => _$this._users = users;
 
   int? _tabIndex;
   int? get tabIndex => _$this._tabIndex;
@@ -161,6 +179,7 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
     if ($v != null) {
       _auth = $v.auth.toBuilder();
       _posts = $v.posts.toBuilder();
+      _users = $v.users.toBuilder();
       _tabIndex = $v.tabIndex;
       _pendingActions = $v.pendingActions.toBuilder();
       _$v = null;
@@ -187,6 +206,7 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
           new _$AppState._(
               auth: auth.build(),
               posts: posts.build(),
+              users: users.build(),
               tabIndex: BuiltValueNullFieldError.checkNotNull(
                   tabIndex, 'AppState', 'tabIndex'),
               pendingActions: pendingActions.build());
@@ -197,6 +217,8 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
         auth.build();
         _$failedField = 'posts';
         posts.build();
+        _$failedField = 'users';
+        users.build();
 
         _$failedField = 'pendingActions';
         pendingActions.build();

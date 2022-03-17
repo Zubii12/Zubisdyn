@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:zubisdyn/src/data/auth_api.dart';
+import 'package:zubisdyn/src/data/util/search_index.dart';
 import 'package:zubisdyn/src/models/auth/index.dart';
 
 // const String _kEmailDomain = 'zubisdyn.ro';
@@ -60,7 +61,8 @@ class AuthApiImpl implements AuthApi {
             ..uid = firebaseUser.uid
             ..username = ''
             ..email = firebaseUser.email
-            ..photoUrl = firebaseUser.photoURL;
+            ..photoUrl = firebaseUser.photoURL
+            ..createAt = firebaseUser.metadata.creationTime;
         });
         await snapshot.reference.set(appUser.json);
       } else {
@@ -85,7 +87,11 @@ class AuthApiImpl implements AuthApi {
   Future<void> signUpWithEmail({required String username, required String email, required String password}) async {
     await _auth.createUserWithEmailAndPassword(email: email, password: password);
     final AppUser? appUser = await authState.first;
-    await _firestore.doc('users/${appUser!.uid}').update(<String, dynamic>{'username': username});
+    final Map<String, dynamic> searchIndex = <String, dynamic>{
+      'searchIndex': <String>[email, username].searchIndex
+    };
+
+    await _firestore.doc('users/${appUser!.uid}').update(<String, dynamic>{'username': username, ...searchIndex});
   }
 
   @override

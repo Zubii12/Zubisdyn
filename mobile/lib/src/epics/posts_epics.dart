@@ -4,7 +4,6 @@ import 'package:zubisdyn/src/actions/index.dart';
 import 'package:zubisdyn/src/actions/posts/index.dart';
 import 'package:zubisdyn/src/data/index.dart';
 import 'package:zubisdyn/src/models/index.dart';
-import 'package:zubisdyn/src/models/posts/index.dart';
 
 class PostsEpics {
   const PostsEpics({required PostsApi api}) : _api = api;

@@ -28,12 +28,15 @@ Future<InitResult> init() async {
   // await auth.useEmulator('http://localhost:9099');
   // functions.useFunctionsEmulator(origin: 'http://localhost:5001');
 
+  await runTools(firestore: firestore);
+
   final http.Client client = http.Client();
 
   final AuthApi authApi = AuthApiImpl(auth: auth, firestore: firestore);
   final PostsApi postsApi = PostsApiImpl(firestore: firestore, storage: storage);
+  final UsersApi usersApi = UsersApiImpl(firestore: firestore);
 
-  final AppEpics appEpics = AppEpics(authApi: authApi, postsApi: postsApi);
+  final AppEpics appEpics = AppEpics(authApi: authApi, postsApi: postsApi, usersApi: usersApi);
 
   final StreamController<dynamic> actions = StreamController<dynamic>.broadcast();
   const AppMiddleware appMiddleware = AppMiddleware();
@@ -82,4 +85,8 @@ class InitResult {
 
   final Store<AppState> store;
   final Stream<dynamic> actions;
+}
+
+Future<void> runTools({required FirebaseFirestore firestore}) async {
+  // await addSearchIndexForUsers(firestore: firestore);
 }
